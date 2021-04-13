@@ -5,12 +5,17 @@
 //	purpose:	private
 //********************************************************************
 
-#pragma once
+#ifndef __BOOTDEBUGGGERPRIVATE_H__
+#define __BOOTDEBUGGGERPRIVATE_H__
 
 //
 // arch define
 //
-#include "ArchDefine.h"
+#if defined(__x86_64__)
+#include "x64/ArchDefine.h"
+#elif defined(__i386__)
+#include "x86/ArchDefine.h"
+#endif
 
 //
 // typedef
@@ -1604,3 +1609,5 @@ extern UINT32																BdNextPacketIdToSend;
 extern UINT32																BdPacketIdExpected;
 extern UINT32																BdNumberRetries;
 extern UINT32																BdRetryCount;
+
+#endif /* __BOOTDEBUGGGERPRIVATE_H__ */

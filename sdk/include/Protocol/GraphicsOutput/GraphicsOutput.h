@@ -24,9 +24,12 @@ Abstract:
 #ifndef __GRAPHICS_OUTPUT_H__
 #define __GRAPHICS_OUTPUT_H__
 
-#include EFI_PROTOCOL_DEFINITION (UgaDraw)
+#include "../UgaDraw/UgaDraw.h"
 
-#define EFI_GRAPHICS_OUTPUT_PROTOCOL_GUID { 0x9042a9de, 0x23dc, 0x4a38, {0x96, 0xfb, 0x7a, 0xde, 0xd0, 0x80, 0x51, 0x6a} }
+#define EFI_GRAPHICS_OUTPUT_PROTOCOL_GUID \
+  { \
+      0x9042a9de, 0x23dc, 0x4a38, { 0x96, 0xfb, 0x7a, 0xde, 0xd0, 0x80, 0x51, 0x6a } \
+  }
 
 typedef struct _EFI_GRAPHICS_OUTPUT_PROTOCOL EFI_GRAPHICS_OUTPUT_PROTOCOL;
 

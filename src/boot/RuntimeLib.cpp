@@ -10,7 +10,13 @@
 //
 // memcpy
 //
+#ifdef _MSC_VER
 #pragma function(memcpy)
+#endif
+
+extern "C"
+{
+
 VOID* memcpy(VOID* dstBuffer, VOID CONST* srcBuffer, UINTN bufferLength)
 {
 	UINT8* byteDstBuffer													= static_cast<UINT8*>(dstBuffer);
@@ -23,7 +29,10 @@ VOID* memcpy(VOID* dstBuffer, VOID CONST* srcBuffer, UINTN bufferLength)
 //
 // memset
 //
+#ifdef _MSC_VER
 #pragma function(memset)
+#endif
+
 VOID* memset(VOID* dstBuffer, UINT8 setValue, UINTN bufferLength)
 {
 	UINT8* byteDstBuffer													= static_cast<UINT8*>(dstBuffer);
@@ -32,10 +41,27 @@ VOID* memset(VOID* dstBuffer, UINT8 setValue, UINTN bufferLength)
 	return dstBuffer;
 }
 
+#ifdef _MSC_VER
+#pragma function(bzero)
+
+VOID* bzero(VOID* dstBuffer, UINTN bufferLength)
+#else
+VOID* __bzero(VOID* dstBuffer, UINTN bufferLength)
+#endif
+{
+    UINT8* byteDstBuffer                                                    = static_cast<UINT8*>(dstBuffer);
+    for(UINTN i = 0; i < bufferLength; i ++)
+        byteDstBuffer[i]                                                    = 0x00;
+    return dstBuffer;
+}
+
 //
 // memcmp
 //
+#ifdef _MSC_VER
 #pragma function(memcmp)
+#endif
+
 int memcmp(VOID CONST* buffer1, VOID CONST* buffer2, UINTN bufferLength)
 {
 	UINT8 CONST* byteBuffer1												= static_cast<UINT8 CONST*>(buffer1);
@@ -54,7 +80,10 @@ int memcmp(VOID CONST* buffer1, VOID CONST* buffer2, UINTN bufferLength)
 //
 // wcslen
 //
+#ifdef _MSC_VER
 #pragma function(wcslen)
+#endif
+
 UINTN wcslen(CHAR16 CONST* stringBuffer)
 {
 	UINTN length															= 0;
@@ -66,7 +95,10 @@ UINTN wcslen(CHAR16 CONST* stringBuffer)
 //
 // strlen
 //
+#ifdef _MSC_VER
 #pragma function(strlen)
+#endif
+
 UINTN strlen(CHAR8 CONST* stringBuffer)
 {
 	UINTN length															= 0;
@@ -78,7 +110,10 @@ UINTN strlen(CHAR8 CONST* stringBuffer)
 //
 // strcmp
 //
+#ifdef _MSC_VER
 #pragma function(strcmp)
+#endif
+
 int strcmp(CHAR8 CONST* stringBuffer1, CHAR8 CONST* stringBuffer2)
 {
 	while(*stringBuffer1 && *stringBuffer2)
@@ -96,7 +131,10 @@ int strcmp(CHAR8 CONST* stringBuffer1, CHAR8 CONST* stringBuffer2)
 //
 // strcat
 //
+#ifdef _MSC_VER
 #pragma function(strcat)
+#endif
+
 CHAR8* strcat(CHAR8* dstBuffer, CHAR8 CONST* srcBuffer)
 {
 	UINTN i																	= 0;
@@ -111,7 +149,10 @@ CHAR8* strcat(CHAR8* dstBuffer, CHAR8 CONST* srcBuffer)
 //
 // strcpy
 //
+#ifdef _MSC_VER
 #pragma function(strcpy)
+#endif
+
 CHAR8* strcpy(CHAR8* dstBuffer, CHAR8 CONST* srcBuffer)
 {
 	UINTN i																	= 0;
@@ -547,7 +588,7 @@ UINTN vsnprintf(CHAR8* dstBuffer, UINTN bufferLength, CHAR8 CONST* formatString,
 				{
 					unicodeString											= VA_ARG(marker, CHAR16*);
 					if(!unicodeString)
-						unicodeString										= CHAR16_STRING(L"<null string>");
+						unicodeString										= (CHAR16 *)(L"<null string>");
 
 					for(count = 0; *unicodeString && index < bufferLength - 1; unicodeString ++, count ++)
 					{
@@ -568,7 +609,7 @@ UINTN vsnprintf(CHAR8* dstBuffer, UINTN bufferLength, CHAR8 CONST* formatString,
 				{
 					asciiString												= VA_ARG(marker, CHAR8*);
 					if(!asciiString)
-						asciiString											= CHAR8_STRING("<null string>");
+						asciiString											= (CHAR8 *)("<null string>");
 
 					for(count = 0; *asciiString && index < bufferLength - 1; asciiString ++, count ++)
 					{
@@ -603,6 +644,8 @@ UINTN vsnprintf(CHAR8* dstBuffer, UINTN bufferLength, CHAR8 CONST* formatString,
 	dstBuffer[index]														= 0;
 	index																	+= 1;
 	return index;
+}
+
 }
 
 #undef LEFT_JUSTIFY

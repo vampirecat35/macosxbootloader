@@ -218,19 +218,29 @@
     as a compilation option.
 */
 
-#if 0 && !defined( ASM_X86_V1C )
+#if defined(__arm64__) || defined(__arm__)
+#undef ASM_X86_V1C
+#undef ASM_X86_V2
+#undef ASM_X86_V2C
+#undef ASM_AMD64_C
+#endif
+
+#if defined(ASM_X86_V1C) && !(defined(__arm64__) || defined(__arm__))
+#  undef  ASM_X86_V1C
 #  define ASM_X86_V1C
-#elif 0 && !defined( ASM_X86_V2  )
+#elif defined(ASM_X86_V2) && !(defined(__arm64__) || defined(__arm__))
+#  undef  ASM_X86_V2
 #  define ASM_X86_V2
-#elif 0 && !defined( ASM_X86_V2C )
+#elif defined(ASM_X86_V2C) && !(defined(__arm64__) || defined(__arm__))
+#  undef  ASM_X86_V2C
 #  define ASM_X86_V2C
-#elif 0 && !defined( ASM_AMD64_C )
+#elif defined(ASM_AMD64_C) && !(defined(__arm64__) || defined(__arm__))
+#  undef  ASM_AMD64_C
 #  define ASM_AMD64_C
 #endif
 
-#if (defined ( ASM_X86_V1C ) || defined( ASM_X86_V2 ) || defined( ASM_X86_V2C )) \
-      && !defined( _M_IX86 ) || defined( ASM_AMD64_C ) && !defined( _M_X64 )
-#  error Assembler code is only available for x86 and AMD64 systems
+#if ((defined (ASM_X86_V1C) || defined(ASM_X86_V2) || defined(ASM_X86_V2C)) && (!defined(_M_IX86) && !defined(__i386__)) || (defined(ASM_AMD64_C) && (!defined(_M_X64) && !defined(__x86_64__) && !defined(_M_AMD64))))
+#error Assembler code is only available for x86 and AMD64 systems
 #endif
 
 /*  4. FAST INPUT/OUTPUT OPERATIONS.
@@ -739,7 +749,7 @@
 
 #endif
 
-#if defined( ASM_X86_V1C ) && defined( AES_DECRYPT ) && !defined( ISB_SET )
+#if defined(ASM_X86_V1C) && defined(AES_DECRYPT) && !defined(ISB_SET )
 #  define ISB_SET
 #endif
 

@@ -5,21 +5,23 @@
 //	purpose:	arch define
 //********************************************************************
 
-#pragma once
+#ifndef __ARCHDEFINE_H__
+#define __ARCHDEFINE_H__
 
-#define KDP_BREAKPOINT_TYPE													UINT8
-#define KDP_BREAKPOINT_VALUE												0xcc
-#define DBGKD_MAXSTREAM														16
-#define CONTEXT_X64															0x100000
-#define CONTEXT_CONTROL														(CONTEXT_X64 | 0x01)
-#define CONTEXT_INTEGER														(CONTEXT_X64 | 0x02)
-#define CONTEXT_SEGMENTS													(CONTEXT_X64 | 0x04)
-#define CONTEXT_FLOATING_POINT												(CONTEXT_X64 | 0x08)
-#define CONTEXT_DEBUG_REGISTERS												(CONTEXT_X64 | 0x10)
-#define CONTEXT_FULL														(CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_FLOATING_POINT)
+#define KDP_BREAKPOINT_TYPE UINT8
+#define KDP_BREAKPOINT_VALUE 0xcc
+#define DBGKD_MAXSTREAM 16
+#define CONTEXT_X64 0x100000
+#define CONTEXT_CONTROL (CONTEXT_X64 | 0x01)
+#define CONTEXT_INTEGER (CONTEXT_X64 | 0x02)
+#define CONTEXT_SEGMENTS (CONTEXT_X64 | 0x04)
+#define CONTEXT_FLOATING_POINT (CONTEXT_X64 | 0x08)
+#define CONTEXT_DEBUG_REGISTERS (CONTEXT_X64 | 0x10)
+#define CONTEXT_FULL (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_FLOATING_POINT)
 
-
-#include "pshpack1.h"
+#ifdef _MSC_VER
+#include <pshpack1.h>
+#endif
 
 //
 // gdtr and idtr
@@ -40,7 +42,7 @@ typedef struct _DESCRIPTOR
 	// base
 	//
 	UINT64																	Base;
-}KDESCRIPTOR;
+} KDESCRIPTOR;
 
 //
 // idt entry
@@ -92,7 +94,7 @@ typedef struct _M128A
 	// high
 	//
 	INT64																	High;
-}M128A;
+} M128A;
 
 //
 // format of data for 32-bit fxsave/fxrstor instructions.
@@ -178,7 +180,7 @@ typedef struct _XMM_SAVE_AREA32
 	// reserved
 	//
 	UINT8																	Reserved4[96];
-}XMM_SAVE_AREA32;
+} XMM_SAVE_AREA32;
 
 typedef struct _CONTEXT
 {
@@ -385,7 +387,7 @@ typedef struct _CONTEXT
 		//
 		// xmm
 		//
-		struct _XMM
+		struct /*_XMM*/
 		{
 			//
 			// header
@@ -476,7 +478,7 @@ typedef struct _CONTEXT
 			// xmm15
 			//
 			M128A															Xmm15;
-		}Xmm;
+		} Xmm;
 	};
 
 	//
@@ -513,7 +515,7 @@ typedef struct _CONTEXT
 	// last exception from
 	//
 	UINT64																	LastExceptionFromRip;
-}CONTEXT;
+} CONTEXT;
 
 //
 // special registers. size = 0xe0
@@ -654,7 +656,7 @@ typedef struct _KSPECIAL_REGISTERS
 	// syscall mask
 	//
 	UINT64																	MsrSyscallMask;
-}KSPECIAL_REGISTERS;
+} KSPECIAL_REGISTERS;
 
 //
 // processor state
@@ -675,7 +677,7 @@ typedef struct _KPROCESSOR_STATE
 	// context frame. offset = 0xe0
 	//
 	CONTEXT																	ContextFrame;
-}KPROCESSOR_STATE;
+} KPROCESSOR_STATE;
 
 //
 // processor control block (PRCB)
@@ -761,7 +763,7 @@ typedef struct _KPRCB
 	// reserved
 	//
 	UINT8																	Reserved3[0x3530];
-}KPRCB;
+} KPRCB;
 
 //
 // trap frame
@@ -949,7 +951,7 @@ typedef struct _KTRAP_FRAME
 
 	union
 	{
-		struct _LAST_BRANCH
+		struct /*_LAST_BRANCH*/
 		{
 			//
 			// debug control
@@ -975,9 +977,9 @@ typedef struct _KTRAP_FRAME
 			// last exception from rip
 			//
 			UINT64															LastExceptionFromRip;
-		}BranchInfo;
+		} BranchInfo;
 
-		struct _LAST_BRANCH_CONTROL
+		struct /*_LAST_BRANCH_CONTROL*/
 		{
 			//
 			// control
@@ -988,7 +990,7 @@ typedef struct _KTRAP_FRAME
 			// msr
 			//
 			UINT64															LastBranchMsr;
-		}BranchControl;
+		} BranchControl;
 	};
 
 	//
@@ -1103,7 +1105,7 @@ typedef struct _KTRAP_FRAME
 	// patch
 	//
 	UINT32																	CodePatchCycle;
-}KTRAP_FRAME;
+} KTRAP_FRAME;
 
 //
 // exception frame
@@ -1254,7 +1256,7 @@ typedef struct _KEXCEPTION_FRAME
 	// r15
 	//
 	UINT64																	R15;
-}KEXCEPTION_FRAME;
+} KEXCEPTION_FRAME;
 
 //
 // pcr
@@ -1390,7 +1392,7 @@ typedef struct _KPCR
 	// prcb
 	//
 	KPRCB																	Prcb;
-}KPCR;
+} KPCR;
 
 //
 // control sets for supported architectures
@@ -1416,9 +1418,11 @@ typedef struct _X64_DBGKD_CONTROL_SET
 	// symbol end
 	//
 	UINT64																	CurrentSymbolEnd;
-}DBGKD_CONTROL_SET;
+} DBGKD_CONTROL_SET;
 
-#include "poppack.h"
+#ifdef _MSC_VER
+#include <poppack.h>
+#endif
 
 //
 // control report
@@ -1474,7 +1478,7 @@ typedef struct _X64_DBGKD_CONTROL_REPORT
 	// fs
 	//
 	UINT16																	SegFs;
-}DBGKD_CONTROL_REPORT;
+} DBGKD_CONTROL_REPORT;
 
 //
 // get cs
@@ -1505,3 +1509,5 @@ VOID BOOTAPI ArchSetIdtRegister(KDESCRIPTOR* idtr);
 // set idt entry
 //
 VOID BOOTAPI ArchSetIdtEntry(UINT64 base, UINT32 index, UINT32 segCs, VOID* offset, UINT32 access);
+
+#endif /* __ARCHDEFINE_H__ */

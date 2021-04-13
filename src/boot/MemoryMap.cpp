@@ -101,6 +101,10 @@ EFI_STATUS MmRemoveNonRuntimeDescriptors(EFI_MEMORY_DESCRIPTOR* memoryMap, UINTN
 	return EFI_SUCCESS;
 }
 
+#if defined(__GNUC__) || defined(__clang__)
+#define _alloca(s) __builtin_alloca(s)
+#endif
+
 //
 // sort
 //

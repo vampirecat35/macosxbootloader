@@ -23,10 +23,23 @@
 
 #include <stdint.h>
 #include "aesxts.h"
+
+#if 0
 #include <string.h>
 #include <stdlib.h>
+#else
+#ifndef memcpy
+#if defined(__GNUC__) || defined(__clang__)
+#define memcpy(a,b,c) __builtin_memcpy(a,b,c)
+#else
+#include "../../sdk/include/RuntimeLib.h"
+#endif
+#endif
+#endif
 
+#ifdef _MSC_VER
 #pragma warning(disable:4100)
+#endif
 
 int 
 aes_encrypt_key(const uint8_t *key, int key_len, aesedp_encrypt_ctx cx[1]);
@@ -52,14 +65,15 @@ enum {
 static int 
 aesedp_keysize(int *keysize)
 {
-	switch (*keysize) {
+	switch (*keysize)
+    {
 		case 16:
 		case 24:
 		case 32:
 			return CRYPT_OK;
-		default:
-			return CRYPT_INVALID_KEYSIZE;
 	}
+
+    return CRYPT_INVALID_KEYSIZE;
 }
 
 static int 
@@ -123,8 +137,8 @@ xts_start(uint32_t cipher, // ignored - we're doing this for xts-aes only
 */
 static void xts_mult_x(uint8_t *I)
 {
-  uint32_t x;
-  uint8_t t, tt;
+  uint32_t x = 0;
+  uint8_t t = 0, tt = 0;
 
   for (x = t = 0; x < 16; x++) {
      tt   = I[x] >> 7;
@@ -138,8 +152,8 @@ static void xts_mult_x(uint8_t *I)
 
 static int tweak_crypt(const uint8_t *P, uint8_t *C, uint8_t *T, aesedp_encrypt_ctx *ctx)
 {
-   uint32_t x;
-   uint32_t err;
+   uint32_t x = 0;
+   uint32_t err = 0;
 
    /* tweak encrypt block i */
    for (x = 0; x < 16; x += sizeof(uint64_t)) {
@@ -239,8 +253,8 @@ int xts_encrypt(
 
 static int tweak_uncrypt(const uint8_t *C, uint8_t *P, uint8_t *T, aesedp_decrypt_ctx *ctx)
 {
-   uint32_t x;
-   uint32_t err;
+   uint32_t x = 0;
+   uint32_t err = 0;
 
    /* tweak encrypt block i */
    for (x = 0; x < 16; x += sizeof(uint64_t)) {
@@ -275,7 +289,7 @@ int xts_decrypt(
          symmetric_xts *xts)
 {
    aesedp_decrypt_ctx *decrypt_ctx = &xts->key1.decrypt;
-	uint8_t PP[16]	= {0};
+   uint8_t PP[16]	= {0};
    uint8_t CC[16]	= {0};
    uint8_t T[16]	= {0};
    uint32_t i, m, mo, lim;

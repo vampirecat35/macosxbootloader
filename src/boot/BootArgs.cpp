@@ -10,7 +10,10 @@
 //
 // ram dmg extent info
 //
+#ifdef _MSC_VER
 #include <pshpack1.h>
+#endif
+
 typedef struct _RAM_DMG_EXTENT_INFO
 {
 	//
@@ -58,8 +61,11 @@ typedef struct _RAM_DMG_HEADER
 	// signature 2
 	//
 	UINT64																	Signature2;
-}RAM_DMG_HEADER;
+} RAM_DMG_HEADER;
+
+#ifdef _MSC_VER
 #include <poppack.h>
+#endif
 
 //
 // global
@@ -837,7 +843,7 @@ EFI_STATUS BlInitCSRState(BOOT_ARGS* bootArgs)
 	//
 	// Check 'csr-active-config' variable in NVRAM.
 	//
-	if(EFI_ERROR(status = EfiRuntimeServices->GetVariable(CHAR16_STRING(L"csr-active-config"), &AppleNVRAMVariableGuid, nullptr, &dataSize, &csrActiveConfig)))
+	if(EFI_ERROR(status = EfiRuntimeServices->GetVariable((CHAR16 *)(L"csr-active-config"), &AppleNVRAMVariableGuid, nullptr, &dataSize, &csrActiveConfig)))
 	{
 #if DEBUG_NVRAM_CALL_CSPRINTF
 		for (i = 0; i < 5; i++)
@@ -848,7 +854,7 @@ EFI_STATUS BlInitCSRState(BOOT_ARGS* bootArgs)
 		//
 		// Not there. Add the 'csr-active-config' variable.
 		//
-		if(EFI_ERROR(status = EfiRuntimeServices->SetVariable(CHAR16_STRING(L"csr-active-config"), &AppleNVRAMVariableGuid, attributes, sizeof(UINT32), &csrActiveConfig)))
+		if(EFI_ERROR(status = EfiRuntimeServices->SetVariable((CHAR16 *)(L"csr-active-config"), &AppleNVRAMVariableGuid, attributes, sizeof(UINT32), &csrActiveConfig)))
 		{
 #if DEBUG_NVRAM_CALL_CSPRINTF
 			for (i = 0; i < 5; i++)

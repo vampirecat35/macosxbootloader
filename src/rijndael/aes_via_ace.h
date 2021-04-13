@@ -325,9 +325,14 @@ INLINE void via_ofb_op6(
     }
 }
 
-#elif defined( __GNUC__ )
+#elif defined(__GNUC__) || defined(__clang__)
 
+#ifdef __x86_64__
+#define NEH_REKEY   asm("pushfq\n popfq\n\t")
+#else
 #define NEH_REKEY   asm("pushfl\n popfl\n\t")
+#endif
+
 #define NEH_ECB     asm(".byte 0xf3, 0x0f, 0xa7, 0xc8\n\t")
 #define NEH_CBC     asm(".byte 0xf3, 0x0f, 0xa7, 0xd0\n\t")
 #define NEH_CFB     asm(".byte 0xf3, 0x0f, 0xa7, 0xe0\n\t")
@@ -336,17 +341,32 @@ INLINE void via_ofb_op6(
 
 INLINE int has_cpuid(void)
 {   int val;
+#ifdef __x86_64__
+    asm("pushfq\n\t");
+    asm("movq  0(%rsp),%rax\n\t");
+    asm("xorq $0x00200000,%rax\n\t");
+    asm("pushq %rax\n\t");
+    asm("popfq\n\t");
+    asm("pushfq\n\t");
+    asm("popq %rax\n\t");
+    asm("xorq 0(%rsp),%rdx\n\t");
+    asm("andq $0x00200000,%rax\n\t");
+    asm("movq %%rax,%0\n\t" : "=m" (val));
+    asm("popfq\n\t");
+#else
     asm("pushfl\n\t");
-    asm("movl  0(%esp),%eax\n\t");
-    asm("xor   $0x00200000,%eax\n\t");
+    asm("movl 0(%esp),%eax\n\t");
+    asm("xorl $0x00200000,%eax\n\t");
     asm("pushl %eax\n\t");
     asm("popfl\n\t");
     asm("pushfl\n\t");
-    asm("popl  %eax\n\t");
-    asm("xorl  0(%esp),%edx\n\t");
-    asm("andl  $0x00200000,%eax\n\t");
-    asm("movl  %%eax,%0\n\t" : "=m" (val));
+    asm("popl %eax\n\t");
+    asm("xorl 0(%esp),%edx\n\t");
+    asm("andl $0x00200000,%eax\n\t");
+    asm("movl %%eax,%0\n\t" : "=m" (val));
     asm("popfl\n\t");
+#endif
+
     return val ? 1 : 0;
 }
 
@@ -396,7 +416,7 @@ INLINE int via_rng_in(void *buf)
     return val;
 }
 
-INLINE volatile  void via_ecb_op5(
+INLINE void via_ecb_op5(
             const void *k, const void *c, const void *s, void *d, int l)
 {
     NEH_REKEY;
@@ -408,7 +428,7 @@ INLINE volatile  void via_ecb_op5(
     NEH_ECB;
 }
 
-INLINE volatile  void via_cbc_op6(
+INLINE void via_cbc_op6(
             const void *k, const void *c, const void *s, void *d, int l, void *v)
 {
     NEH_REKEY;
@@ -421,7 +441,7 @@ INLINE volatile  void via_cbc_op6(
     NEH_CBC;
 }
 
-INLINE volatile  void via_cbc_op7(
+INLINE void via_cbc_op7(
         const void *k, const void *c, const void *s, void *d, int l, void *v, void *w)
 {
     NEH_REKEY;
@@ -437,7 +457,7 @@ INLINE volatile  void via_cbc_op7(
     asm("movsl; movsl; movsl; movsl\n\t");
 }
 
-INLINE volatile  void via_cfb_op6(
+INLINE void via_cfb_op6(
             const void *k, const void *c, const void *s, void *d, int l, void *v)
 {
     NEH_REKEY;
@@ -450,7 +470,7 @@ INLINE volatile  void via_cfb_op6(
     NEH_CFB;
 }
 
-INLINE volatile  void via_cfb_op7(
+INLINE void via_cfb_op7(
         const void *k, const void *c, const void *s, void *d, int l, void *v, void *w)
 {
     NEH_REKEY;
@@ -466,7 +486,7 @@ INLINE volatile  void via_cfb_op7(
     asm("movsl; movsl; movsl; movsl\n\t");
 }
 
-INLINE volatile  void via_ofb_op6(
+INLINE void via_ofb_op6(
             const void *k, const void *c, const void *s, void *d, int l, void *v)
 {
     NEH_REKEY;

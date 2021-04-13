@@ -7,6 +7,10 @@
 
 #include "StdAfx.h"
 
+#if defined(__clang__) || defined(__GNUC__)
+#define memcpy(a,b,c) __builtin_memcpy(a,b,c)
+#endif
+
 //
 // symbol
 //

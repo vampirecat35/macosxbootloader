@@ -8,7 +8,17 @@
 #include "StdAfx.h"
 #include "DebugUsb.h"
 
+#ifdef _MSC_VER
 #include <pshpack1.h>
+#endif
+
+#if defined(__clang__) || defined(__GNUC__)
+#define memcpy(a,b,c) __builtin_memcpy(a,b,c)
+#endif
+
+#if defined(__clang__) || defined(__GNUC__)
+#define memset(a,b,c) __builtin_memset(a,b,c)
+#endif
 
 //
 // global data
@@ -127,7 +137,9 @@ typedef struct _DEBUG_USB_SETUP_PACKET
 	UINT16																	Length;
 }DEBUG_USB_SETUP_PACKET;
 
+#ifdef _MSC_VER
 #include <poppack.h>
+#endif
 
 //
 // send buffer

@@ -10,6 +10,14 @@
 #define KERNEL_CACHE_MAGIC													0x636f6d70
 #define KERNEL_CACHE_LZSS													0x6c7a7373
 
+#if defined(__clang__) || defined(__GNUC__)
+#define memset(a,b,c) __builtin_memset(a,b,c)
+#endif
+
+#if defined(__clang__) || defined(__GNUC__)
+#define memcpy(a,b,c) __builtin_memcpy(a,b,c)
+#endif
+
 #if (TARGET_OS >= YOSEMITE)
 	#define KERNEL_CACHE_LZVN												0x6c7a766e
 #endif
@@ -17,7 +25,10 @@
 //
 // compressed header
 //
+#ifdef _MSC_VER
 #include <pshpack1.h>
+#endif
+
 typedef struct _COMPRESSED_KERNEL_CACHE_HEADER
 {
 	//
@@ -65,7 +76,10 @@ typedef struct _COMPRESSED_KERNEL_CACHE_HEADER
 	//
 	CHAR8																	RootPath[256];
 }COMPRESSED_KERNEL_CACHE_HEADER;
+
+#ifdef _MSC_VER
 #include <poppack.h>
+#endif
 
 //
 // global

@@ -7,7 +7,12 @@
 
 #include "StdAfx.h"
 #include "Hibernate.h"
-#include "rijndael/aes.h"
+
+#include "../rijndael/aes.h"
+
+#if defined(__clang__) || defined(__GNUC__)
+#define memset(a,b,c) __builtin_memset(a,b,c)
+#endif
 
 #define HIBERNATE_HEADER_SIGNATURE											0x73696d65
 #define HIBERNATE_HANDOFF_TYPE_END											0x686f0000
@@ -21,7 +26,10 @@
 //
 // rtc hibernate vars
 //
+#ifdef _MSC_VER
 #include <pshpack1.h>
+#endif
+
 typedef struct _RTC_HIBERNATE_VARS
 {
 	//
@@ -349,7 +357,10 @@ typedef struct _HIBERNATE_HANDOFF_CRYPT_VARS
 	//
 	UINT8																	InitVector[16];
 }HIBERNATE_HANDOFF_CRYPT_VARS;
+
+#ifdef _MSC_VER
 #include <poppack.h>
+#endif
 
 STATIC RTC_HIBERNATE_VARS HbpHibernateVars									= {0};
 STATIC UINT8* HbpBootImageKey												= nullptr;
@@ -858,23 +869,23 @@ BOOLEAN HbStartResumeFromHibernate(UINT8* coreStorageVolumeKeyIdent)
 		// read boot-switch-vars
 		//
 		UINTN dataSize														= sizeof(HbpHibernateVars);
-		if(EFI_ERROR(EfiRuntimeServices->GetVariable(CHAR16_STRING(L"boot-switch-vars"), &AppleNVRAMVariableGuid, nullptr, &dataSize, &HbpHibernateVars)))
+		if(EFI_ERROR(EfiRuntimeServices->GetVariable((CHAR16 *)(L"boot-switch-vars"), &AppleNVRAMVariableGuid, nullptr, &dataSize, &HbpHibernateVars)))
 		{
 			//
 			// read boot-signature
 			//
 			dataSize														= sizeof(HbpHibernateVars.BootSignature);
-			if(EFI_ERROR(EfiRuntimeServices->GetVariable(CHAR16_STRING(L"boot-signature"), &AppleNVRAMVariableGuid, nullptr, &dataSize, HbpHibernateVars.BootSignature)))
+			if(EFI_ERROR(EfiRuntimeServices->GetVariable((CHAR16 *)(L"boot-signature"), &AppleNVRAMVariableGuid, nullptr, &dataSize, HbpHibernateVars.BootSignature)))
 				try_leave(NOTHING);
-			EfiRuntimeServices->SetVariable(CHAR16_STRING(L"boot-signature"), &AppleNVRAMVariableGuid, 0, 0, nullptr);
+			EfiRuntimeServices->SetVariable((CHAR16 *)(L"boot-signature"), &AppleNVRAMVariableGuid, 0, 0, nullptr);
 
 			//
 			// read boot-image-key
 			//
 			dataSize														= sizeof(HbpHibernateVars.WiredCryptKey);
-			if(EFI_ERROR(EfiRuntimeServices->GetVariable(CHAR16_STRING(L"boot-image-key"), &AppleNVRAMVariableGuid, nullptr, &dataSize, HbpHibernateVars.WiredCryptKey)))
+			if(EFI_ERROR(EfiRuntimeServices->GetVariable((CHAR16 *)(L"boot-image-key"), &AppleNVRAMVariableGuid, nullptr, &dataSize, HbpHibernateVars.WiredCryptKey)))
 				try_leave(NOTHING);
-			EfiRuntimeServices->SetVariable(CHAR16_STRING(L"boot-image-key"), &AppleNVRAMVariableGuid, 0, 0, nullptr);
+			EfiRuntimeServices->SetVariable((CHAR16 *)(L"boot-image-key"), &AppleNVRAMVariableGuid, 0, 0, nullptr);
 
 			//
 			// setup default value
@@ -884,7 +895,7 @@ BOOLEAN HbStartResumeFromHibernate(UINT8* coreStorageVolumeKeyIdent)
 		}
 		else
 		{
-			EfiRuntimeServices->SetVariable(CHAR16_STRING(L"boot-switch-vars"), &AppleNVRAMVariableGuid, 0, 0, nullptr);
+			EfiRuntimeServices->SetVariable((CHAR16 *)(L"boot-switch-vars"), &AppleNVRAMVariableGuid, 0, 0, nullptr);
 		}
 
 		//
@@ -906,7 +917,7 @@ BOOLEAN HbStartResumeFromHibernate(UINT8* coreStorageVolumeKeyIdent)
 		// get boot image size
 		//
 		dataSize															= 0;
-		if(EfiRuntimeServices->GetVariable(CHAR16_STRING(L"boot-image"), &AppleNVRAMVariableGuid, nullptr, &dataSize, nullptr) != EFI_BUFFER_TOO_SMALL || !dataSize)
+		if(EfiRuntimeServices->GetVariable((CHAR16 *)(L"boot-image"), &AppleNVRAMVariableGuid, nullptr, &dataSize, nullptr) != EFI_BUFFER_TOO_SMALL || !dataSize)
 			try_leave(NOTHING);
 		
 		//
@@ -919,7 +930,7 @@ BOOLEAN HbStartResumeFromHibernate(UINT8* coreStorageVolumeKeyIdent)
 		//
 		// read boot image
 		//
-		if(EFI_ERROR(EfiRuntimeServices->GetVariable(CHAR16_STRING(L"boot-image"), &AppleNVRAMVariableGuid, nullptr, &dataSize, bootImagePath)))
+		if(EFI_ERROR(EfiRuntimeServices->GetVariable((CHAR16 *)(L"boot-image"), &AppleNVRAMVariableGuid, nullptr, &dataSize, bootImagePath)))
 			try_leave(NOTHING);
 
 		//

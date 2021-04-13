@@ -13,7 +13,10 @@
 //
 // module
 //
+#ifdef _MSC_VER
 #include <pshpack1.h>
+#endif
+
 typedef struct _LDR_EXTENSION_MODULE
 {
 	//
@@ -87,7 +90,10 @@ typedef struct _LDR_DRIVER_INFO
 	//
 	UINT32																	DriverPathLength;
 }LDR_DRIVER_INFO;
+
+#ifdef _MSC_VER
 #include <poppack.h>
+#endif
 
 //
 // global
@@ -107,8 +113,8 @@ STATIC EFI_STATUS LdrpParseDriverInfoPlist(CHAR8* fileBuffer, LDR_EXTENSION_MODU
 		if(EFI_ERROR(status = CmParseXmlFile(fileBuffer, &moduleDict)))
 			try_leave(NOTHING);
 
-		XML_TAG* requiredProperty											= CmGetTagValueForKey(moduleDict, CHAR8_CONST_STRING("OSBundleRequired"));
-		if(!requiredProperty || requiredProperty->Type != XML_TAG_STRING || !strcmp(requiredProperty->StringValue, CHAR8_CONST_STRING("Safe Boot")))
+		XML_TAG* requiredProperty											= CmGetTagValueForKey(moduleDict, (CHAR8 CONST *)("OSBundleRequired"));
+		if(!requiredProperty || requiredProperty->Type != XML_TAG_STRING || !strcmp(requiredProperty->StringValue, (CHAR8 CONST *)("Safe Boot")))
 			try_leave(status = EFI_INVALID_PARAMETER);
 
 		LDR_EXTENSION_MODULE* theModule										= static_cast<LDR_EXTENSION_MODULE*>(MmAllocatePool(sizeof(LDR_EXTENSION_MODULE)));
@@ -155,13 +161,13 @@ STATIC EFI_STATUS LdrpLoadDriverPList(CHAR8 CONST* extensionDir, CHAR8 CONST* fi
 		//
 		// build directory
 		//
-		snprintf(driverDirectory, filePathLength / sizeof(CHAR8), CHAR8_CONST_STRING("%s\\%s\\%s"), extensionDir, fileName, inContentsFolder ? contentsMacOSDir : CHAR8_CONST_STRING(""));
+		snprintf(driverDirectory, filePathLength / sizeof(CHAR8), (CHAR8 CONST *)("%s\\%s\\%s"), extensionDir, fileName, inContentsFolder ? contentsMacOSDir : (CHAR8 CONST *)(""));
 
 		//
 		// build file name
 		//
 		STATIC CHAR8 fullFileName[1025]										= {0};
-		snprintf(fullFileName, ARRAYSIZE(fullFileName), CHAR8_CONST_STRING("%s\\%s\\%sInfo.plist"), extensionDir, fileName, inContentsFolder ? contentsDir : CHAR8_CONST_STRING(""));
+		snprintf(fullFileName, ARRAYSIZE(fullFileName), (CHAR8 CONST *)("%s\\%s\\%sInfo.plist"), extensionDir, fileName, inContentsFolder ? contentsDir : (CHAR8 CONST *)(""));
 
 		//
 		// open file
@@ -253,10 +259,47 @@ STATIC EFI_STATUS LdrpLoadDriverPList(CHAR8 CONST* extensionDir, CHAR8 CONST* fi
 	return status;
 }
 
+STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST *extensionsDirectory, BOOLEAN isPluginModule);
+
+STATIC EFI_STATUS LdrpLoadDriversPlugin(CHAR8 CONST *extensionsDirectory)
+{
+    STATIC CHAR8 localBuffer[sizeof(EFI_FILE_INFO) + 0x400]            = {0};
+    EFI_STATUS status                                                  = EFI_SUCCESS;
+    EFI_FILE_INFO* fileInfo                                            = static_cast<EFI_FILE_INFO*>(static_cast<VOID*>(localBuffer));
+    STATIC CHAR8 utf8FileName[1024]                                    = {0};
+    IO_FILE_HANDLE tempFileHandle                                      = {0};
+    UINTN fileNameLength                                               = (UINTN)wcslen(fileInfo->FileName);
+    STATIC CHAR8 pluginBuffer[1024]                                    = {0};
+
+    status = BlUnicodeToUtf8(fileInfo->FileName, fileNameLength, utf8FileName, ARRAYSIZE(utf8FileName) - 1);
+
+    if((fileNameLength < 5) || (fileInfo->FileName[fileNameLength - 5] != L'.') || (fileInfo->FileName[fileNameLength - 4] != L'k') ||
+        (fileInfo->FileName[fileNameLength - 3] != L'e') || (fileInfo->FileName[fileNameLength - 2] != L'x') || (fileInfo->FileName[fileNameLength - 1] != L't'))
+    {
+        return EFI_SUCCESS;
+    }
+
+    //
+    // check content folder
+    //
+    snprintf(localBuffer, ARRAYSIZE(localBuffer) - 1, (CHAR8 CONST *)("%s\\%s\\Contents"), extensionsDirectory, utf8FileName);
+    BOOLEAN hasContentsFolder                                        = EFI_ERROR(IoOpenFile(localBuffer, nullptr, &tempFileHandle, IO_OPEN_MODE_NORMAL)) ? FALSE : TRUE;
+    IoCloseFile(&tempFileHandle);
+
+    snprintf(pluginBuffer, ARRAYSIZE(pluginBuffer) - 1, (CHAR8 CONST *)("%s\\%s\\%sPlugIns"), extensionsDirectory, utf8FileName, hasContentsFolder ? "Contents\\" : "");
+    LdrpLoadDriverPList(extensionsDirectory, utf8FileName, hasContentsFolder);
+
+    LdrpLoadDriverPList(extensionsDirectory, utf8FileName, hasContentsFolder);
+
+    LdrpLoadDrivers((CHAR8 CONST *)pluginBuffer, TRUE);
+
+    return status;
+}
+
 //
 // load drivers
 //
-STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST* extensionsDirectory, BOOLEAN isPluginModule)
+STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST *extensionsDirectory, BOOLEAN isPluginModule)
 {
 	EFI_STATUS status														= EFI_SUCCESS;
 	IO_FILE_HANDLE fileHandle												= {0};
@@ -269,7 +312,7 @@ STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST* extensionsDirectory, BOOLEAN isPl
 		if(EFI_ERROR(status = IoOpenFile(extensionsDirectory, nullptr, &fileHandle, IO_OPEN_MODE_NORMAL)))
 			try_leave(NOTHING);
 
-		while(TRUE)
+		while (TRUE)
 		{
 			//
 			// read dir entry
@@ -279,20 +322,24 @@ STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST* extensionsDirectory, BOOLEAN isPl
 			UINTN readLength												= 0;
 			status															= IoReadFile(&fileHandle, fileInfo, sizeof(localBuffer), &readLength, TRUE);
 			if(EFI_ERROR(status) || !readLength)
+            {
 				try_leave(NOTHING);
+            }
 
 			//
 			// direcotry attribute
 			//
-			if(!(fileInfo->Attribute & EFI_FILE_DIRECTORY))
+			if((fileInfo->Attribute & EFI_FILE_DIRECTORY) == 0)
+            {
 				continue;
+            }
 
 			//
 			// check .kext
 			//
 			UINTN fileNameLength											= wcslen(fileInfo->FileName);
-			if( fileNameLength < 5 || fileInfo->FileName[fileNameLength - 5] != L'.' || fileInfo->FileName[fileNameLength - 4] != L'k' ||
-				fileInfo->FileName[fileNameLength - 3] != L'e' || fileInfo->FileName[fileNameLength - 2] != L'x' || fileInfo->FileName[fileNameLength - 1] != L't')
+			if((fileNameLength < 5) || (fileInfo->FileName[fileNameLength - 5] != L'.') || (fileInfo->FileName[fileNameLength - 4] != L'k') ||
+				(fileInfo->FileName[fileNameLength - 3] != L'e') || (fileInfo->FileName[fileNameLength - 2] != L'x') || (fileInfo->FileName[fileNameLength - 1] != L't'))
 			{
 				continue;
 			}
@@ -308,7 +355,7 @@ STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST* extensionsDirectory, BOOLEAN isPl
 			// check content folder
 			//
 			IO_FILE_HANDLE tempFileHandle									= {0};
-			snprintf(localBuffer, ARRAYSIZE(localBuffer) - 1, CHAR8_CONST_STRING("%s\\%s\\Contents"), extensionsDirectory, utf8FileName);
+			snprintf(localBuffer, ARRAYSIZE(localBuffer) - 1, (CHAR8 CONST *)("%s\\%s\\Contents"), extensionsDirectory, utf8FileName);
 			BOOLEAN hasContentsFolder										= EFI_ERROR(IoOpenFile(localBuffer, nullptr, &tempFileHandle, IO_OPEN_MODE_NORMAL)) ? FALSE : TRUE;
 			IoCloseFile(&tempFileHandle);
 
@@ -316,8 +363,11 @@ STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST* extensionsDirectory, BOOLEAN isPl
 			// build plugin directory
 			//
 			STATIC CHAR8 pluginBuffer[1024]									= {0};
-			if(!isPluginModule)
-				snprintf(pluginBuffer, ARRAYSIZE(pluginBuffer) - 1, CHAR8_CONST_STRING("%s\\%s\\%sPlugIns"), extensionsDirectory, utf8FileName, hasContentsFolder ? "Contents\\" : "");
+
+			if (isPluginModule == FALSE)
+            {
+				snprintf(pluginBuffer, ARRAYSIZE(pluginBuffer) - 1, (CHAR8 CONST *)("%s\\%s\\%sPlugIns"), extensionsDirectory, utf8FileName, hasContentsFolder ? "Contents\\" : "");
+            }
 
 			//
 			// load plist
@@ -327,8 +377,10 @@ STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST* extensionsDirectory, BOOLEAN isPl
 			//
 			// load plugins
 			//
-			if(!isPluginModule)
-				 LdrpLoadDrivers(pluginBuffer, TRUE);
+			if (isPluginModule == FALSE)
+            {
+                LdrpLoadDriversPlugin((CHAR8 CONST *)pluginBuffer);
+            }
 		}
 	}
 	__finally
@@ -336,7 +388,7 @@ STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST* extensionsDirectory, BOOLEAN isPl
 		IoCloseFile(&fileHandle);
 	}
 
-	return status;
+	return (status);
 }
 
 //
@@ -355,7 +407,7 @@ STATIC VOID LdrpMatchLibraries()
 		{
 			if(theModule->WillLoad == 1)
 			{
-				XML_TAG* theProperty										= CmGetTagValueForKey(theModule->InfoPlistTag, CHAR8_CONST_STRING("OSBundleLibraries"));
+				XML_TAG* theProperty										= CmGetTagValueForKey(theModule->InfoPlistTag, (CHAR8 CONST *)("OSBundleLibraries"));
 				if(theProperty)
 				{
 					theProperty												= theProperty->TagValue;
@@ -364,7 +416,7 @@ STATIC VOID LdrpMatchLibraries()
 						LDR_EXTENSION_MODULE* theModule2					= LdrpExtensionModulesHead;
 						while(theModule2)
 						{
-							XML_TAG* theProperty2							= CmGetTagValueForKey(theModule2->InfoPlistTag, CHAR8_CONST_STRING("CFBundleIdentifier"));
+							XML_TAG* theProperty2							= CmGetTagValueForKey(theModule2->InfoPlistTag, (CHAR8 CONST *)("CFBundleIdentifier"));
 							if(theProperty2 && !strcmp(theProperty->StringValue, theProperty2->StringValue))
 							{
 								if(!theModule2->WillLoad)
@@ -404,13 +456,13 @@ STATIC EFI_STATUS LdrpLoadMatchedModules()
 
 			__try
 			{
-				XML_TAG* theProperty										= CmGetTagValueForKey(theModule->InfoPlistTag, CHAR8_CONST_STRING("CFBundleExecutable"));
+				XML_TAG* theProperty										= CmGetTagValueForKey(theModule->InfoPlistTag, (CHAR8 CONST *)("CFBundleExecutable"));
 				UINTN moduleLength											= 0;
 
 				if(theProperty)
 				{
 					CHAR8* fileName											= theProperty->StringValue;
-					snprintf(fileFullPath, ARRAYSIZE(fileFullPath) - 1, CHAR8_CONST_STRING("%s%s"), theModule->DriverPath, fileName);
+					snprintf(fileFullPath, ARRAYSIZE(fileFullPath) - 1, (CHAR8 CONST *)("%s%s"), theModule->DriverPath, fileName);
 					if(EFI_ERROR(IoOpenFile(fileFullPath, nullptr, &fileHandle, IO_OPEN_MODE_NORMAL)))
 						try_leave(NOTHING);
 
@@ -442,7 +494,7 @@ STATIC EFI_STATUS LdrpLoadMatchedModules()
 				memcpy(ArchConvertAddressToPointer(driverInfo->InfoPlistAddress, CHAR8*), theModule->InfoPlistBuffer, theModule->InfoPlistLength);
 				memcpy(ArchConvertAddressToPointer(driverInfo->DriverPath, CHAR8*), theModule->DriverPath, theModule->DriverPathLength);
 				BlConvertPathSeparator(ArchConvertAddressToPointer(driverInfo->DriverPath, CHAR8*), '\\', '/');
-				snprintf(segName, ARRAYSIZE(segName) - 1, CHAR8_CONST_STRING("Driver-%llx"), physicalAddress);
+				snprintf(segName, ARRAYSIZE(segName) - 1, (CHAR8 CONST *)("Driver-%llx"), physicalAddress);
 				if(!EFI_ERROR(BlAddMemoryRangeNode(segName, driverAddress, driverLength)))
 					physicalAddress											= 0;
 			}
@@ -473,18 +525,18 @@ EFI_STATUS LdrLoadDrivers()
 		//
 		// check library directory
 		//
-		BOOLEAN loadLibrary													= !EFI_ERROR(IoOpenFile(CHAR8_CONST_STRING(""), nullptr, &fileHandle, IO_OPEN_MODE_NORMAL));
+		BOOLEAN loadLibrary													= !EFI_ERROR(IoOpenFile((CHAR8 CONST *)(""), nullptr, &fileHandle, IO_OPEN_MODE_NORMAL));
 		
 		//
 		// load from system directory
 		//
-		LdrpLoadDrivers(CHAR8_CONST_STRING("System\\Library\\Extensions"), FALSE);
+		LdrpLoadDrivers((CHAR8 CONST *)("System\\Library\\Extensions"), FALSE);
 
 		//
 		// load from library directory
 		//
 		if(loadLibrary)
-			LdrpLoadDrivers(CHAR8_CONST_STRING("Library\\Extensions"), FALSE);
+			LdrpLoadDrivers((CHAR8 CONST *)("Library\\Extensions"), FALSE);
 
 		//
 		// match libraries

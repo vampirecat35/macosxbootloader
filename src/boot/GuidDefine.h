@@ -5,44 +5,48 @@
 //	purpose:	guid define
 //********************************************************************
 
-#pragma once
+#ifndef __GUIDDEFINE_H__
+#define __GUIDDEFINE_H__
 
-#include EFI_GUID_DEFINITION(Acpi)
-#include EFI_GUID_DEFINITION(SmBios)
-#include EFI_GUID_DEFINITION(AppleNVRAMVariable)
-#include EFI_GUID_DEFINITION(AppleFirmwareVariable)
-#include EFI_GUID_DEFINITION(AppleAcpiVariable)
-#include EFI_GUID_DEFINITION(AppleFirmwareFileName)
-#include EFI_GUID_DEFINITION(AppleRamDmgDevicePath)
-#include EFI_GUID_DEFINITION(AppleFileVaultVariable)
 
-#include EFI_PROTOCOL_DEFINITION(LoadedImage)
-#include EFI_PROTOCOL_DEFINITION(PciIo)
-#include EFI_PROTOCOL_DEFINITION(DataHub)
-#include EFI_PROTOCOL_DEFINITION(DevicePath)
-#include EFI_PROTOCOL_DEFINITION(ConsoleControl)
-#include EFI_PROTOCOL_DEFINITION(SimpleTextOut)
-#include EFI_PROTOCOL_DEFINITION(SimpleFileSystem)
-#include EFI_PROTOCOL_DEFINITION(FileInfo)
-#include EFI_PROTOCOL_DEFINITION(LoadFile)
-#include EFI_PROTOCOL_DEFINITION(BlockIo)
-#include EFI_PROTOCOL_DEFINITION(DiskIo)
-#include EFI_PROTOCOL_DEFINITION(GraphicsOutput)
-#include EFI_PROTOCOL_DEFINITION(UgaDraw)
-#include EFI_PROTOCOL_DEFINITION(FirmwareVolume)
-#include EFI_PROTOCOL_DEFINITION(FirmwareVolumeDispatch)
-#include EFI_PROTOCOL_DEFINITION(SimplePointer)
-#include EFI_PROTOCOL_DEFINITION(AppleKeyState)
-#include EFI_PROTOCOL_DEFINITION(AppleSystemInfo)
-#include EFI_PROTOCOL_DEFINITION(AppleDeviceProperty)
-#include EFI_PROTOCOL_DEFINITION(AppleNetBoot)
-#include EFI_PROTOCOL_DEFINITION(AppleFirmwarePassword)
-#include EFI_PROTOCOL_DEFINITION(AppleDeviceControl)
-#include EFI_PROTOCOL_DEFINITION(AppleGraphConfig)
-#include EFI_PROTOCOL_DEFINITION(AppleGraphInfo)
-#include EFI_PROTOCOL_DEFINITION(AppleImageCodec)
-#include EFI_PROTOCOL_DEFINITION(AppleDiskIo)
-#include EFI_PROTOCOL_DEFINITION(AppleSMC)
+#include "../../sdk/include/EfiCommon.h"
+
+#include "../../sdk/include/Guid/AppleAcpiVariable/AppleAcpiVariable.h"
+#include "../../sdk/include/Guid/Smbios/SmBios.h"
+#include "../../sdk/include/Guid/AppleNVRAMVariable/AppleNVRAMVariable.h"
+#include "../../sdk/include/Guid/AppleFirmwareVariable/AppleFirmwareVariable.h"
+#include "../../sdk/include/Guid/AppleAcpiVariable/AppleAcpiVariable.h"
+#include "../../sdk/include/Guid/AppleFirmwareFileName/AppleFirmwareFileName.h"
+#include "../../sdk/include/Guid/AppleRamDmgDevicePath/AppleRamDmgDevicePath.h"
+#include "../../sdk/include/Guid/AppleFileVaultVariable/AppleFileVaultVariable.h"
+
+#include "../../sdk/include/Protocol/LoadedImage/LoadedImage.h"
+#include "../../sdk/include/Protocol/PciIo/PciIo.h"
+#include "../../sdk/include/Protocol/DataHub/DataHub.h"
+#include "../../sdk/include/Protocol/DevicePath/DevicePath.h"
+#include "../../sdk/include/Protocol/ConsoleControl/ConsoleControl.h"
+#include "../../sdk/include/Protocol/SimpleTextOut/SimpleTextOut.h"
+#include "../../sdk/include/Protocol/SimpleFileSystem/SimpleFileSystem.h"
+#include "../../sdk/include/Protocol/FileInfo/FileInfo.h"
+#include "../../sdk/include/Protocol/LoadFile/LoadFile.h"
+#include "../../sdk/include/Protocol/BlockIO/BlockIO.h"
+#include "../../sdk/include/Protocol/DiskIO/DiskIo.h"
+#include "../../sdk/include/Protocol/GraphicsOutput/GraphicsOutput.h"
+#include "../../sdk/include/Protocol/UgaDraw/UgaDraw.h"
+#include "../../sdk/include/Protocol/FirmwareVolume/FirmwareVolume.h"
+#include "../../sdk/include/Protocol/FirmwareVolumeDispatch/FirmwareVolumeDispatch.h"
+#include "../../sdk/include/Protocol/SimplePointer/SimplePointer.h"
+#include "../../sdk/include/Protocol/AppleKeyState/AppleKeyState.h"
+#include "../../sdk/include/Protocol/AppleSystemInfo/AppleSystemInfo.h"
+#include "../../sdk/include/Protocol/AppleDeviceProperty/AppleDeviceProperty.h"
+#include "../../sdk/include/Protocol/AppleNetBoot/AppleNetBoot.h"
+#include "../../sdk/include/Protocol/AppleFirmwarePassword/AppleFirmwarePassword.h"
+#include "../../sdk/include/Protocol/AppleDeviceControl/AppleDeviceControl.h"
+#include "../../sdk/include/Protocol/AppleGraphConfig/AppleGraphConfig.h"
+#include "../../sdk/include/Protocol/AppleGraphInfo/AppleGraphInfo.h"
+#include "../../sdk/include/Protocol/AppleImageCodec/AppleImageCodec.h"
+#include "../../sdk/include/Protocol/AppleDiskIo/AppleDiskIo.h"
+#include "../../sdk/include/Protocol/AppleSMC/AppleSMC.h"
 
 extern EFI_SYSTEM_TABLE*													EfiSystemTable;
 extern EFI_BOOT_SERVICES*													EfiBootServices;
@@ -87,3 +91,5 @@ extern EFI_GUID																AppleSMCProtocolGuid;
 extern EFI_GUID																AppleFileVaultVariableGuid;
 
 BOOLEAN isEfiNullGuid(EFI_GUID* aGuid);
+
+#endif /* __GUIDDEFINE_H__ */

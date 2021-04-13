@@ -5,16 +5,51 @@
 //	purpose:	stdafx
 //********************************************************************
 
-#pragma once
+#ifndef __STDAFX_H__
+#define __STDAFX_H__ 1
+
+#ifdef __APPLE__
+#define __leave
+#define __try if (1)
+#define __except(x) if (0 && (x))
+#define __finally if (1)
+
+#if defined(__GNU__) || defined(__clang__)
+#define GNUPACK __attribute__((packed))
+#else
+#define GNUPACK
+#endif
+
+#ifndef nullptr
+#define nullptr 0
+#endif
+
+#ifndef _INT8_T
+#define _INT8_T 1
+#endif
+#else
+#if defined(__GNU__) || defined(__clang__)
+#define GNUPACK __attribute__((packed))
+#else
+#define GNUPACK
+#endif
+#endif
+
+#include "../../sdk/include/EfiTypes.h"
 
 #define DEBUG_LDRP_CALL_CSPRINTF											0
 #define DEBUG_NVRAM_CALL_CSPRINTF											0
 #define DEBUG_KERNEL_PATCHER												0
 
 #define OS_LEGACY															6
+
 #define YOSEMITE															10
 #define EL_CAPITAN															11
 #define SIERRA																12
+#define HIGH_SIERRA                                                         13
+#define MOJAVE                                                              14
+#define CATALINA                                                            15
+#define BIG_SUR                                                             16
 
 #define TARGET_OS															SIERRA
 
@@ -67,7 +102,7 @@
 #define LdrStaticVirtualToPhysical(V)										((V) & (1 * 1024 * 1024 * 1024 - 1))
 #define Add2Ptr(P, O, T)													ArchConvertAddressToPointer(ArchConvertPointerToAddress(P) + (O), T)
 #define PAGE_ALIGN(A)														((A) & ~EFI_PAGE_MASK)
-#define BYTE_OFFSET(A)														((UINT32)(A) & EFI_PAGE_MASK)
+#define BYTE_OFFSET(A)														((UINT32)((UINT64)(A)) & EFI_PAGE_MASK)
 
 #define SWAP32(V)															((((UINT32)(V) & 0xff) << 24) | (((UINT32)(V) & 0xff00) << 8) | (((UINT32)(V) & 0xff0000) >> 8) |  (((UINT32)(V) & 0xff000000) >> 24))
 #define SWAP_BE32_TO_HOST													SWAP32
@@ -107,13 +142,13 @@
 #endif
 #endif // #if (TARGET_OS >= YOSMITE)
 
-#include "EfiCommon.h"
-#include "EfiApi.h"
-#include "EfiImage.h"
-#include "EfiDevicePath.h"
-#include "IndustryStandard/Acpi.h"
-#include "IndustryStandard/pci.h"
-#include "IndustryStandard/SmBios.h"
+#include "../../sdk/include/EfiCommon.h"
+#include "../../sdk/include/EfiApi.h"
+#include "../../sdk/include/EfiImage.h"
+#include "../../sdk/include/EfiDevicePath.h"
+#include "../../sdk/include/IndustryStandard/Acpi.h"
+#include "../../sdk/include/IndustryStandard/pci.h"
+#include "../../sdk/include/IndustryStandard/Smbios.h"
 
 #include "GuidDefine.h"
 #include "RuntimeLib.h"
@@ -143,3 +178,5 @@
 #include "MemoryMap.h"
 #include "PanicDialog.h"
 #include "FileVault.h"
+
+#endif

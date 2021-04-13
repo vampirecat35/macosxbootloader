@@ -10,7 +10,8 @@
 									%1:
 %endmacro
 
-section .rdata
+section .data
+
 									align				16
 PUBLIC_SYMBOL ?ArchThunk64BufferStart@@3PAEA
 									incbin				"ThunkCode64.dat"

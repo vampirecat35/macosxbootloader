@@ -7,6 +7,8 @@
 
 #include "StdAfx.h"
 
+#include "../../sdk/include/IndustryStandard/Smbios.h"
+
 //
 // global
 //
@@ -45,7 +47,7 @@ CHAR8* BlGetBoardId()
 	UINT32 edxValue															= 0;
 	ArchCpuId(1, &eaxValue, &ebxValue, &ecxValue, &edxValue);
 
-	return ecxValue & 0x80000000 ? CHAR8_STRING("VMM") : BlpBoardId;
+	return ecxValue & 0x80000000 ? (CHAR8 *)("VMM") : BlpBoardId;
 }
 
 //
@@ -361,7 +363,8 @@ EFI_STATUS BlDetectMemorySize()
 				
 				SMBIOS_TABLE_TYPE1* table1									= reinterpret_cast<SMBIOS_TABLE_TYPE1*>(startOfTable);
 
-				if (!isEfiNullGuid(&table1->Uuid))
+                EFI_GUID Uuid = table1->Uuid;
+				if (!isEfiNullGuid(&Uuid))
 				{
 					//
 					// Copy SMBIOS UUID into BlpSystemId.

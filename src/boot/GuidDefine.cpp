@@ -7,6 +7,8 @@
 
 #include "StdAfx.h"
 
+#include "../../sdk/include/Guid/Acpi/Acpi.h"
+
 EFI_GUID EfiDataHubProtocolGuid												= EFI_DATA_HUB_PROTOCOL_GUID;
 EFI_GUID EfiAcpi20TableGuid													= EFI_ACPI_20_TABLE_GUID;
 EFI_GUID EfiAcpiTableGuid													= EFI_ACPI_TABLE_GUID;

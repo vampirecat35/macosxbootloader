@@ -8,6 +8,10 @@
 #include "StdAfx.h"
 #include "Debug1394.h"
 
+#if defined(__clang__) || defined(__GNUC__)
+#define memcpy(a,b,c) __builtin_memcpy(a,b,c)
+#endif
+
 //
 // how does it work?
 //	1.ohci controller provides us a function to read write peer's physical memory directly.
@@ -44,7 +48,9 @@
 //	yes,it is POLL mode,not INTERRUPT mode
 //
 
+#ifdef _MSC_VER
 #include <pshpack1.h>
+#endif
 
 //
 // send buffer
@@ -289,7 +295,9 @@ typedef struct _DBG1394_GLOBAL_DATA
 	DBG1394_DEBUG_CONFIG_INFO												DebugConfigInfo;
 }DBG1394_GLOBAL_DATA;
 
+#ifdef _MSC_VER
 #include <poppack.h>
+#endif
 
 //
 // ohci controller base address
@@ -309,7 +317,9 @@ STATIC UINT64 Bd1394pDataPhysicalAddress									= 0;
 //
 // stall
 //
+#ifdef _MSC_VER
 #pragma optimize("", off)
+#endif
 
 STATIC VOID Bd1394pStallExecution(UINT32 microseconds)
 {
@@ -320,7 +330,9 @@ STATIC VOID Bd1394pStallExecution(UINT32 microseconds)
 	}
 }
 
+#ifdef _MSC_VER
 #pragma optimize("", on)
+#endif
 
 //
 // crc16

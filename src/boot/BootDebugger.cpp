@@ -503,7 +503,7 @@ STATIC VOID BdpReadPhysicalMemory(DBGKD_MANIPULATE_STATE64* manipulateState, STR
 				break;
 			}
 
-			UINT32 lengthThisRun											= EFI_PAGE_SIZE - BYTE_OFFSET(address);
+            UINT32 lengthThisRun = EFI_PAGE_SIZE - BYTE_OFFSET(address);
 			additionalData->Length											= static_cast<UINT16>(BdMoveMemory(buffer, address, lengthThisRun));
 			leftCount														-= lengthThisRun;
 			startAddress													+= lengthThisRun;
@@ -552,7 +552,7 @@ STATIC VOID BdpWritePhysicalMemory(DBGKD_MANIPULATE_STATE64* manipulateState, ST
 		UINT32 leftCount													= writeMemory->TransferCount;
 		CHAR8* buffer														= additionalData->Buffer;
 		VOID* address														= BdTranslatePhysicalAddress(startAddress);
-		UINT32 lengthThisRun												= EFI_PAGE_SIZE - BYTE_OFFSET(address);
+		UINT32 lengthThisRun												= (UINT32)(EFI_PAGE_SIZE - BYTE_OFFSET(address));
 		UINT32 thisRun														= BdMoveMemory(address, buffer, lengthThisRun);
 		writtenCount														+= thisRun;
 		leftCount															-= lengthThisRun;
@@ -1165,7 +1165,7 @@ STATIC EFI_STATUS BdpPopulateDataTableEntry(LDR_DATA_TABLE_ENTRY* loaderDataEntr
 	loaderDataEntry->SizeOfImage											= PeImageGetSize(ntHeaders);
 	loaderDataEntry->EntryPoint												= PeImageGetEntryPoint(imageBase);
 	loaderDataEntry->SectionAndCheckSum.CheckSum							= PeImageGetChecksum(ntHeaders);
-	loaderDataEntry->BaseDllName.Buffer										= CHAR16_STRING(L"boot.efi");
+	loaderDataEntry->BaseDllName.Buffer										= (CHAR16 *)(L"boot.efi");
 	loaderDataEntry->BaseDllName.Length										= 16;
 	loaderDataEntry->BaseDllName.MaximumLength								= loaderDataEntry->BaseDllName.Length;
 	loaderDataEntry->FullDllName.Buffer										= loaderDataEntry->BaseDllName.Buffer;

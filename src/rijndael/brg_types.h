@@ -51,9 +51,23 @@ extern "C" {
 #  define ptrint_t intptr_t
 #elif defined( __GNUC__ ) && ( __GNUC__ >= 3 )
 #  include <stdint.h>
-#  define ptrint_t intptr_t
+#  define ptrint_t unsigned long
 #else
 #  define ptrint_t int
+#endif
+
+#ifndef EXIT_SUCCESS
+#define EXIT_SUCCESS 0
+#endif
+
+#ifndef EXIT_FAILURE
+#define EXIT_FAILURE -1
+#endif
+
+#ifndef memcpy
+#if defined(__GNUC__) || defined(__clang__)
+#define memcpy(a,b,c) __builtin_memcpy(a,b,c)
+#endif
 #endif
 
 #ifndef BRG_UI8

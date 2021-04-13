@@ -5,12 +5,15 @@
 //	purpose:	runtime lib
 //********************************************************************
 
-#pragma once
+#ifndef __RUNTIMELIB_H__
+#define __RUNTIMELIB_H__
 
 //
 // define
 //
-#define isspace(ch)															((ch) == ' ' || (ch) == '\t' || (ch) == '\r' || (ch) == '\n')
+#ifndef isspace
+#define isspace(ch) ((ch) == ' ' || (ch) == '\t' || (ch) == '\r' || (ch) == '\n')
+#endif
 
 extern "C"
 {
@@ -18,22 +21,31 @@ extern "C"
 	// allocate from stack
 	//
 	VOID* BOOTAPI _alloca(UINTN bufferLength);
-	#pragma intrinsic(_alloca)
 
-	//
+#ifdef _MSC_VER
+#pragma intrinsic(_alloca)
+#endif
+
+    //
 	// memcpy
 	//
-	VOID* memcpy(VOID* dstBuffer, VOID CONST* srcBuffer, UINTN bufferLength);
+    VOID* memcpy(VOID* dstBuffer, VOID CONST* srcBuffer, UINTN bufferLength);
 
 	//
 	// memset
 	//
-	VOID* memset(VOID* dstBuffer, UINT8 setValue, UINTN bufferLength);
+	VOID *memset(VOID* dstBuffer, UINT8 setValue, UINTN bufferLength);
 
 	//
 	// memcmp
 	//
 	int memcmp(VOID CONST* buffer1, VOID CONST* buffer2, UINTN bufferLength);
+
+#ifdef _MSC_VER
+    VOID* bzero(VOID* dstBuffer, UINTN bufferLength);
+#else
+    VOID* __bzero(VOID* dstBuffer, UINTN bufferLength);
+#endif
 
 	//
 	// wcslen
@@ -110,3 +122,5 @@ extern "C"
 	//
 	CHAR8* strlwr(CHAR8* stringBuffer);
 }
+
+#endif /* __RUNTIMELIB_H__ */

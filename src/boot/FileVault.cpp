@@ -6,10 +6,21 @@
 //********************************************************************
 
 #include "StdAfx.h"
-#include "rijndael/aes.h"
-#include "rijndael/aesxts.h"
 
+#include "../rijndael/aes.h"
+#include "../rijndael/aesxts.h"
+
+#if defined(__clang__) || defined(__GNUC__)
+#define memset(a,b,c) __builtin_memset(a,b,c)
+#endif
+
+#if defined(__clang__) || defined(__GNUC__)
+#define memcpy(a,b,c) __builtin_memcpy(a,b,c)
+#endif
+
+#ifdef _MSC_VER
 #include <pshpack1.h>
+#endif
 
 typedef struct _CORE_STORAGE_VOLUME_HEADER
 {
@@ -259,7 +270,10 @@ typedef struct _KEY_STORE_DATA_HEADER
 	//
 	UINT32																	DataLength;
 }KEY_STORE_DATA_HEADER;
+
+#ifdef _MSC_VER
 #include <poppack.h>
+#endif
 
 //
 // volume key info
@@ -830,7 +844,7 @@ STATIC VOID FvpReadInput(CHAR8** inputBuffer, UINTN* inputLength, UINTN maxLengt
 
 		if(inputKey.UnicodeChar == CHAR_CARRIAGE_RETURN)
 		{
-			EfiSystemTable->ConOut->OutputString(EfiSystemTable->ConOut, CHAR16_STRING(L"\r\n"));
+			EfiSystemTable->ConOut->OutputString(EfiSystemTable->ConOut, (CHAR16 *)(L"\r\n"));
 			break;
 		}
 		else if(inputKey.UnicodeChar == CHAR_BACKSPACE)
@@ -851,7 +865,7 @@ STATIC VOID FvpReadInput(CHAR8** inputBuffer, UINTN* inputLength, UINTN maxLengt
 						curRow												-= 1;
 				}
 				EfiSystemTable->ConOut->SetCursorPosition(EfiSystemTable->ConOut, curColumn, curRow);
-				EfiSystemTable->ConOut->OutputString(EfiSystemTable->ConOut, CHAR16_STRING(L" "));
+				EfiSystemTable->ConOut->OutputString(EfiSystemTable->ConOut, (CHAR16 *)(L" "));
 				EfiSystemTable->ConOut->SetCursorPosition(EfiSystemTable->ConOut, curColumn, curRow);
 			}
 		}

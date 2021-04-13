@@ -31,10 +31,17 @@ Abstract:
 #define EFI_APPLICATION_ENTRY_POINT EFI_DRIVER_ENTRY_POINT
 
 
+
 //
-// Make sure we are using the correct packing rules per EFI specification
+// Make sure we are useing the correct packing rules per EFI specification
 //
+#ifdef _MSC_VER
 #pragma pack(8)
+#undef  GNUPACK
+#define GNUPACK
+#else
+#define GNUPACK __attribute__((packed))
+#endif
 
 #if _MSC_EXTENSIONS
 
@@ -46,6 +53,7 @@ Abstract:
 //
 // Disabling bitfield type checking warnings.
 //
+#if defined( _MSC_VER )
 #pragma warning ( disable : 4214 )
 
 //
@@ -84,6 +92,7 @@ Abstract:
 // Warning: The result of the unary '&' operator may be unaligned. Ignore it.
 //
 #pragma warning ( disable : 4366 )
+#endif
 
 #endif
 
@@ -94,8 +103,14 @@ Abstract:
   //
  
   #if _MSC_EXTENSIONS 
+
+    #ifdef __APPLE__
+        #define __int64 long long
+        #define __int32 int
+    #endif
+
     //
-    // use Microsoft* C complier dependent interger width types
+    // use Microsoft* C complier dependent interger width types 
     //
     typedef unsigned __int64    uint64_t;
     typedef __int64             int64_t;
@@ -213,8 +228,4 @@ typedef int64_t   intn_t;
            warning ( default : 4068 )
 
 #endif
-
-
-
 #endif
-

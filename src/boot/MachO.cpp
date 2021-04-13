@@ -33,7 +33,10 @@
 //
 // fat header
 //
+#ifdef _MSC_VER
 #include <pshpack1.h>
+#endif
+
 typedef struct _FAT_HEADER
 {
 	//
@@ -751,7 +754,10 @@ typedef struct _RELOCATION_INFO
 	//
 	UINT32																	Type : 4;
 }RELOCATION_INFO;
+
+#ifdef _MSC_VER
 #include <poppack.h>
+#endif
 
 //
 // load thin fat file info

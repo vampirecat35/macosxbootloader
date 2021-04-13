@@ -36,6 +36,7 @@
 #include <stdlib.h>
 
 #include "aesopt.h"
+#include "brg_types.h"
 
 #if defined( AES_MODES )
 #if defined(__cplusplus)
@@ -43,11 +44,13 @@ extern "C"
 {
 #endif
 
-#if defined( _MSC_VER ) && ( _MSC_VER > 800 )
+#if defined(_MSC_VER) && (_MSC_VER > 800)
 #pragma intrinsic(memcpy)
 #endif
 
+#if defined(_MSC_VER)
 #pragma warning(disable:4731)
+#endif
 
 #define BFR_BLOCKS      8
 
@@ -57,9 +60,10 @@ extern "C"
 
 #define FAST_BUFFER_OPERATIONS
 
-#define lp32(x)         ((uint_32t*)(x))
-
-#if defined( USE_VIA_ACE_IF_PRESENT )
+#define lp32(x)         ((uint32_t*)(x))
+#define lp64(x)         ((uint64_t*)(x))
+    
+#if defined(USE_VIA_ACE_IF_PRESENT)
 
 #include "aes_via_ace.h"
 
@@ -97,9 +101,9 @@ aligned_array(unsigned long, dec_hybrid_table, 12, 16) = NEH_DEC_HYBRID_DATA;
 
 #else
 
-#define via_cwd(cwd, ty, dir, len)              \
-    aligned_auto(unsigned long, cwd, 4, 16);    \
-    cwd[1] = cwd[2] = cwd[3] = 0;               \
+#define via_cwd(cwd, ty, dir, len) \
+    aligned_auto(unsigned long, cwd, 4, 16); \
+    cwd[1] = cwd[2] = cwd[3] = 0; \
     cwd[0] = neh_##dir##_##ty##_key(len)
 
 #endif
@@ -107,8 +111,9 @@ aligned_array(unsigned long, dec_hybrid_table, 12, 16) = NEH_DEC_HYBRID_DATA;
 /* test the code for detecting and setting pointer alignment */
 
 AES_RETURN aes_test_alignment_detection(unsigned int n)	/* 4 <= n <= 16 */
-{	uint_8t	p[16];
-	uint_32t i, count_eq = 0, count_neq = 0;
+{
+    uint_8t	p[16];
+	uint_32t i = 0, count_eq = 0, count_neq = 0;
 
 	if(n < 4 || n > 16)
 		return EXIT_FAILURE;

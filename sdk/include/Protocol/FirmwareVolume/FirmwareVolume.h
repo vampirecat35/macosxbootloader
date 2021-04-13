@@ -26,13 +26,16 @@ Abstract:
 //
 // Statements that include other files
 //
-#include "EfiFirmwareVolumeHeader.h"
-#include "EfiFirmwareFileSystem.h"
-#include "EfiFirmwareVolume.h"
+#include "../../EfiFirmwareVolumeHeader.h"
+#include "../../EfiFirmwareFileSystem.h"
+#include "../../EfiFirmwareVolume.h"
 //
 // Firmware Volume Protocol GUID definition
 //
-#define EFI_FIRMWARE_VOLUME_PROTOCOL_GUID { 0x389F751F, 0x1838, 0x4388, {0x83, 0x90, 0xCD, 0x81, 0x54, 0xBD, 0x27, 0xF8} }
+#define EFI_FIRMWARE_VOLUME_PROTOCOL_GUID \
+  { \
+      0x389F751F, 0x1838, 0x4388, { 0x83, 0x90, 0xCD, 0x81, 0x54, 0xBD, 0x27, 0xF8 } \
+  }
 
 
 EFI_FORWARD_DECLARATION (EFI_FIRMWARE_VOLUME_PROTOCOL);

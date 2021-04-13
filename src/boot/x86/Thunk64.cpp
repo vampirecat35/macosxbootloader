@@ -5,7 +5,7 @@
 //	purpose:	64bits thunk
 //********************************************************************
 
-#include "StdAfx.h"
+#include "../StdAfx.h"
 
 //
 // 64 bits configuration table
@@ -107,7 +107,7 @@ VOID ArchSetupThunkCode0(UINT64 thunkOffset, MACH_O_LOADED_INFO* loadedInfo)
 			CsPrintf(CHAR8_CONST_STRING("PIKE: ArchSetupThunkCode01 - 0x%llx!\n"), loadedInfo->IdlePML4VirtualAddress);
 		}
 
-		EfiRuntimeServices->SetVariable(CHAR16_STRING(L"IdlePML4"), &AppleNVRAMVariableGuid, EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS, sizeof(UINT64), &ArchpKernelIdlePML4);
+		EfiRuntimeServices->SetVariable((CHAR16 *)(L"IdlePML4"), &AppleNVRAMVariableGuid, EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS, sizeof(UINT64), &ArchpKernelIdlePML4);
 	}
 	else
 	{
@@ -117,7 +117,7 @@ VOID ArchSetupThunkCode0(UINT64 thunkOffset, MACH_O_LOADED_INFO* loadedInfo)
 		}
 
 		UINTN dataSize														= sizeof(UINT64);
-		EfiRuntimeServices->GetVariable(CHAR16_STRING(L"IdlePML4"), &AppleNVRAMVariableGuid, nullptr, &dataSize, &ArchpKernelIdlePML4);
+		EfiRuntimeServices->GetVariable((CHAR16 *)(L"IdlePML4"), &AppleNVRAMVariableGuid, nullptr, &dataSize, &ArchpKernelIdlePML4);
 	}
 }
 

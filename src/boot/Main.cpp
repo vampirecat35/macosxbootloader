@@ -8,6 +8,14 @@
 #include "StdAfx.h"
 #include "DebugUsb.h"
 
+#if defined(__clang__) || defined(__GNUC__)
+#define memcpy(a,b,c) __builtin_memcpy(a,b,c)
+#endif
+
+#if defined(__clang__) || defined(__GNUC__)
+#define memset(a,b,c) __builtin_memset(a,b,c)
+#endif
+
 //
 // Read debug options.
 //
@@ -15,7 +23,7 @@ STATIC EFI_STATUS BlpReadDebugOptions(CHAR8** debugOptions)
 {
 	*debugOptions															= nullptr;
 	UINTN variableSize														= 0;
-	EFI_STATUS status														= EfiRuntimeServices->GetVariable(CHAR16_STRING(L"boot-windbg-args"), &AppleNVRAMVariableGuid, nullptr, &variableSize, nullptr);
+	EFI_STATUS status														= EfiRuntimeServices->GetVariable((CHAR16 *)(L"boot-windbg-args"), &AppleNVRAMVariableGuid, nullptr, &variableSize, nullptr);
 
 	if (status != EFI_BUFFER_TOO_SMALL)
 		return status;
@@ -26,7 +34,7 @@ STATIC EFI_STATUS BlpReadDebugOptions(CHAR8** debugOptions)
 		return EFI_OUT_OF_RESOURCES;
 
 	variableBuffer[variableSize]											= 0;
-	status																	= EfiRuntimeServices->GetVariable(CHAR16_STRING(L"boot-windbg-args"), &AppleNVRAMVariableGuid, nullptr, &variableSize, variableBuffer);
+	status																	= EfiRuntimeServices->GetVariable((CHAR16 *)(L"boot-windbg-args"), &AppleNVRAMVariableGuid, nullptr, &variableSize, variableBuffer);
 
 	if (!EFI_ERROR(status))
 		*debugOptions														= variableBuffer;
@@ -50,8 +58,8 @@ STATIC EFI_STATUS BlpSetupRomVariable()
 		UINT8 romBuffer[6]													= {0};
 		UINTN dataSize														= sizeof(romBuffer);
 
-		if (EFI_ERROR(EfiRuntimeServices->GetVariable(CHAR16_STRING(L"ROM"), &AppleFirmwareVariableGuid, nullptr, &dataSize, romBuffer)))
-			EfiRuntimeServices->SetVariable(CHAR16_STRING(L"ROM"), &AppleFirmwareVariableGuid, attribute, sizeof(romBuffer), ArchConvertAddressToPointer(0xffffff01, VOID*));
+		if (EFI_ERROR(EfiRuntimeServices->GetVariable((CHAR16 *)(L"ROM"), &AppleFirmwareVariableGuid, nullptr, &dataSize, romBuffer)))
+			EfiRuntimeServices->SetVariable((CHAR16 *)(L"ROM"), &AppleFirmwareVariableGuid, attribute, sizeof(romBuffer), ArchConvertAddressToPointer(0xffffff01, VOID*));
 
 		//
 		// Check MLB.
@@ -59,7 +67,7 @@ STATIC EFI_STATUS BlpSetupRomVariable()
 		UINT8 mlbBuffer[0x80]												= {0};
 		dataSize															= sizeof(mlbBuffer);
 
-		if (!EFI_ERROR(EfiRuntimeServices->GetVariable(CHAR16_STRING(L"MLB"), &AppleFirmwareVariableGuid, nullptr, &dataSize, mlbBuffer)))
+		if (!EFI_ERROR(EfiRuntimeServices->GetVariable((CHAR16 *)(L"MLB"), &AppleFirmwareVariableGuid, nullptr, &dataSize, mlbBuffer)))
 			try_leave(NOTHING);
 
 		//
@@ -81,7 +89,7 @@ STATIC EFI_STATUS BlpSetupRomVariable()
 					while (mlb_buffer[dataSize] != ' ')
 						dataSize											+= 1;
 
-					EfiRuntimeServices->SetVariable(CHAR16_STRING(L"MLB"), &AppleFirmwareVariableGuid, attribute, dataSize, mlb_buffer);
+					EfiRuntimeServices->SetVariable((CHAR16 *)(L"MLB"), &AppleFirmwareVariableGuid, attribute, dataSize, mlb_buffer);
 				}
 
 				break;
@@ -385,7 +393,7 @@ STATIC EFI_STATUS BlpRunAppleBoot(CHAR8 CONST* bootFileName)
 //
 // Main entry point.
 //
-EFI_STATUS EFIAPI EfiMain(EFI_HANDLE imageHandle, EFI_SYSTEM_TABLE* systemTable)
+extern "C" EFI_STATUS EFIAPI EfiMain(EFI_HANDLE imageHandle, EFI_SYSTEM_TABLE* systemTable)
 {
 	EFI_STATUS status														= EFI_SUCCESS;
 	IO_FILE_HANDLE installationFolder										= {0};

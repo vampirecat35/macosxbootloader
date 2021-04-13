@@ -5,13 +5,16 @@
 //	purpose:	compiler stub
 //********************************************************************
 
-#include "StdAfx.h"
+#include "../StdAfx.h"
+
+#ifdef _MSC_VER
 
 //
 // 64bit right shift
 //
 extern "C" int __declspec(naked) _aullshr()
 {
+#ifdef _MSC_VER
 	__asm
 	{
 		cmp			cl, 64
@@ -35,6 +38,25 @@ extern "C" int __declspec(naked) _aullshr()
 		mov			eax, edx
 		ret
 	}
+#else
+    __asm("cmp $64, %cl\n"
+          "jae RETSIGN\n"
+          "cmp $32, %cl\n"
+          "jae MORE32\n"
+          "shrd %cl, %edx, %eax\n"
+          "sar %edx, %cl\n"
+          "ret\n"
+          "MORE32:\n"
+          "mov %edx, %eax\n"
+          "sar $31, %edx\n"
+          "and $31, %cl\n"
+          "sar %cl, %eax\n"
+          "ret\n"
+          "RETSIGN:\n"
+          "sar $31, %edx\n"
+          "mov %edx, %eax\n"
+          "ret\n");
+#endif
 }
 
 //
@@ -740,3 +762,5 @@ extern "C" VOID __declspec(naked) _SEH_prolog()
 		retn
 	}
 }
+
+#endif

@@ -1,0 +1,1230 @@
+# Path: boot.efi.tmp
+# Arch: x86_64
+# Object files:
+[  0] linker synthesized
+[  1] /usr/local/lib/libmacho_static.a(arch.o)
+[  2] /usr/local/lib/libmacho_static.a(get_end.o)
+[  3] /usr/local/lib/libmacho_static.a(getsecbyname.o)
+[  4] /usr/local/lib/libmacho_static.a(getsegbyname.o)
+[  5] /usr/local/lib/libmacho_static.a(hppa_swap.o)
+[  6] /usr/local/lib/libmacho_static.a(i386_swap.o)
+[  7] /usr/local/lib/libmacho_static.a(i860_swap.o)
+[  8] /usr/local/lib/libmacho_static.a(m68k_swap.o)
+[  9] /usr/local/lib/libmacho_static.a(m88k_swap.o)
+[ 10] /usr/local/lib/libmacho_static.a(ppc_swap.o)
+[ 11] /usr/local/lib/libmacho_static.a(slot_name.o)
+[ 12] /usr/local/lib/libmacho_static.a(sparc_swap.o)
+[ 13] /usr/local/lib/libmacho_static.a(swap.o)
+[ 14] Base64.o
+[ 15] BootArgs.o
+[ 16] BootDebugger.o
+[ 17] Config.o
+[ 18] Console.o
+[ 19] Crc32.o
+[ 20] Debug1394.o
+[ 21] DebugUsb.o
+[ 22] DevicePath.o
+[ 23] DeviceTree.o
+[ 24] FileIo.o
+[ 25] FileVault.o
+[ 26] GuidDefine.o
+[ 27] Hibernate.o
+[ 28] LoadDrivers.o
+[ 29] LoadKernel.o
+[ 30] MachO.o
+[ 31] Main.o
+[ 32] MD5.o
+[ 33] Memory.o
+[ 34] MemoryMap.o
+[ 35] MiscUtils.o
+[ 36] NetBoot.o
+[ 37] Options.o
+[ 38] PanicDialog.o
+[ 39] PeImage.o
+[ 40] PlatformExpert.o
+[ 41] RuntimeLib.o
+[ 42] SHA256.o
+[ 43] AcpiUtils.o
+[ 44] ../rijndael/librijndael.a(aes_modes.o)
+[ 45] ../rijndael/librijndael.a(aeskey.o)
+[ 46] ../rijndael/librijndael.a(aestab.o)
+[ 47] ../rijndael/librijndael.a(aesxts.o)
+[ 48] ../rijndael/librijndael.a(aes_amd64.o)
+[ 49] x64/libx64.a(DebugTrap.o)
+[ 50] x64/libx64.a(CompilerX64.o)
+[ 51] x64/libx64.a(ArchUtilsX64.o)
+[ 52] x64/libx64.a(DebuggerUtilsX64.o)
+[ 53] x64/libx64.a(PortRegisterIo.o)
+[ 54] x64/libx64.a(TransferRoutine.o)
+# Sections:
+# Address	Size    	Segment	Section
+0x00000240	0x0001D380	__TEXT	__text
+0x0001D5C0	0x00000F2E	__TEXT	__cstring
+0x0001E500	0x0000067C	__TEXT	__ustring
+0x0001EB80	0x000028C0	__TEXT	__const
+0x00021440	0x00003480	__TEXT	__eh_frame
+0x000248C0	0x00000118	__DATA	__const
+0x000249E0	0x00024A40	__DATA	__data
+0x00049420	0x00005670	__DATA	__bss
+0x0004EAA0	0x00002098	__DATA	__common
+# Symbols:
+# Address	Size    	File  Name
+0x00000240	0x00000000	[  0] ___dso_handle
+0x00000240	0x0000018B	[ 14] ?Base64Decode@@YA_KPEBE_KPEAXPEA_K@Z
+0x000003CB	0x00000039	[ 15] ?BlAddMemoryRangeNode@@YA_KPEBE_K1@Z
+0x00000404	0x000007B9	[ 15] ?BlInitializeBootArgs@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@0PEAXPEBEPEAPEAU_BOOT_ARGS@@@Z
+0x00000BBD	0x000000AD	[ 15] ?BlAddBooterInfo@@YA_KPEAU_DEVICE_TREE_NODE@@@Z
+0x00000C6A	0x00000490	[ 15] ?BlFinalizeBootArgs@@YA_KPEAU_BOOT_ARGS@@PEBEPEAXPEAU_MACH_O_LOADED_INFO@@@Z
+0x000010FA	0x000000B8	[ 15] ?BlInitCSRState@@YA_KPEAU_BOOT_ARGS@@@Z
+0x000011B4	0x0000001A	[ 16] ?BdCopyMemory@@YAXPEAX0I@Z
+0x000011CE	0x000000FA	[ 16] ?BdMoveMemory@@YAIPEAX0I@Z
+0x000012C8	0x0000001A	[ 16] ?BdpWriteCheck@@YAEPEAX@Z
+0x000012E2	0x0000001A	[ 16] ?BdComputeChecksum@@YAIPEAXI@Z
+0x000012FC	0x00000062	[ 16] ?BdDeleteBreakpointRange@@YAE_K0@Z
+0x0000135E	0x00000053	[ 16] ?BdpDeleteBreakpoint@@YAEI@Z
+0x000013B1	0x000000E7	[ 16] ?BdReportExceptionStateChange@@YAXPEAU_EXCEPTION_RECORD@@PEAU_CONTEXT@@@Z
+0x00001498	0x00001170	[ 16] ?BdpSendWaitContinue@@YAIIPEAU_STRING@@0PEAU_CONTEXT@@@Z
+0x00002608	0x0000010C	[ 16] ?BdReportLoadSymbolsStateChange@@YAXPEAU_STRING@@PEAU_KD_SYMBOLS_INFO@@EPEAU_CONTEXT@@@Z
+0x00002714	0x00000083	[ 16] ?BdPrintString@@YAEPEAU_STRING@@@Z
+0x00002797	0x00000063	[ 16] ?BdPollBreakIn@@YAEXZ
+0x000027FA	0x000000F3	[ 16] ?BdPromptString@@YAEPEAU_STRING@@0@Z
+0x000028ED	0x0000022B	[ 16] ?BdInitialize@@YA_KPEBE@Z
+0x00002B18	0x000000BD	[ 16] ?BdFinalize@@YA_KXZ
+0x00002BD7	0x0000002D	[ 16] ?BdPollConnection@@YAXXZ
+0x00002C04	0x0000006B	[ 16] ?DbgPrint@@YAIPEBEZZ
+0x00002C6F	0x00000055	[ 16] ?DbgLoadImageSymbols@@YAXPEAU_UNICODE_STRING@@PEAX_K@Z
+0x00002CC4	0x0000006F	[ 16] ?DbgLoadImageSymbols@@YAXPEAU_STRING@@PEAX_K@Z
+0x00002D34	0x00000033	[ 16] ?DbgUnLoadImageSymbols@@YAXPEAU_STRING@@PEAX_K@Z
+0x00002D67	0x00000067	[ 16] ?BdpLowWriteContent@@YAEI@Z
+0x00002DCE	0x0000007A	[ 16] ?BdpReadPciConfigSpace@@YAXIIIIPEAXI@Z
+0x00002E48	0x00000052	[ 16] ?BdpWritePciConfigSpace@@YAXIIIIPEAXI@Z
+0x00002E9A	0x00000057	[ 16] ?BdpValidatePciSlot@@YAEIII@Z
+0x00002EF1	0x00000135	[ 16] ?BdpReadWritePciConfigSpace@@YAXIIIIPEAXIE@Z
+0x00003026	0x000000B2	[ 16] ?BdpAddBreakpoint@@YAI_K@Z
+0x000030D8	0x000000A1	[ 17] ?CmParseXmlFile@@YA_KPEAEPEAPEAU_XML_TAG@@@Z
+0x00003179	0x00000452	[ 17] ?CmpParseNextTag@@YA_JPEAEPEAPEAU_XML_TAG@@@Z
+0x000035CB	0x000000BB	[ 17] ?CmFreeTag@@YAXPEAU_XML_TAG@@@Z
+0x00003686	0x00000172	[ 17] ?CmGetStringValueForKeyAndCommandLine@@YAPEBEPEBE0PEA_KE@Z
+0x000037F8	0x00000057	[ 17] ?CmGetStringValueForKey@@YAPEBEPEAU_XML_TAG@@PEBEPEA_K@Z
+0x0000384F	0x00000077	[ 17] ?CmSerializeValueForKey@@YAPEBEPEBEPEA_K@Z
+0x000038C6	0x0000005B	[ 17] ?CmGetTagValueForKey@@YAPEAU_XML_TAG@@PEAU1@PEBE@Z
+0x00003921	0x0000016A	[ 17] ?CmpTagToString@@YAXPEAU_XML_TAG@@PEAPEAEPEA_K2@Z
+0x00003A8B	0x00000049	[ 17] ?CmGetIntegerValueForKey@@YA_KPEBEPEA_J@Z
+0x00003AD4	0x00000029	[ 17] ?CmGetListTagElementsCount@@YA_KPEAU_XML_TAG@@@Z
+0x00003AFD	0x00000036	[ 17] ?CmGetListTagElementByIndex@@YAPEAU_XML_TAG@@PEAU1@_K@Z
+0x00003B33	0x00000055	[ 17] ?CmpEmitFormatString@@YAXPEBEEPEAPEAEPEA_K2ZZ
+0x00003B88	0x00000104	[ 17] ?CmpEmitString@@YAXPEBEEPEAPEAEPEA_K2@Z
+0x00003C8C	0x00000050	[ 17] ?CmpGetToken@@YAXPEBEPEAPEBEPEA_K@Z
+0x00003CDC	0x00000062	[ 17] ?CmpFindSymbol@@YAPEAU_XML_SYMBOL@@PEBEPEAPEAU1@@Z
+0x00003D3E	0x00000065	[ 17] ?CmpGetNextTag@@YA_JPEAEPEAPEAEPEA_J@Z
+0x00003DA3	0x000000FC	[ 17] ?CmpParseTagList@@YA_JPEAEPEAPEAU_XML_TAG@@_KE@Z
+0x00003E9F	0x0000005C	[ 17] ?CmpParseTagBoolean@@YA_JPEAEPEAPEAU_XML_TAG@@_K@Z
+0x00003EFB	0x00000090	[ 17] ?CmpNewTag@@YAPEAU_XML_TAG@@XZ
+0x00003F8B	0x000000AF	[ 17] ?CmpFixDataMatchingTag@@YA_JPEAEPEBE@Z
+0x0000403A	0x0000006B	[ 17] ?CmpNewSymbol@@YAPEAEPEAE@Z
+0x000040A5	0x00000205	[ 18] ?CspLoadLogoFile@@YA_KPEBEPEAPEAUEFI_UGA_PIXEL@@PEA_K2@Z
+0x000042AA	0x0000014A	[ 18] ?CsInitialize@@YA_KXZ
+0x000043F4	0x0000003F	[ 18] ?CsSetConsoleMode@@YA_KEE@Z
+0x00004433	0x000000CC	[ 18] ?CsInitializeGraphMode@@YA_KXZ
+0x000044FF	0x000001F3	[ 18] ?CsInitializeBootVideo@@YA_KPEAU_BOOT_VIDEO_V1@@@Z
+0x000046F2	0x00000107	[ 18] ?CsPrintf@@YAXPEBEZZ
+0x000047F9	0x00000122	[ 18] ?CsConnectDevice@@YA_KEE@Z
+0x0000491B	0x00000038	[ 18] ?CspRestoreGraphConfig@@YA_KIPEAX00@Z
+0x00004953	0x0000045F	[ 18] ?CsDrawBootImage@@YA_KE@Z
+0x00004DB2	0x0000002F	[ 18] ?CsClearScreen@@YAXXZ
+0x00004DE1	0x0000006E	[ 18] ?CspDrawRect@@YA_K_K000PEAUEFI_UGA_PIXEL@@@Z
+0x00004E4F	0x000000A0	[ 18] ?CspConvertImage@@YA_KPEAPEAUEFI_UGA_PIXEL@@PEBE_K221@Z
+0x00004EEF	0x000000D0	[ 18] ?CspIndicatorRefreshTimerEventNotifyRoutine@@YAXPEAX0@Z
+0x00004FBF	0x000000F2	[ 18] ?CsDrawPanicImage@@YA_KXZ
+0x000050B1	0x0000016A	[ 18] ?CsSetupDeviceTree@@YA_KPEAU_BOOT_ARGS@@@Z
+0x0000521B	0x00000062	[ 18] ?CspFillRect@@YA_K_K000UEFI_UGA_PIXEL@@@Z
+0x0000527D	0x0000003F	[ 18] ?CsFinalize@@YA_KXZ
+0x000052BC	0x0000098B	[ 18] ?CsDrawPreview@@YAXPEAU_HIBERNATE_PREVIEW@@IQEAY0CG@EEEPEAH@Z
+0x00005C47	0x00000231	[ 18] ?CsUpdateProgress@@YAXQEAY0CG@E_K1@Z
+0x00005E78	0x00000031	[ 19] ?BlCrc32@@YAIIPEBX_K@Z
+0x00005EAC	0x0000023E	[ 20] ?Bd1394ReceivePacket@@YAIIPEAU_STRING@@0PEAI@Z
+0x000060EA	0x000000F6	[ 20] ?Bd1394pEnablePhysicalAccess@@YAXPEAU_DBG1394_GLOBAL_DATA@@@Z
+0x000061E0	0x000001C0	[ 20] ?Bd1394SendPacket@@YAXIPEAU_STRING@@0@Z
+0x000063A0	0x0000025C	[ 20] ?Bd1394ConfigureDebuggerDevice@@YA_KPEBE@Z
+0x000065FC	0x00000474	[ 20] ?Bd1394pInitializeController@@YAEI@Z
+0x00006A70	0x00000042	[ 20] ?Bd1394CloseDebuggerDevice@@YA_KXZ
+0x00006AB2	0x0000002B	[ 20] ?Bd1394pGetPhysicalAddress@@YA_KPEAX@Z
+0x00006ADD	0x00000063	[ 20] ?Bd1394pCalculateCrc@@YAGPEAXI@Z
+0x00006B40	0x0000012F	[ 21] ?BdUsbpLocateDebugPortRegister@@YAPEAXPEAU_DEBUG_USB_GLOBAL_DATA@@PEAU_EFI_PCI_IO_PROTOCOL@@@Z
+0x00006C6F	0x0000009E	[ 21] ?BdUsbpClearAndWaitConnectChange@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@I@Z
+0x00006D0D	0x00000052	[ 21] ?BdUsbpWait@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@I@Z
+0x00006D5F	0x000001CD	[ 21] ?BdUsbSendPacket@@YAXIPEAU_STRING@@0@Z
+0x00006F2C	0x000000E3	[ 21] ?BdUsbpSendBuffers@@YAXPEAU_DEBUG_USB_GLOBAL_DATA@@PEBU_DEBUG_USB_SEND_BUFFER@@I@Z
+0x0000700F	0x0000032D	[ 21] ?BdUsbReceivePacket@@YAIIPEAU_STRING@@0PEAI@Z
+0x0000733C	0x000001F8	[ 21] ?BdUsbpReadDebuggerPacket@@YAIPEAU_DEBUG_USB_GLOBAL_DATA@@IPEAU_KD_PACKET@@PEAU_STRING@@2@Z
+0x00007534	0x00000048	[ 21] ?BdUsbpSendControlPacket@@YAXPEAU_DEBUG_USB_GLOBAL_DATA@@II@Z
+0x0000757C	0x00000394	[ 21] ?BdUsbConfigureDebuggerDevice@@YA_KPEBE@Z
+0x00007910	0x0000002C	[ 21] ?BdUsbCloseDebuggerDevice@@YA_KXZ
+0x0000793C	0x000003CC	[ 21] ?BdUsbpTryInitializeDevice@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@EPEAE@Z
+0x00007D08	0x00000077	[ 21] ?BdUsbpHaltController@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@@Z
+0x00007D7F	0x00000128	[ 21] ?BdUsbpControlWrite@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@EPEBU_DEBUG_USB_SETUP_PACKET@@PEAXI@Z
+0x00007EA7	0x00000036	[ 21] ?BdUsbpCheckReinitializeDevice@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@@Z
+0x00007EDD	0x000001A7	[ 21] ?BdUsbpReadPacketOnce@@YAIPEAU_DEBUG_USB_GLOBAL_DATA@@PEAXPEAI@Z
+0x00008084	0x000000C3	[ 21] ?BdUsbpReinitializeDevice@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@@Z
+0x00008147	0x000001B7	[ 21] ?BdUsbpSendPacket@@YAIPEAU_DEBUG_USB_GLOBAL_DATA@@PEBXI@Z
+0x000082FE	0x0000003E	[ 22] ?DevPathGetSize@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x0000833C	0x00000035	[ 22] ?DevPathGetNodeCount@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x00008371	0x00000047	[ 22] ?DevPathGetNode@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU1@EE@Z
+0x000083B8	0x00000053	[ 22] ?DevPathDuplicate@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU1@@Z
+0x0000840B	0x00000095	[ 22] ?DevPathAppendDevicePath@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU1@0@Z
+0x000084A0	0x000000E2	[ 22] ?DevPathAppendFilePath@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU1@PEBG@Z
+0x00008582	0x000001C1	[ 22] ?DevPathAppendLastComponent@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU1@PEBEE@Z
+0x00008743	0x000001BE	[ 22] ?DevPathExtractFilePathName@@YAPEAEPEAUEFI_DEVICE_PATH_PROTOCOL@@E@Z
+0x00008901	0x0000003B	[ 22] ?DevPathHasMacAddressNode@@YAEPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x0000893C	0x00000032	[ 22] ?DevPathGetDevicePathProtocol@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAX@Z
+0x0000896E	0x0000004A	[ 22] ?DevPathGetPartitionNumber@@YAIPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x000089B8	0x00000148	[ 22] ?DevPathGetPartitionHandleByNumber@@YAPEAXPEAUEFI_DEVICE_PATH_PROTOCOL@@I@Z
+0x00008B00	0x00000031	[ 23] ?DevTreeInitialize@@YA_KXZ
+0x00008B31	0x0000015B	[ 23] ?DevTreeAddChild@@YAPEAU_DEVICE_TREE_NODE@@PEAU1@PEBE@Z
+0x00008C8C	0x0000004B	[ 23] ?DevTreeGetName@@YAPEBEPEAU_DEVICE_TREE_NODE@@@Z
+0x00008CD7	0x00000056	[ 23] ?DevTreeGetProperty@@YAPEBXPEAU_DEVICE_TREE_NODE@@PEBEPEAI@Z
+0x00008D2D	0x000000E2	[ 23] ?DevTreeFindNode@@YAPEAU_DEVICE_TREE_NODE@@PEBEE@Z
+0x00008E0F	0x0000014A	[ 23] ?DevTreeAddProperty@@YA_KPEAU_DEVICE_TREE_NODE@@PEBEPEBXIE@Z
+0x00008F59	0x0000009B	[ 23] ?DevTreeFinalize@@YAXXZ
+0x00008FF4	0x00000097	[ 23] ?DevTreeFlatten@@YA_KPEAPEAXPEAI@Z
+0x0000908B	0x0000009F	[ 23] ?DevTreepFlattenNode@@YAPEAEPEAU_DEVICE_TREE_NODE@@PEAE@Z
+0x0000912A	0x00000280	[ 24] ?IoDetectRoot@@YA_KPEAPEAXPEAPEAUEFI_DEVICE_PATH_PROTOCOL@@E@Z
+0x000093AA	0x00000205	[ 24] ?IopDetectRoot@@YA_KPEAXPEAUEFI_DEVICE_PATH_PROTOCOL@@E@Z
+0x000095AF	0x00000224	[ 24] ?IoLoadBooterWithRootUUID@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@PEBEPEAPEAX@Z
+0x000097D3	0x00000022	[ 24] ?IoBootingFromNet@@YAEXZ
+0x000097F5	0x0000018F	[ 24] ?IoOpenFile@@YA_KPEBEPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU_IO_FILE_HANDLE@@_K@Z
+0x00009984	0x0000001E	[ 24] ?IoSetFilePosition@@YA_KPEAU_IO_FILE_HANDLE@@_K@Z
+0x000099A2	0x000000B3	[ 24] ?IoGetFileSize@@YA_KPEAU_IO_FILE_HANDLE@@PEA_K@Z
+0x00009A55	0x000000BC	[ 24] ?IoGetFileInfo@@YA_KPEAU_IO_FILE_HANDLE@@PEAPEAUEFI_FILE_INFO@@@Z
+0x00009B11	0x000001A2	[ 24] ?IoReadFile@@YA_KPEAU_IO_FILE_HANDLE@@PEAX_KPEA_KE@Z
+0x00009CB3	0x00000049	[ 24] ?IoCloseFile@@YAXPEAU_IO_FILE_HANDLE@@@Z
+0x00009CFC	0x0000014B	[ 24] ?IoReadWholeFile@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@PEBEPEAPEAEPEA_KE@Z
+0x00009E47	0x0000014C	[ 24] ?IopCheckRPS@@YA_KPEAU_EFI_FILE@@PEAPEAU1@@Z
+0x00009F94	0x00000920	[ 25] ?FvLookupUnlockCoreVolumeKey@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@E@Z
+0x0000A8B4	0x000000DA	[ 25] ?FvFindCoreVolumeKey@@YAEPEBEPEAE_K@Z
+0x0000A98E	0x00000247	[ 25] ?FvSetupDeviceTree@@YA_KPEA_K0E@Z
+0x0000ABD5	0x00000238	[ 25] ?FvpReadInput@@YAXPEAPEAEPEA_K_KE@Z
+0x0000AE0D	0x00000422	[ 25] ?FvpDecryptVolumeKEKWithUserPassword@@YA_KPEAU_XML_TAG@@0PEBE@Z
+0x0000B22F	0x00000060	[ 25] ?FvpKeyUnwrapData@@YAEPEBX_KPEAU_KEY_WRAPPED_DATA@@PEAU_KEY_UNWRAPPED_DATA@@@Z
+0x0000B28F	0x00000174	[ 25] ?FvpAESUnwrap@@YAEPEBX_K101PEAXPEA_K@Z
+0x0000B403	0x0000013D	[ 25] ?FvpVerifyKeyData@@YAEPEAU_KEY_SIGN_DATA@@PEBX_K@Z
+0x0000B540	0x00000226	[ 25] ?FvpHMACSHA256@@YAXPEBX_K01PEAE@Z
+0x0000B766	0x00000024	[ 26] ?isEfiNullGuid@@YAEPEAUEFI_GUID@@@Z
+0x0000B78A	0x00000C0C	[ 27] ?HbpContinueResumeFromHibernate@@YAXPEBE_KE@Z
+0x0000C396	0x0000040F	[ 27] ?HbStartResumeFromHibernate@@YAEPEAE@Z
+0x0000C7A5	0x00000064	[ 27] ?HbContinueResumeFromHibernate@@YAXPEAE_K@Z
+0x0000C809	0x00000333	[ 28] ?LdrLoadDrivers@@YA_KXZ
+0x0000CB3C	0x000003F4	[ 28] ?LdrpLoadDrivers@@YA_KPEBEE@Z
+0x0000CF30	0x00000230	[ 28] ?LdrpLoadDriverPList@@YA_KPEBE0E@Z
+0x0000D160	0x00000136	[ 29] ?LdrSetupASLR@@YAXEE@Z
+0x0000D296	0x0000000D	[ 29] ?LdrGetASLRDisplacement@@YA_KXZ
+0x0000D2A3	0x0000000D	[ 29] ?LdrGetKernelPathName@@YAPEBEXZ
+0x0000D2B0	0x0000000D	[ 29] ?LdrGetKernelCachePathName@@YAPEBEXZ
+0x0000D2BD	0x0000000D	[ 29] ?LdrGetKernelCacheOverride@@YAEXZ
+0x0000D2CA	0x0000001B	[ 29] ?LdrSetupKernelCachePath@@YAXPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAEE@Z
+0x0000D2E5	0x00000014	[ 29] ?LdrSetupKernelPath@@YAXPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAE@Z
+0x0000D2F9	0x00000014	[ 29] ?LdrSetupRamDiskPath@@YAXPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAE@Z
+0x0000D30D	0x0000069F	[ 29] ?LdrLoadKernelCache@@YA_KPEAU_MACH_O_LOADED_INFO@@PEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x0000D9AC	0x00000089	[ 29] ?LdrLoadKernel@@YA_KPEAU_MACH_O_LOADED_INFO@@@Z
+0x0000DA35	0x000000F8	[ 29] ?LdrLoadRamDisk@@YA_KXZ
+0x0000DB2D	0x000000BE	[ 30] ?MachpLoadMachOThinFatFile@@YA_KPEAU_IO_FILE_HANDLE@@PEA_K1@Z
+0x0000DBEB	0x000001A9	[ 30] ?MachLoadThinFatFile@@YA_KPEAU_IO_FILE_HANDLE@@PEA_K1@Z
+0x0000DD94	0x00000034	[ 30] ?MachpGetFirstSegment64@@YAPEAU_SEGMENT_COMMAND64@@PEAU_MACH_HEADER64@@@Z
+0x0000DDC8	0x00000069	[ 30] ?MachpGetNextSegment64@@YAPEAU_SEGMENT_COMMAND64@@PEAU_MACH_HEADER64@@PEAU1@@Z
+0x0000DE31	0x0000001C	[ 30] ?MachpGetFirstSection64@@YAPEAU_SECTION64@@PEAU_SEGMENT_COMMAND64@@@Z
+0x0000DE4D	0x00000046	[ 30] ?MachpGetNextSection64@@YAPEAU_SECTION64@@PEAU_SEGMENT_COMMAND64@@PEAU1@@Z
+0x0000DE93	0x00000660	[ 30] ?MachLoadMachO@@YA_KPEAU_IO_FILE_HANDLE@@PEAU_MACH_O_LOADED_INFO@@@Z
+0x0000E4F3	0x00000BA0	[ 31] _EfiMain
+0x0000F093	0x0000002F	[ 32] ?MD5Init@@YAXPEAU_MD5_CONTEXT@@@Z
+0x0000F0C2	0x000000FE	[ 32] ?MD5Update@@YAXPEAU_MD5_CONTEXT@@PEBXI@Z
+0x0000F1C0	0x00000762	[ 32] ?MD5pTransform@@YAXIIIIPEBEPEAU_MD5_CONTEXT@@@Z
+0x0000F922	0x0000009B	[ 32] ?MD5Final@@YAXPEAEPEAU_MD5_CONTEXT@@@Z
+0x0000F9BD	0x00000057	[ 33] ?MmAllocatePool@@YAPEAX_K@Z
+0x0000FA14	0x00000103	[ 33] ?MmpInsertMemoryTag@@YAXPEAX_K1@Z
+0x0000FB17	0x0000003A	[ 33] ?MmFreePool@@YAXPEAX@Z
+0x0000FB51	0x00000050	[ 33] ?MmpRemoveMemoryTag@@YAXPEAX_K@Z
+0x0000FBA1	0x0000004F	[ 33] ?MmAllocatePages@@YAPEAXW4EFI_ALLOCATE_TYPE@@W4EFI_MEMORY_TYPE@@_KPEA_K@Z
+0x0000FBF0	0x00000061	[ 33] ?MmFreePages@@YAX_K@Z
+0x0000FC51	0x00000043	[ 33] ?MmpFindMemoryTag@@YAPEAU_MEMORY_TAG@@PEAX_KPEAPEAU1@@Z
+0x0000FC94	0x00000008	[ 33] ?MmInitialize@@YA_KXZ
+0x0000FC9C	0x00000101	[ 33] ?MmAllocateKernelMemory@@YA_KPEA_K0@Z
+0x0000FD9D	0x00000074	[ 33] ?MmFreeKernelMemory@@YAX_K0@Z
+0x0000FE11	0x0000001A	[ 33] ?MmGetKernelPhysicalRange@@YAXPEA_K0@Z
+0x0000FE2B	0x0000000D	[ 33] ?MmGetKernelVirtualStart@@YA_KXZ
+0x0000FE38	0x00000109	[ 34] ?MmGetMemoryMap@@YA_KPEA_KPEAPEAUEFI_MEMORY_DESCRIPTOR@@00PEAI@Z
+0x0000FF41	0x00000037	[ 34] ?MmGetRuntimeMemoryInfo@@YA_KPEAUEFI_MEMORY_DESCRIPTOR@@_K1PEA_K@Z
+0x0000FF78	0x0000005B	[ 34] ?MmRemoveNonRuntimeDescriptors@@YA_KPEAUEFI_MEMORY_DESCRIPTOR@@PEA_K_K@Z
+0x0000FFD3	0x0000010F	[ 34] ?MmSortMemoryMap@@YAXPEAUEFI_MEMORY_DESCRIPTOR@@_K1@Z
+0x000100E2	0x00000133	[ 34] ?MmpCreateSubRegion@@YAXPEAUEFI_MEMORY_DESCRIPTOR@@PEA_K_KIPEAPEAU1@22@Z
+0x00010215	0x0000037C	[ 34] ?MmConvertPointers@@YA_KPEAUEFI_MEMORY_DESCRIPTOR@@PEA_K_KI2221EPEAU_MACH_O_LOADED_INFO@@@Z
+0x00010591	0x0000000D	[ 35] ?BlGetMemorySize@@YA_KXZ
+0x0001059E	0x0000005F	[ 35] ?BlGetBoardId@@YAPEAEXZ
+0x000105FF	0x00000088	[ 35] ?BlConnectAllController@@YA_KXZ
+0x00010687	0x00000074	[ 35] ?BlGetApplicationBaseAndSize@@YA_KPEA_K0@Z
+0x000106FB	0x000000DA	[ 35] ?BlParseDeviceLocation@@YAXPEBEPEA_K111@Z
+0x000107D5	0x00000081	[ 35] ?BlGetPciBarAttribute@@YA_KPEAU_EFI_PCI_IO_PROTOCOL@@EPEA_K1PEAE@Z
+0x00010856	0x000001F0	[ 35] ?BlFindPciDevice@@YA_K_K000EEEPEAPEAU_EFI_PCI_IO_PROTOCOL@@PEAPEAX@Z
+0x00010A46	0x00000040	[ 35] ?BlStartPciDevice@@YA_KPEAU_EFI_PCI_IO_PROTOCOL@@EEE@Z
+0x00010A86	0x00000048	[ 35] ?BlpGetStringFromSMBIOSTable@@YAPEAEPEAEE@Z
+0x00010ACE	0x0000022D	[ 35] ?BlDetectMemorySize@@YA_KXZ
+0x00010CFB	0x00000104	[ 35] ?BlUnicodeToUtf8@@YA_KPEBG_KPEAE1@Z
+0x00010DFF	0x00000050	[ 35] ?BlUnicodeToAnsi@@YA_KPEBG_KPEAE1@Z
+0x00010E4F	0x000000ED	[ 35] ?BlUtf8ToUnicode@@YA_KPEBE_KPEAG1@Z
+0x00010F3C	0x0000006B	[ 35] ?BlAllocateUtf8FromUnicode@@YAPEAEPEBG_K@Z
+0x00010FA7	0x0000006C	[ 35] ?BlAllocateUnicodeFromUtf8@@YAPEAGPEBE_K@Z
+0x00011013	0x00000039	[ 35] ?BlAllocateString@@YAPEAEPEBE@Z
+0x0001104C	0x00000036	[ 35] ?BlConvertPathSeparator@@YAXPEAEEE@Z
+0x00011082	0x00000685	[ 35] ?BlUUIDStringToBuffer@@YAEPEBEPEAE@Z
+0x00011707	0x00000074	[ 35] ?BlCompareTime@@YA_JPEAUEFI_TIME@@0@Z
+0x0001177B	0x000000DB	[ 35] ?BlAddOneSecond@@YAXPEAUEFI_TIME@@@Z
+0x00011856	0x000001AC	[ 35] ?BlEfiTimeToUnixTime@@YAIPEBUEFI_TIME@@@Z
+0x00011A02	0x00000033	[ 35] ?BlGetCurrentUnixTime@@YAIXZ
+0x00011A35	0x000000AD	[ 35] ?BlAdler32@@YAIPEBX_K@Z
+0x00011AE2	0x0000012E	[ 35] ?BlDecompressLZSS@@YA_KPEBX_KPEAX1PEA_K@Z
+0x00011C10	0x000005E0	[ 35] ?BlDecompressLZVN@@YA_KPEBX_KPEAX1PEA_K@Z
+0x000121F0	0x000000D1	[ 36] ?NetGetRootMatchDict@@YAPEBEPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x000122C1	0x00000147	[ 36] ?NetSetupDeviceTree@@YA_KPEAX@Z
+0x00012408	0x00000120	[ 37] ?BlSetupKernelCommandLine@@YAPEAEPEBE00@Z
+0x00012528	0x000000DC	[ 37] ?BlpCopyArgs@@YAXPEAEPEBE@Z
+0x00012604	0x0000000E	[ 37] ?BlTestBootMode@@YAII@Z
+0x00012612	0x000005AA	[ 37] ?BlDetectHotKey@@YA_KXZ
+0x00012BBC	0x00000016	[ 37] ?BlSetBootMode@@YAXII@Z
+0x00012BD2	0x00000748	[ 37] ?BlProcessOptions@@YA_KPEBEPEAPEAEPEAUEFI_DEVICE_PATH_PROTOCOL@@2@Z
+0x0001331A	0x000000A5	[ 37] ?BlpSetupPathFromVariable@@YAXPEAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAPEAEPEBG@Z
+0x000133BF	0x00000112	[ 37] ?BlpSetupPathFromCommandLine@@YA_KPEAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAPEAEPEBE2PEAU1@PEAE@Z
+0x000134D1	0x0000005C	[ 37] ?BlpReadKernelFlags@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@PEBEPEAPEBE@Z
+0x0001352D	0x0000066C	[ 38] ?BlShowPanicDialog@@YAXPEAPEAE@Z
+0x00013B99	0x0000002A	[ 39] ?PeImageNtHeader@@YAPEAUEFI_IMAGE_NT_HEADERS64@@PEAX@Z
+0x00013BC3	0x00000009	[ 39] ?PeImageGetSize@@YAIPEAX@Z
+0x00013BCC	0x00000009	[ 39] ?PeImageGetChecksum@@YAIPEAX@Z
+0x00013BD5	0x00000028	[ 39] ?PeImageGetEntryPoint@@YAPEAXPEAX@Z
+0x00013BFD	0x00000186	[ 40] ?PeInitialize@@YA_KXZ
+0x00013D83	0x00000107	[ 40] ?PeGetModelName@@YAPEBEXZ
+0x00013E8A	0x00000617	[ 40] ?PeSetupDeviceTree@@YA_KXZ
+0x000144A4	0x00000021	[ 41] _memcpy
+0x000144C5	0x0000001B	[ 41] _memset
+0x000144E0	0x00000034	[ 41] _memcmp
+0x00014514	0x0000001C	[ 41] _wcslen
+0x00014530	0x0000001A	[ 41] _strlen
+0x0001454A	0x00000026	[ 41] _strcmp
+0x00014570	0x00000047	[ 41] _strcat
+0x000145B7	0x0000002A	[ 41] _strcpy
+0x000145E1	0x0000005D	[ 41] _strnicmp
+0x0001463E	0x00000047	[ 41] _strncpy
+0x00014685	0x00000057	[ 41] _strstr
+0x000146DC	0x0000001F	[ 41] _snprintf
+0x000146FB	0x000005F9	[ 41] _vsnprintf
+0x00014CF4	0x0000007A	[ 41] _atoi
+0x00014D6E	0x0000007A	[ 41] _atoi64
+0x00014DE8	0x00000093	[ 41] _strtoul64_base16
+0x00014E7B	0x0000004B	[ 42] ?SHA256_Init@@YAXPEAU_SHA256_CONTEXT@@@Z
+0x00014EC6	0x000000D4	[ 42] ?SHA256_Update@@YAXPEBX_KPEAU_SHA256_CONTEXT@@@Z
+0x00014F9A	0x000027DB	[ 42] ?SHA256_Transform@@YAXPEBEPEAU_SHA256_CONTEXT@@@Z
+0x00017775	0x0000015F	[ 42] ?SHA256_Final@@YAXPEAEPEAU_SHA256_CONTEXT@@@Z
+0x000178D4	0x0000004F	[ 42] ?SHA256@@YAXPEBX_KPEAE@Z
+0x00017923	0x0000012D	[ 43] ?AcpipGetTable@@YAPEBXI@Z
+0x00017A50	0x0000000F	[ 43] ?AcpiGetFixedAcpiDescriptionTable@@YAPEBXXZ
+0x00017A5F	0x00000059	[ 43] ?AcpiGetPciConfigSpaceInfo@@YA_KPEA_KPEAI1@Z
+0x00017AB8	0x00000054	[ 43] ?AcpiGetMachineSignature@@YA_KPEAI@Z
+0x00017B0C	0x000000E6	[ 43] ?AcpiDetectNVSMemory@@YAXXZ
+0x00017BF2	0x000001E2	[ 43] ?AcpiAdjustMemoryMap@@YA_KPEAUEFI_MEMORY_DESCRIPTOR@@_K1@Z
+0x00017DD4	0x0000015B	[ 44] _aes_cbc_decrypt
+0x00017F2F	0x0000045B	[ 45] _aes_encrypt_key128
+0x0001838A	0x0000045D	[ 45] _aes_encrypt_key192
+0x000187E7	0x000005CD	[ 45] _aes_encrypt_key256
+0x00018DB4	0x0000006F	[ 45] _aes_encrypt_key
+0x00018E23	0x000008CA	[ 45] _aes_decrypt_key128
+0x000196ED	0x000009EF	[ 45] _aes_decrypt_key192
+0x0001A0DC	0x00000EEB	[ 45] _aes_decrypt_key256
+0x0001AFC7	0x0000006F	[ 45] _aes_decrypt_key
+0x0001B036	0x00000069	[ 47] _xts_start
+0x0001B09F	0x00000069	[ 47] _aesedp_setup
+0x0001B108	0x00000189	[ 47] _xts_decrypt
+0x0001B291	0x0000005E	[ 47] _tweak_uncrypt
+0x0001B2EF	0x00000030	[ 47] _xts_mult_x
+0x0001B31F	0x00000006	[ 47] _xts_done
+0x0001B330	0x00000091	[ 48] _aes_encrypt
+0x0001B3C1	0x00000150	[ 48] _aes_encrypt.1
+0x0001B511	0x00000150	[ 48] _aes_encrypt.2
+0x0001B661	0x000006AC	[ 48] _aes_encrypt.3
+0x0001BD0D	0x00000023	[ 48] _aes_encrypt.4
+0x0001BD30	0x00000090	[ 48] _aes_decrypt
+0x0001BDC0	0x00000150	[ 48] _aes_decrypt.1
+0x0001BF10	0x00000150	[ 48] _aes_decrypt.2
+0x0001C060	0x000006AC	[ 48] _aes_decrypt.3
+0x0001C70C	0x0000001E	[ 48] _aes_decrypt.4
+0x0001C730	0x000000E0	[ 49] BdDispatch
+0x0001C810	0x0000004D	[ 49] ?BdTrap01@@YAXXZ
+0x0001C85D	0x00000003	[ 49] ?BdTrap01@@YAXXZ.loop_forever
+0x0001C860	0x00000053	[ 49] ?BdTrap03@@YAXXZ
+0x0001C8B3	0x0000000D	[ 49] ?BdTrap03@@YAXXZ.loop_forever
+0x0001C8C0	0x00000053	[ 49] ?BdTrap0d@@YAXXZ
+0x0001C913	0x0000000D	[ 49] ?BdTrap0d@@YAXXZ.loop_forever
+0x0001C920	0x00000066	[ 49] ?BdTrap0e@@YAXXZ
+0x0001C986	0x0000000A	[ 49] ?BdTrap0e@@YAXXZ.loop_forever
+0x0001C990	0x00000052	[ 49] ?BdTrap2d@@YAXXZ
+0x0001C9E2	0x00000002	[ 49] ?BdTrap2d@@YAXXZ.loop_forever
+0x0001C9E4	0x00000002	[ 49] ?DbgBreakPoint@@YAXXZ
+0x0001C9E6	0x00000015	[ 49] ?DbgService@@YAX_K0000@Z
+0x0001C9FB	0x00000007	[ 49] ?DbgService@@YAXPEAX0_K@Z
+0x0001CA02	0x00000066	[ 49] ?BdpSaveProcessorControlState@@YAXPEAU_KSPECIAL_REGISTERS@@@Z
+0x0001CA68	0x0000005A	[ 49] ?BdpRestoreProcessorControlState@@YAXPEAU_KSPECIAL_REGISTERS@@@Z
+0x0001CAC2	0x00000004	[ 50] ?ArchGetSegCs@@YAIXZ
+0x0001CAC6	0x00000005	[ 50] ?ArchGetIdtRegister@@YAXPEAU_DESCRIPTOR@@@Z
+0x0001CACB	0x00000005	[ 50] ?ArchSetIdtRegister@@YAXPEAU_DESCRIPTOR@@@Z
+0x0001CAD0	0x00000030	[ 50] ?MmTranslateVirtualAddress@@YAEPEAXPEA_K@Z
+0x0001CB00	0x000000A3	[ 50] ?MmTranslateVirtualAddress@@YAEPEAXPEA_K@Z.check_pml4
+0x0001CBA3	0x00000015	[ 50] ?MmTranslateVirtualAddress@@YAEPEAXPEA_K@Z.two_mb_page
+0x0001CBB8	0x00000015	[ 50] ?MmTranslateVirtualAddress@@YAEPEAXPEA_K@Z.one_gb_page
+0x0001CBCD	0x00000005	[ 50] ?MmTranslateVirtualAddress@@YAEPEAXPEA_K@Z.invalid_address
+0x0001CBD2	0x00000008	[ 50] ?MmTranslateVirtualAddress@@YAEPEAXPEA_K@Z.write_physical_address
+0x0001CBDA	0x00000001	[ 50] ?MmTranslateVirtualAddress@@YAEPEAXPEA_K@Z.finished
+0x0001CBDB	0x0000001B	[ 50] ?ArchCpuId@@YAXIPEAI000@Z
+0x0001CBF6	0x00000005	[ 50] ?ArchHardwareRandom@@YA_KXZ
+0x0001CBFB	0x00000007	[ 50] ?ArchHardwareRandom@@YA_KXZ.compute_rand
+0x0001CC02	0x00000009	[ 50] ?ArchHardwareRandom@@YA_KXZ.retry
+0x0001CC0B	0x00000010	[ 50] ?ArchGetCpuTick@@YA_KXZ
+0x0001CC1B	0x00000001	[ 50] ____chkstk_darwin
+0x0001CC1C	0x00000001	[ 50] ___C_specific_handler
+0x0001CC1D	0x00000008	[ 51] ?ArchInitialize0@@YA_KXZ
+0x0001CC25	0x00000082	[ 51] ?ArchInitialize1@@YA_KXZ
+0x0001CCA7	0x00000008	[ 51] ?ArchCheck64BitCpu@@YA_KXZ
+0x0001CCAF	0x0000003D	[ 51] ?ArchSetIdtEntry@@YAX_KIIPEAXI@Z
+0x0001CCEC	0x00000006	[ 51] ?ArchSweepIcacheRange@@YAXPEAXI@Z
+0x0001CCF2	0x0000000E	[ 51] ?ArchStartKernel@@YAXPEAX0@Z
+0x0001CD00	0x00000009	[ 52] ?BdTranslatePhysicalAddress@@YAPEAX_K@Z
+0x0001CD09	0x000000D9	[ 52] ?BdSetCommonState@@YAXIPEAU_CONTEXT@@PEAU_DBGKD_WAIT_STATE_CHANGE64@@@Z
+0x0001CDE2	0x00000067	[ 52] ?BdSetContextState@@YAXPEAU_DBGKD_WAIT_STATE_CHANGE64@@PEAU_CONTEXT@@@Z
+0x0001CE49	0x00000040	[ 52] ?BdGetStateChange@@YAXPEAU_DBGKD_MANIPULATE_STATE64@@PEAU_CONTEXT@@@Z
+0x0001CE89	0x000000B0	[ 52] ?BdReadControlSpace@@YAXPEAU_DBGKD_MANIPULATE_STATE64@@PEAU_STRING@@PEAU_CONTEXT@@@Z
+0x0001CF39	0x0000007E	[ 52] ?BdWriteControlSpace@@YAXPEAU_DBGKD_MANIPULATE_STATE64@@PEAU_STRING@@PEAU_CONTEXT@@@Z
+0x0001CFB7	0x000001DD	[ 52] ?BdTrap@@YAEPEAU_EXCEPTION_RECORD@@PEAU_KEXCEPTION_FRAME@@PEAU_KTRAP_FRAME@@@Z
+0x0001D194	0x00000101	[ 52] ?BdpSaveKframe@@YAXPEAU_KTRAP_FRAME@@PEAU_KEXCEPTION_FRAME@@PEAU_CONTEXT@@@Z
+0x0001D295	0x000000F3	[ 52] ?BdpRestoreKframe@@YAXPEAU_KTRAP_FRAME@@PEAU_KEXCEPTION_FRAME@@PEAU_CONTEXT@@@Z
+0x0001D388	0x00000132	[ 52] ?BdArchInitialize@@YA_KXZ
+0x0001D4BA	0x00000033	[ 52] ?BdArchDestroy@@YA_KXZ
+0x0001D4ED	0x00000005	[ 53] ?ARCH_READ_PORT_UINT8@@YAEPEAE@Z
+0x0001D4F2	0x00000006	[ 53] ?ARCH_READ_PORT_UINT16@@YAGPEAG@Z
+0x0001D4F8	0x00000005	[ 53] ?ARCH_READ_PORT_UINT32@@YAIPEAI@Z
+0x0001D4FD	0x00000007	[ 53] ?ARCH_WRITE_PORT_UINT8@@YAXPEAEE@Z
+0x0001D504	0x00000009	[ 53] ?ARCH_WRITE_PORT_UINT16@@YAXPEAGG@Z
+0x0001D50D	0x00000007	[ 53] ?ARCH_WRITE_PORT_UINT32@@YAXPEAII@Z
+0x0001D514	0x00000003	[ 53] ?ARCH_READ_REGISTER_UINT8@@YAEPEAE@Z
+0x0001D517	0x00000004	[ 53] ?ARCH_READ_REGISTER_UINT16@@YAGPEAG@Z
+0x0001D51B	0x00000003	[ 53] ?ARCH_READ_REGISTER_UINT32@@YAIPEAI@Z
+0x0001D51E	0x00000009	[ 53] ?ARCH_WRITE_REGISTER_UINT8@@YAXPEAEE@Z
+0x0001D527	0x0000000A	[ 53] ?ARCH_WRITE_REGISTER_UINT16@@YAXPEAGG@Z
+0x0001D531	0x0000000A	[ 53] ?ARCH_WRITE_REGISTER_UINT32@@YAXPEAII@Z
+0x0001D53B	0x00000038	[ 54] ?ArchTransferRoutineBegin@@YAXXZ
+0x0001D573	0x0000001D	[ 54] ?ArchTransferRoutineBegin@@YAXXZ.32bits_code
+0x0001D590	0x00000006	[ 54] ?ArchTransferRoutineBegin@@YAXXZ.flush
+0x0001D596	0x00000004	[ 54] ?ArchTransferRoutineBegin@@YAXXZ.far_jmp_offset
+0x0001D59A	0x00000002	[ 54] ?ArchTransferRoutineBegin@@YAXXZ.far_jmp_selector
+0x0001D59C	0x00000002	[ 54] ?ArchTransferRoutineBegin@@YAXXZ.gdtr_limit
+0x0001D59E	0x00000008	[ 54] ?ArchTransferRoutineBegin@@YAXXZ.gdtr_offset
+0x0001D5A6	0x00000008	[ 54] ?ArchTransferRoutineBegin@@YAXXZ.gdt_null
+0x0001D5AE	0x00000008	[ 54] ?ArchTransferRoutineBegin@@YAXXZ.gdt_code_32
+0x0001D5B6	0x00000008	[ 54] ?ArchTransferRoutineBegin@@YAXXZ.gdt_data_32
+0x0001D5BE	0x00000002	[ 54] ?ArchTransferRoutineEnd@@YAXXZ
+0x0001D5C0	0x00000007	[  1] literal string: x86_64
+0x0001D5C7	0x00000007	[  2] literal string: __TEXT
+0x0001D5CE	0x00000007	[  2] literal string: __DATA
+0x0001D5D5	0x00000001	[ 11] literal string: 
+0x0001D5E0	0x00000051	[ 14] literal string: |$$$}rstuvwxyz{$$$$$$$>?@ABCDEFGHIJKLMNOPQRSTUVW$$$$$$XYZ[\]^_`abcdefghijklmnopq
+0x0001D631	0x0000002C	[ 15] literal string: PIKE: bootArgs->PhysicalMemorySize= 0x%llx\n
+0x0001D65D	0x0000000E	[ 15] literal string: /efi/platform
+0x0001D66B	0x0000000D	[ 15] literal string: FSBFrequency
+0x0001D678	0x00000002	[ 15] literal string: /
+0x0001D67A	0x00000005	[ 15] literal string: ACPI
+0x0001D67F	0x0000000B	[ 15] literal string: compatible
+0x0001D68A	0x00000006	[ 15] literal string: model
+0x0001D690	0x00000008	[ 15] literal string: /chosen
+0x0001D698	0x00000013	[ 15] literal string: /chosen/memory-map
+0x0001D6AB	0x00000003	[ 15] literal string: rd
+0x0001D6AE	0x0000000B	[ 15] literal string: Root Match
+0x0001D6B9	0x0000000A	[ 15] literal string: Root UUID
+0x0001D6C3	0x00000009	[ 15] literal string: net-boot
+0x0001D6CC	0x0000000A	[ 15] literal string: boot-uuid
+0x0001D6D6	0x0000000E	[ 15] literal string: root-matching
+0x0001D6E4	0x0000000A	[ 15] literal string: boot-file
+0x0001D6EE	0x00000011	[ 15] literal string: boot-device-path
+0x0001D6FF	0x0000000F	[ 15] literal string: boot-file-path
+0x0001D70E	0x00000010	[ 15] literal string: bootroot-active
+0x0001D71E	0x0000000C	[ 15] literal string: random-seed
+0x0001D72A	0x0000000A	[ 15] literal string: boot-args
+0x0001D734	0x0000000D	[ 15] literal string: bootbase.efi
+0x0001D741	0x0000000C	[ 15] literal string: booter-name
+0x0001D74D	0x00000009	[ 15] literal string: boot.efi
+0x0001D756	0x0000000C	[ 15] literal string: version:307
+0x0001D762	0x0000000F	[ 15] literal string: booter-version
+0x0001D771	0x0000001D	[ 15] literal string: Fri Sep  4 15:34:00 PDT 2015
+0x0001D78E	0x00000012	[ 15] literal string: booter-build-time
+0x0001D7A0	0x00000014	[ 15] literal string: boot-ramdmg-extents
+0x0001D7B4	0x00000011	[ 15] literal string: boot-ramdmg-size
+0x0001D7C5	0x0000000C	[ 16] literal string: /debug=1394
+0x0001D7D1	0x0000000B	[ 16] literal string: /debug=usb
+0x0001D7DC	0x00000026	[ 16] literal string: User requested boot debugger break!\n
+0x0001D802	0x0000003E	[ 16] literal string: <?dml?><col fg="changed">BD: Boot Debugger Initialized</col>\n
+0x0001D840	0x00000007	[ 16] literal string: /break
+0x0001D847	0x00000005	[ 17] literal string: dict
+0x0001D84C	0x00000004	[ 17] literal string: key
+0x0001D850	0x00000007	[ 17] literal string: string
+0x0001D857	0x00000008	[ 17] literal string: integer
+0x0001D85F	0x00000005	[ 17] literal string: data
+0x0001D864	0x00000005	[ 17] literal string: date
+0x0001D869	0x00000006	[ 17] literal string: array
+0x0001D86F	0x00000004	[ 17] literal string: <%a
+0x0001D873	0x00000002	[ 17] literal string: >
+0x0001D875	0x00000003	[ 17] literal string: %d
+0x0001D878	0x00000006	[ 17] literal string: </%a>
+0x0001D87E	0x00000003	[ 17] literal string: />
+0x0001D881	0x00000005	[ 17] literal string: &lt;
+0x0001D886	0x00000005	[ 17] literal string: &gt;
+0x0001D88B	0x00000006	[ 17] literal string: &amp;
+0x0001D891	0x00000007	[ 17] literal string: plist 
+0x0001D898	0x00000006	[ 17] literal string: dict/
+0x0001D89E	0x00000007	[ 17] literal string: false/
+0x0001D8A5	0x00000006	[ 17] literal string: true/
+0x0001D8AB	0x00000007	[ 17] literal string: array/
+0x0001D8B2	0x00000011	[ 18] literal string: Background Color
+0x0001D8C3	0x0000000B	[ 18] literal string: FailedCLUT
+0x0001D8CE	0x0000000C	[ 18] literal string: FailedImage
+0x0001D8DA	0x0000000A	[ 18] literal string: Boot Logo
+0x0001D8E4	0x0000000F	[ 18] literal string: Boot Fail Logo
+0x0001D8F3	0x00000010	[ 18] literal string: Boot Logo Scale
+0x0001D903	0x0000000A	[ 20] literal string: /channel=
+0x0001D90D	0x0000000E	[ 20] literal string: /connectwait=
+0x0001D91B	0x0000000C	[ 20] literal string: /connectall
+0x0001D927	0x0000001C	[ 20] literal string: handle protocol %08x, %08x\n
+0x0001D943	0x00000024	[ 21] literal string: waiting debug device ...(0x%08x -> 
+0x0001D967	0x00000010	[ 21] literal string: 0x%08x) [DONE]\n
+0x0001D977	0x0000000F	[ 21] literal string: [RECV] resend\n
+0x0001D986	0x00000017	[ 21] literal string: [RECV] control resend\n
+0x0001D99D	0x00000022	[ 21] literal string: [RECV] ACK %08x %08x, %08x, %08x\n
+0x0001D9BF	0x00000037	[ 21] literal string: [RECV] control ack %08x, next to send %08x, wait %08x\n
+0x0001D9F6	0x00000016	[ 21] literal string: [RECV] control reset\n
+0x0001DA0C	0x00000027	[ 21] literal string: [RECV] control unknown %08x %08x %08x\n
+0x0001DA33	0x0000001F	[ 21] literal string: [RECV] invalid size %08x %08x\n
+0x0001DA52	0x00000024	[ 21] literal string: [RECV] not expected type %08x %08x\n
+0x0001DA76	0x00000018	[ 21] literal string: [RECV] invalid id %08x\n
+0x0001DA8E	0x00000022	[ 21] literal string: [RECV] not expected id %08x %08x\n
+0x0001DAB0	0x00000023	[ 21] literal string: [RECV] invalid checksum %08x %08x\n
+0x0001DAD3	0x0000000D	[ 21] literal string: /targetname=
+0x0001DAE0	0x00000009	[ 21] literal string: /waitusb
+0x0001DAE9	0x00000006	[ 21] literal string: NAME?
+0x0001DAEF	0x00000006	[ 21] literal string: NAME=
+0x0001DAF5	0x0000001A	[ 21] literal string: [RECV] small length %08x\n
+0x0001DB0F	0x00000010	[ 21] literal string: [READ] timeout\n
+0x0001DB1F	0x0000000E	[ 21] literal string: [READ] STALL\n
+0x0001DB2D	0x00000026	[ 21] literal string: [READ] invalid pid %08x, %08x, 0x08%\n
+0x0001DB53	0x00000019	[ 21] literal string: [READ] max retry 0x%08x\n
+0x0001DB6C	0x0000001A	[ 21] literal string: reinitialize device %08x\n
+0x0001DB86	0x00000005	[ 23] literal string: name
+0x0001DB8B	0x00000007	[ 23] literal string: (null)
+0x0001DB92	0x0000003D	[ 24] literal string: Library\Preferences\SystemConfiguration\com.apple.Boot.plist
+0x0001DBCF	0x0000000F	[ 25] literal string: VolumeKeyIdent
+0x0001DBDE	0x00000015	[ 25] literal string: efilogin-reset-ident
+0x0001DBF3	0x00000016	[ 25] literal string: efilogin-unlock-ident
+0x0001DC09	0x00000014	[ 25] literal string: efilogin-user-ident
+0x0001DC1D	0x00000009	[ 25] literal string: \nLogin: 
+0x0001DC26	0x0000004D	[ 25] literal string: 	1.Enter password\n	2.Reset password with recovery key\n	3.Reboot\n	4.Shutdown\n
+0x0001DC73	0x0000000B	[ 25] literal string: Password: 
+0x0001DC7E	0x00000020	[ 25] literal string: Login failed: invalid password\n
+0x0001DC9E	0x0000000F	[ 25] literal string: Recovery key: 
+0x0001DCAD	0x00000024	[ 25] literal string: Login failed: invalid recovery key\n
+0x0001DCD1	0x0000001C	[ 25] literal string: Login failed: invalid user\n
+0x0001DCED	0x00000016	[ 25] literal string: KeyEncryptingKeyIdent
+0x0001DD03	0x0000001A	[ 25] literal string: KEKWrappedVolumeKeyStruct
+0x0001DD1D	0x0000000C	[ 25] literal string: WrapVersion
+0x0001DD29	0x0000001B	[ 25] literal string: PassphraseWrappedKEKStruct
+0x0001DD44	0x0000000A	[ 25] literal string: UserIdent
+0x0001DD4E	0x0000000C	[ 25] literal string: CryptoUsers
+0x0001DD5A	0x0000000E	[ 25] literal string: UserNamesData
+0x0001DD68	0x00000011	[ 25] literal string: ExternalKeyProps
+0x0001DD79	0x00000014	[ 25] literal string: revert-user-version
+0x0001DD8D	0x00000014	[ 25] literal string: KeyWrappedKEKStruct
+0x0001DDA1	0x0000000F	[ 25] literal string: WrapperVersion
+0x0001DDB0	0x00000048	[ 25] literal string: System\Library\Caches\com.apple.corestorage\EncryptedRoot.plist.wipekey
+0x0001DDF8	0x0000001C	[ 25] literal string: EncryptedRoot.plist.wipekey
+0x0001DE14	0x00000012	[ 25] literal string: WrappedVolumeKeys
+0x0001DE26	0x00000009	[ 25] literal string: UserType
+0x0001DE2F	0x00000012	[ 27] literal string: IOScreenLockState
+0x0001DE41	0x0000001A	[ 28] literal string: System\Library\Extensions
+0x0001DE5B	0x00000013	[ 28] literal string: Library\Extensions
+0x0001DE6E	0x00000013	[ 28] literal string: CFBundleExecutable
+0x0001DE81	0x00000005	[ 28] literal string: %s%s
+0x0001DE86	0x0000000C	[ 28] literal string: Driver-%llx
+0x0001DE92	0x00000012	[ 28] literal string: OSBundleLibraries
+0x0001DEA4	0x00000013	[ 28] literal string: CFBundleIdentifier
+0x0001DEB7	0x0000000F	[ 28] literal string: %s\%s\Contents
+0x0001DEC6	0x00000010	[ 28] literal string: %s\%s\%sPlugIns
+0x0001DED6	0x00000009	[ 28] literal string: %s\%s\%s
+0x0001DEDF	0x00000013	[ 28] literal string: %s\%s\%sInfo.plist
+0x0001DEF2	0x00000011	[ 28] literal string: OSBundleRequired
+0x0001DF03	0x0000000A	[ 28] literal string: Safe Boot
+0x0001DF0D	0x00000030	[ 29] literal string: System\Library\PrelinkedKernels\prelinkedkernel
+0x0001DF3D	0x00000044	[ 29] literal string: System\Library\Caches\com.apple.kext.caches\Startup\prelinkedkernel
+0x0001DF81	0x00000040	[ 29] literal string: System\Library\Caches\com.apple.kext.caches\Startup\kernelcache
+0x0001DFC1	0x00000019	[ 29] literal string: boot-kernelcache-adler32
+0x0001DFDA	0x00000008	[ 29] literal string: RAMDisk
+0x0001DFE2	0x00000033	[ 30] literal string: Booting from 32-bit kernelcache is not supported.\n
+0x0001E015	0x00000006	[ 30] literal string: __KLD
+0x0001E01B	0x0000000B	[ 30] literal string: __LINKEDIT
+0x0001E026	0x0000001E	[ 30] literal string: __ZN6OSKext14loadExecutableEv
+0x0001E044	0x0000000A	[ 30] literal string: _IdlePML4
+0x0001E04E	0x00000034	[ 30] literal string: Only 64-bit version of LC_UNIXTHREAD is supported.\n
+0x0001E082	0x0000000B	[ 31] literal string: /runapple=
+0x0001E08D	0x0000000C	[ 31] literal string: /detectboot
+0x0001E099	0x0000000E	[ 31] literal string: \.IABootFiles
+0x0001E0A7	0x00000013	[ 31] literal string: \OS X Install Data
+0x0001E0BA	0x00000018	[ 31] literal string: com.apple.recovery.boot
+0x0001E0D2	0x00000019	[ 31] literal string: System\Installation\CDIS
+0x0001E0EB	0x00000004	[ 31] literal string: VMM
+0x0001E0EF	0x00000016	[ 31] literal string: PlatformSupport.plist
+0x0001E105	0x00000032	[ 31] literal string: System\Library\CoreServices\PlatformSupport.plist
+0x0001E137	0x00000012	[ 31] literal string: SupportedBoardIds
+0x0001E149	0x00000006	[ 35] literal string: /seg=
+0x0001E14F	0x00000006	[ 35] literal string: /bus=
+0x0001E155	0x00000006	[ 35] literal string: /dev=
+0x0001E15B	0x00000007	[ 35] literal string: /func=
+0x0001E162	0x00000005	[ 35] literal string: _SM_
+0x0001E167	0x00000005	[ 36] literal string: %02x
+0x0001E16C	0x0000000E	[ 36] literal string: dhcp-response
+0x0001E17A	0x0000000E	[ 36] literal string: bsdp-response
+0x0001E188	0x00000003	[ 37] literal string: -x
+0x0001E18B	0x00000003	[ 37] literal string: -s
+0x0001E18E	0x00000003	[ 37] literal string: -v
+0x0001E191	0x00000003	[ 37] literal string: -f
+0x0001E194	0x00000006	[ 37] literal string: srv=1
+0x0001E19A	0x00000013	[ 37] literal string: x86_64\kernelcache
+0x0001E1AD	0x00000007	[ 37] literal string: Kernel
+0x0001E1B4	0x00000007	[ 37] literal string: kernel
+0x0001E1BB	0x0000000D	[ 37] literal string: Kernel Cache
+0x0001E1C8	0x00000009	[ 37] literal string: RAM Disk
+0x0001E1D1	0x00000011	[ 37] literal string: -no_compat_check
+0x0001E1E2	0x00000011	[ 37] literal string: -no_panic_dialog
+0x0001E1F3	0x00000007	[ 37] literal string: -debug
+0x0001E1FA	0x00000006	[ 37] literal string: slide
+0x0001E200	0x0000001E	[ 37] literal string: System\Library\Kernels\kernel
+0x0001E21E	0x00000015	[ 37] literal string: com.apple.Boot.plist
+0x0001E233	0x00000007	[ 37] literal string: config
+0x0001E23A	0x0000000F	[ 37] literal string: com.apple.Boot
+0x0001E249	0x00000029	[ 37] literal string: Library\Preferences\SystemConfiguration\
+0x0001E272	0x00000007	[ 37] literal string: .plist
+0x0001E279	0x0000000D	[ 37] literal string: Kernel Flags
+0x0001E286	0x00000002	[ 37] literal string:  
+0x0001E288	0x00000002	[ 38] literal string: \n
+0x0001E28A	0x00000041	[ 38] literal string: ***************************************************************\n
+0x0001E2CB	0x00000034	[ 38] literal string: This system was automatically rebooted after panic\n
+0x0001E2FF	0x00000041	[ 38] literal string: Panic loop detected (%d in %3d seconds).  System will shutdown.\n
+0x0001E340	0x00000041	[ 38] literal string: Try booting into the Recovery HD volume by holding Command + R.\n
+0x0001E381	0x0000000A	[ 40] literal string: system-id
+0x0001E38B	0x00000006	[ 40] literal string: Model
+0x0001E391	0x00000008	[ 40] literal string: %s%d,%d
+0x0001E399	0x00000012	[ 40] literal string: machine-signature
+0x0001E3AB	0x00000019	[ 40] literal string: /efi/configuration-table
+0x0001E3C4	0x00000031	[ 40] literal string: %08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X
+0x0001E3F5	0x00000005	[ 40] literal string: guid
+0x0001E3FA	0x0000000D	[ 40] literal string: Mac-F4208DC8
+0x0001E407	0x0000000D	[ 40] literal string: Mac-F4208DA9
+0x0001E414	0x0000000D	[ 40] literal string: Mac-F42187C8
+0x0001E421	0x0000000D	[ 40] literal string: Mac-F223BEC8
+0x0001E42E	0x00000006	[ 40] literal string: table
+0x0001E434	0x00000008	[ 40] literal string: ACPI_20
+0x0001E43C	0x00000006	[ 40] literal string: alias
+0x0001E442	0x00000016	[ 40] literal string: /efi/runtime-services
+0x0001E458	0x00000005	[ 40] literal string: /efi
+0x0001E45D	0x00000010	[ 40] literal string: firmware-vendor
+0x0001E46D	0x00000012	[ 40] literal string: firmware-revision
+0x0001E47F	0x00000006	[ 40] literal string: EFI64
+0x0001E485	0x0000000D	[ 40] literal string: firmware-abi
+0x0001E492	0x00000012	[ 40] literal string: device-properties
+0x0001E4A4	0x0000001A	[ 40] literal string: /efi/kernel-compatibility
+0x0001E4BE	0x0000000E	[ 41] literal string: <null string>
+0x0001E4CC	0x00000011	[ 41] literal string: 0123456789abcdef
+0x0001E4DD	0x00000011	[ 41] literal string: 0123456789ABCDEF
+0x0001E500	0x00000024	[ 15] l_.str22
+0x0001E524	0x00000012	[ 16] l_.str5
+0x0001E536	0x00000020	[ 18] l_.str
+0x0001E556	0x00000010	[ 18] l_.str1
+0x0001E566	0x0000001C	[ 18] l_.str2
+0x0001E582	0x00000022	[ 18] l_.str3
+0x0001E5A4	0x00000006	[ 18] l_.str5
+0x0001E5AA	0x0000000A	[ 18] l_.str6
+0x0001E5B4	0x00000040	[ 18] l_.str7
+0x0001E5F4	0x00000022	[ 24] l_.str3
+0x0001E616	0x00000022	[ 24] l_.str4
+0x0001E638	0x00000022	[ 24] l_.str5
+0x0001E65A	0x0000001C	[ 24] l_.str6
+0x0001E676	0x00000026	[ 24] l_.str7
+0x0001E69C	0x00000032	[ 24] l_.str8
+0x0001E6CE	0x0000003E	[ 24] l_.str9
+0x0001E70C	0x00000024	[ 24] l_.str10
+0x0001E730	0x00000024	[ 24] l_.str11
+0x0001E754	0x00000024	[ 24] l_.str12
+0x0001E778	0x0000002E	[ 24] l_.str13
+0x0001E7A6	0x00000038	[ 24] l_.str14
+0x0001E7DE	0x00000044	[ 24] l_.str15
+0x0001E822	0x0000004C	[ 24] l_.str19
+0x0001E86E	0x0000003C	[ 24] l_.str20
+0x0001E8AA	0x00000038	[ 24] l_.str21
+0x0001E8E2	0x00000006	[ 25] l_.str19
+0x0001E8E8	0x00000004	[ 25] l_.str20
+0x0001E8EC	0x0000001E	[ 27] l_.str4
+0x0001E90A	0x0000001E	[ 27] l_.str6
+0x0001E928	0x00000022	[ 27] l_.str7
+0x0001E94A	0x00000016	[ 27] l_.str9
+0x0001E960	0x00000044	[ 31] l_.str6
+0x0001E9A4	0x00000008	[ 31] l_.str13
+0x0001E9AC	0x00000008	[ 31] l_.str15
+0x0001E9B4	0x00000022	[ 31] l_.str17
+0x0001E9D6	0x00000026	[ 37] l_.str5
+0x0001E9FC	0x00000014	[ 37] l_.str7
+0x0001EA10	0x00000034	[ 37] l_.str8
+0x0001EA44	0x00000026	[ 37] l_.str9
+0x0001EA6A	0x00000024	[ 37] l_.str26
+0x0001EA8E	0x00000018	[ 37] l_.str27
+0x0001EAA6	0x00000024	[ 38] l_.str
+0x0001EACA	0x00000024	[ 38] l_.str8
+0x0001EAEE	0x0000001C	[ 41] l_.str
+0x0001EB0A	0x00000022	[ 43] l_.str
+0x0001EB2C	0x0000002A	[ 43] l_.str1
+0x0001EB56	0x00000026	[ 43] l_.str2
+0x0001EB80	0x00000005	[ 15] ?uuidFormat@?1??BlpRootUUIDFromDisk@@YAPEBEPEAXPEAE_K@Z@3PAEA
+0x0001EB90	0x00000010	[ 16] ?pciReadWriteLength@?1??BdpReadWritePciConfigSpace@@YAXIIIIPEAXIE@Z@4PAIA
+0x0001EBA0	0x00000040	[ 16] ?pciReadWriteType@?1??BdpReadWritePciConfigSpace@@YAXIIIIPEAXIE@Z@4PAY03IA
+0x0001EBE0	0x00000070	[ 18] _HbpProgressAlpha
+0x0001EC50	0x00000400	[ 19] _BlpCrc32Table
+0x0001F050	0x00000010	[ 20] ?firewireProtocolGuid@?1??Bd1394ConfigureDebuggerDevice@@YA_KPEBE@Z@3UEFI_GUID@@A
+0x0001F060	0x00000010	[ 28] l_.str9
+0x0001F070	0x00000010	[ 28] ?contentsMacOSDir@?1??LdrpLoadDriverPList@@YA_KPEBE0E@Z@4QBEB
+0x0001F080	0x00000040	[ 32] ?paddingBuffer@?1??MD5Final@@YAXPEAEPEAU_MD5_CONTEXT@@@Z@4QBEB
+0x0001F0C0	0x00000070	[ 35] ?cumulativeDays@?1??BlEfiTimeToUnixTime@@YAIPEBUEFI_TIME@@@Z@4PAY0O@IA
+0x0001F130	0x00000200	[ 35] ?caseTable@?1??BlDecompressLZVN@@YA_KPEBX_KPEAX1PEA_K@Z@4PAFA
+0x0001F330	0x000000B0	[ 36] ?part1Text@?1??NetGetRootMatchDict@@YAPEBEPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z@4QBEB
+0x0001F3E0	0x0000001D	[ 36] ?part2Text@?1??NetGetRootMatchDict@@YAPEBEPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z@4QBEB
+0x0001F400	0x00000010	[ 38] ?state@?1??BlShowPanicDialog@@YAXPEAPEAE@Z@3UEFI_SIMPLE_POINTER_STATE@@A
+0x0001F410	0x00000030	[ 46] _t_rc
+0x0001F440	0x00001000	[ 46] _t_ls
+0x00020440	0x00001000	[ 46] _t_im
+0x00021440	0x00000018	[ 14] CIE
+0x00021458	0x00000030	[ 14] FDE for: ?Base64Decode@@YA_KPEBE_KPEAXPEA_K@Z
+0x00021488	0x00000018	[ 15] CIE
+0x000214A0	0x00000028	[ 15] FDE for: ?BlAddMemoryRangeNode@@YA_KPEBE_K1@Z
+0x000214C8	0x00000030	[ 15] FDE for: ?BlInitializeBootArgs@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@0PEAXPEBEPEAPEAU_BOOT_ARGS@@@Z
+0x000214F8	0x00000028	[ 15] FDE for: ?BlAddBooterInfo@@YA_KPEAU_DEVICE_TREE_NODE@@@Z
+0x00021520	0x00000030	[ 15] FDE for: ?BlFinalizeBootArgs@@YA_KPEAU_BOOT_ARGS@@PEBEPEAXPEAU_MACH_O_LOADED_INFO@@@Z
+0x00021550	0x00000028	[ 15] FDE for: ?BlInitCSRState@@YA_KPEAU_BOOT_ARGS@@@Z
+0x00021578	0x00000018	[ 16] CIE
+0x00021590	0x00000028	[ 16] FDE for: ?BdCopyMemory@@YAXPEAX0I@Z
+0x000215B8	0x00000030	[ 16] FDE for: ?BdMoveMemory@@YAIPEAX0I@Z
+0x000215E8	0x00000028	[ 16] FDE for: ?BdpWriteCheck@@YAEPEAX@Z
+0x00021610	0x00000028	[ 16] FDE for: ?BdComputeChecksum@@YAIPEAXI@Z
+0x00021638	0x00000030	[ 16] FDE for: ?BdDeleteBreakpointRange@@YAE_K0@Z
+0x00021668	0x00000028	[ 16] FDE for: ?BdpDeleteBreakpoint@@YAEI@Z
+0x00021690	0x00000030	[ 16] FDE for: ?BdReportExceptionStateChange@@YAXPEAU_EXCEPTION_RECORD@@PEAU_CONTEXT@@@Z
+0x000216C0	0x00000030	[ 16] FDE for: ?BdpSendWaitContinue@@YAIIPEAU_STRING@@0PEAU_CONTEXT@@@Z
+0x000216F0	0x00000030	[ 16] FDE for: ?BdReportLoadSymbolsStateChange@@YAXPEAU_STRING@@PEAU_KD_SYMBOLS_INFO@@EPEAU_CONTEXT@@@Z
+0x00021720	0x00000028	[ 16] FDE for: ?BdPrintString@@YAEPEAU_STRING@@@Z
+0x00021748	0x00000028	[ 16] FDE for: ?BdPollBreakIn@@YAEXZ
+0x00021770	0x00000030	[ 16] FDE for: ?BdPromptString@@YAEPEAU_STRING@@0@Z
+0x000217A0	0x00000030	[ 16] FDE for: ?BdInitialize@@YA_KPEBE@Z
+0x000217D0	0x00000028	[ 16] FDE for: ?BdFinalize@@YA_KXZ
+0x000217F8	0x00000028	[ 16] FDE for: ?BdPollConnection@@YAXXZ
+0x00021820	0x00000028	[ 16] FDE for: ?DbgPrint@@YAIPEBEZZ
+0x00021848	0x00000028	[ 16] FDE for: ?DbgLoadImageSymbols@@YAXPEAU_UNICODE_STRING@@PEAX_K@Z
+0x00021870	0x00000030	[ 16] FDE for: ?DbgLoadImageSymbols@@YAXPEAU_STRING@@PEAX_K@Z
+0x000218A0	0x00000028	[ 16] FDE for: ?DbgUnLoadImageSymbols@@YAXPEAU_STRING@@PEAX_K@Z
+0x000218C8	0x00000028	[ 16] FDE for: ?BdpLowWriteContent@@YAEI@Z
+0x000218F0	0x00000030	[ 16] FDE for: ?BdpReadPciConfigSpace@@YAXIIIIPEAXI@Z
+0x00021920	0x00000030	[ 16] FDE for: ?BdpWritePciConfigSpace@@YAXIIIIPEAXI@Z
+0x00021950	0x00000028	[ 16] FDE for: ?BdpValidatePciSlot@@YAEIII@Z
+0x00021978	0x00000030	[ 16] FDE for: ?BdpReadWritePciConfigSpace@@YAXIIIIPEAXIE@Z
+0x000219A8	0x00000030	[ 16] FDE for: ?BdpAddBreakpoint@@YAI_K@Z
+0x000219D8	0x00000018	[ 17] CIE
+0x000219F0	0x00000030	[ 17] FDE for: ?CmParseXmlFile@@YA_KPEAEPEAPEAU_XML_TAG@@@Z
+0x00021A20	0x00000030	[ 17] FDE for: ?CmpParseNextTag@@YA_JPEAEPEAPEAU_XML_TAG@@@Z
+0x00021A50	0x00000028	[ 17] FDE for: ?CmFreeTag@@YAXPEAU_XML_TAG@@@Z
+0x00021A78	0x00000030	[ 17] FDE for: ?CmGetStringValueForKeyAndCommandLine@@YAPEBEPEBE0PEA_KE@Z
+0x00021AA8	0x00000028	[ 17] FDE for: ?CmGetStringValueForKey@@YAPEBEPEAU_XML_TAG@@PEBEPEA_K@Z
+0x00021AD0	0x00000028	[ 17] FDE for: ?CmSerializeValueForKey@@YAPEBEPEBEPEA_K@Z
+0x00021AF8	0x00000028	[ 17] FDE for: ?CmGetTagValueForKey@@YAPEAU_XML_TAG@@PEAU1@PEBE@Z
+0x00021B20	0x00000030	[ 17] FDE for: ?CmpTagToString@@YAXPEAU_XML_TAG@@PEAPEAEPEA_K2@Z
+0x00021B50	0x00000028	[ 17] FDE for: ?CmGetIntegerValueForKey@@YA_KPEBEPEA_J@Z
+0x00021B78	0x00000028	[ 17] FDE for: ?CmGetListTagElementsCount@@YA_KPEAU_XML_TAG@@@Z
+0x00021BA0	0x00000028	[ 17] FDE for: ?CmGetListTagElementByIndex@@YAPEAU_XML_TAG@@PEAU1@_K@Z
+0x00021BC8	0x00000028	[ 17] FDE for: ?CmpEmitFormatString@@YAXPEBEEPEAPEAEPEA_K2ZZ
+0x00021BF0	0x00000030	[ 17] FDE for: ?CmpEmitString@@YAXPEBEEPEAPEAEPEA_K2@Z
+0x00021C20	0x00000028	[ 17] FDE for: ?CmpGetToken@@YAXPEBEPEAPEBEPEA_K@Z
+0x00021C48	0x00000030	[ 17] FDE for: ?CmpFindSymbol@@YAPEAU_XML_SYMBOL@@PEBEPEAPEAU1@@Z
+0x00021C78	0x00000028	[ 17] FDE for: ?CmpGetNextTag@@YA_JPEAEPEAPEAEPEA_J@Z
+0x00021CA0	0x00000030	[ 17] FDE for: ?CmpParseTagList@@YA_JPEAEPEAPEAU_XML_TAG@@_KE@Z
+0x00021CD0	0x00000028	[ 17] FDE for: ?CmpParseTagBoolean@@YA_JPEAEPEAPEAU_XML_TAG@@_K@Z
+0x00021CF8	0x00000028	[ 17] FDE for: ?CmpNewTag@@YAPEAU_XML_TAG@@XZ
+0x00021D20	0x00000030	[ 17] FDE for: ?CmpFixDataMatchingTag@@YA_JPEAEPEBE@Z
+0x00021D50	0x00000028	[ 17] FDE for: ?CmpNewSymbol@@YAPEAEPEAE@Z
+0x00021D78	0x00000018	[ 18] CIE
+0x00021D90	0x00000030	[ 18] FDE for: ?CspLoadLogoFile@@YA_KPEBEPEAPEAUEFI_UGA_PIXEL@@PEA_K2@Z
+0x00021DC0	0x00000028	[ 18] FDE for: ?CsInitialize@@YA_KXZ
+0x00021DE8	0x00000028	[ 18] FDE for: ?CsSetConsoleMode@@YA_KEE@Z
+0x00021E10	0x00000028	[ 18] FDE for: ?CsInitializeGraphMode@@YA_KXZ
+0x00021E38	0x00000028	[ 18] FDE for: ?CsInitializeBootVideo@@YA_KPEAU_BOOT_VIDEO_V1@@@Z
+0x00021E60	0x00000030	[ 18] FDE for: ?CsPrintf@@YAXPEBEZZ
+0x00021E90	0x00000028	[ 18] FDE for: ?CsConnectDevice@@YA_KEE@Z
+0x00021EB8	0x00000028	[ 18] FDE for: ?CspRestoreGraphConfig@@YA_KIPEAX00@Z
+0x00021EE0	0x00000030	[ 18] FDE for: ?CsDrawBootImage@@YA_KE@Z
+0x00021F10	0x00000028	[ 18] FDE for: ?CsClearScreen@@YAXXZ
+0x00021F38	0x00000028	[ 18] FDE for: ?CspDrawRect@@YA_K_K000PEAUEFI_UGA_PIXEL@@@Z
+0x00021F60	0x00000030	[ 18] FDE for: ?CspConvertImage@@YA_KPEAPEAUEFI_UGA_PIXEL@@PEBE_K221@Z
+0x00021F90	0x00000028	[ 18] FDE for: ?CspIndicatorRefreshTimerEventNotifyRoutine@@YAXPEAX0@Z
+0x00021FB8	0x00000028	[ 18] FDE for: ?CsDrawPanicImage@@YA_KXZ
+0x00021FE0	0x00000030	[ 18] FDE for: ?CsSetupDeviceTree@@YA_KPEAU_BOOT_ARGS@@@Z
+0x00022010	0x00000028	[ 18] FDE for: ?CspFillRect@@YA_K_K000UEFI_UGA_PIXEL@@@Z
+0x00022038	0x00000028	[ 18] FDE for: ?CsFinalize@@YA_KXZ
+0x00022060	0x00000030	[ 18] FDE for: ?CsDrawPreview@@YAXPEAU_HIBERNATE_PREVIEW@@IQEAY0CG@EEEPEAH@Z
+0x00022090	0x00000030	[ 18] FDE for: ?CsUpdateProgress@@YAXQEAY0CG@E_K1@Z
+0x000220C0	0x00000018	[ 19] CIE
+0x000220D8	0x00000028	[ 19] FDE for: ?BlCrc32@@YAIIPEBX_K@Z
+0x00022100	0x00000018	[ 20] CIE
+0x00022118	0x00000030	[ 20] FDE for: ?Bd1394ReceivePacket@@YAIIPEAU_STRING@@0PEAI@Z
+0x00022148	0x00000028	[ 20] FDE for: ?Bd1394pEnablePhysicalAccess@@YAXPEAU_DBG1394_GLOBAL_DATA@@@Z
+0x00022170	0x00000030	[ 20] FDE for: ?Bd1394SendPacket@@YAXIPEAU_STRING@@0@Z
+0x000221A0	0x00000030	[ 20] FDE for: ?Bd1394ConfigureDebuggerDevice@@YA_KPEBE@Z
+0x000221D0	0x00000028	[ 20] FDE for: ?Bd1394pInitializeController@@YAEI@Z
+0x000221F8	0x00000028	[ 20] FDE for: ?Bd1394CloseDebuggerDevice@@YA_KXZ
+0x00022220	0x00000028	[ 20] FDE for: ?Bd1394pGetPhysicalAddress@@YA_KPEAX@Z
+0x00022248	0x00000028	[ 20] FDE for: ?Bd1394pCalculateCrc@@YAGPEAXI@Z
+0x00022270	0x00000018	[ 21] CIE
+0x00022288	0x00000030	[ 21] FDE for: ?BdUsbpLocateDebugPortRegister@@YAPEAXPEAU_DEBUG_USB_GLOBAL_DATA@@PEAU_EFI_PCI_IO_PROTOCOL@@@Z
+0x000222B8	0x00000030	[ 21] FDE for: ?BdUsbpClearAndWaitConnectChange@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@I@Z
+0x000222E8	0x00000028	[ 21] FDE for: ?BdUsbpWait@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@I@Z
+0x00022310	0x00000030	[ 21] FDE for: ?BdUsbSendPacket@@YAXIPEAU_STRING@@0@Z
+0x00022340	0x00000030	[ 21] FDE for: ?BdUsbpSendBuffers@@YAXPEAU_DEBUG_USB_GLOBAL_DATA@@PEBU_DEBUG_USB_SEND_BUFFER@@I@Z
+0x00022370	0x00000030	[ 21] FDE for: ?BdUsbReceivePacket@@YAIIPEAU_STRING@@0PEAI@Z
+0x000223A0	0x00000030	[ 21] FDE for: ?BdUsbpReadDebuggerPacket@@YAIPEAU_DEBUG_USB_GLOBAL_DATA@@IPEAU_KD_PACKET@@PEAU_STRING@@2@Z
+0x000223D0	0x00000028	[ 21] FDE for: ?BdUsbpSendControlPacket@@YAXPEAU_DEBUG_USB_GLOBAL_DATA@@II@Z
+0x000223F8	0x00000030	[ 21] FDE for: ?BdUsbConfigureDebuggerDevice@@YA_KPEBE@Z
+0x00022428	0x00000028	[ 21] FDE for: ?BdUsbCloseDebuggerDevice@@YA_KXZ
+0x00022450	0x00000030	[ 21] FDE for: ?BdUsbpTryInitializeDevice@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@EPEAE@Z
+0x00022480	0x00000028	[ 21] FDE for: ?BdUsbpHaltController@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@@Z
+0x000224A8	0x00000030	[ 21] FDE for: ?BdUsbpControlWrite@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@EPEBU_DEBUG_USB_SETUP_PACKET@@PEAXI@Z
+0x000224D8	0x00000028	[ 21] FDE for: ?BdUsbpCheckReinitializeDevice@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@@Z
+0x00022500	0x00000030	[ 21] FDE for: ?BdUsbpReadPacketOnce@@YAIPEAU_DEBUG_USB_GLOBAL_DATA@@PEAXPEAI@Z
+0x00022530	0x00000028	[ 21] FDE for: ?BdUsbpReinitializeDevice@@YAEPEAU_DEBUG_USB_GLOBAL_DATA@@@Z
+0x00022558	0x00000030	[ 21] FDE for: ?BdUsbpSendPacket@@YAIPEAU_DEBUG_USB_GLOBAL_DATA@@PEBXI@Z
+0x00022588	0x00000018	[ 22] CIE
+0x000225A0	0x00000028	[ 22] FDE for: ?DevPathGetSize@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x000225C8	0x00000028	[ 22] FDE for: ?DevPathGetNodeCount@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x000225F0	0x00000028	[ 22] FDE for: ?DevPathGetNode@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU1@EE@Z
+0x00022618	0x00000028	[ 22] FDE for: ?DevPathDuplicate@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU1@@Z
+0x00022640	0x00000030	[ 22] FDE for: ?DevPathAppendDevicePath@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU1@0@Z
+0x00022670	0x00000030	[ 22] FDE for: ?DevPathAppendFilePath@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU1@PEBG@Z
+0x000226A0	0x00000030	[ 22] FDE for: ?DevPathAppendLastComponent@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU1@PEBEE@Z
+0x000226D0	0x00000030	[ 22] FDE for: ?DevPathExtractFilePathName@@YAPEAEPEAUEFI_DEVICE_PATH_PROTOCOL@@E@Z
+0x00022700	0x00000028	[ 22] FDE for: ?DevPathHasMacAddressNode@@YAEPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x00022728	0x00000028	[ 22] FDE for: ?DevPathGetDevicePathProtocol@@YAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAX@Z
+0x00022750	0x00000028	[ 22] FDE for: ?DevPathGetPartitionNumber@@YAIPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x00022778	0x00000030	[ 22] FDE for: ?DevPathGetPartitionHandleByNumber@@YAPEAXPEAUEFI_DEVICE_PATH_PROTOCOL@@I@Z
+0x000227A8	0x00000018	[ 23] CIE
+0x000227C0	0x00000028	[ 23] FDE for: ?DevTreeInitialize@@YA_KXZ
+0x000227E8	0x00000030	[ 23] FDE for: ?DevTreeAddChild@@YAPEAU_DEVICE_TREE_NODE@@PEAU1@PEBE@Z
+0x00022818	0x00000028	[ 23] FDE for: ?DevTreeGetName@@YAPEBEPEAU_DEVICE_TREE_NODE@@@Z
+0x00022840	0x00000028	[ 23] FDE for: ?DevTreeGetProperty@@YAPEBXPEAU_DEVICE_TREE_NODE@@PEBEPEAI@Z
+0x00022868	0x00000030	[ 23] FDE for: ?DevTreeFindNode@@YAPEAU_DEVICE_TREE_NODE@@PEBEE@Z
+0x00022898	0x00000030	[ 23] FDE for: ?DevTreeAddProperty@@YA_KPEAU_DEVICE_TREE_NODE@@PEBEPEBXIE@Z
+0x000228C8	0x00000028	[ 23] FDE for: ?DevTreeFinalize@@YAXXZ
+0x000228F0	0x00000030	[ 23] FDE for: ?DevTreeFlatten@@YA_KPEAPEAXPEAI@Z
+0x00022920	0x00000030	[ 23] FDE for: ?DevTreepFlattenNode@@YAPEAEPEAU_DEVICE_TREE_NODE@@PEAE@Z
+0x00022950	0x00000018	[ 24] CIE
+0x00022968	0x00000030	[ 24] FDE for: ?IoDetectRoot@@YA_KPEAPEAXPEAPEAUEFI_DEVICE_PATH_PROTOCOL@@E@Z
+0x00022998	0x00000028	[ 24] FDE for: ?IopDetectRoot@@YA_KPEAXPEAUEFI_DEVICE_PATH_PROTOCOL@@E@Z
+0x000229C0	0x00000030	[ 24] FDE for: ?IoLoadBooterWithRootUUID@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@PEBEPEAPEAX@Z
+0x000229F0	0x00000028	[ 24] FDE for: ?IoBootingFromNet@@YAEXZ
+0x00022A18	0x00000030	[ 24] FDE for: ?IoOpenFile@@YA_KPEBEPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU_IO_FILE_HANDLE@@_K@Z
+0x00022A48	0x00000028	[ 24] FDE for: ?IoSetFilePosition@@YA_KPEAU_IO_FILE_HANDLE@@_K@Z
+0x00022A70	0x00000028	[ 24] FDE for: ?IoGetFileSize@@YA_KPEAU_IO_FILE_HANDLE@@PEA_K@Z
+0x00022A98	0x00000030	[ 24] FDE for: ?IoGetFileInfo@@YA_KPEAU_IO_FILE_HANDLE@@PEAPEAUEFI_FILE_INFO@@@Z
+0x00022AC8	0x00000030	[ 24] FDE for: ?IoReadFile@@YA_KPEAU_IO_FILE_HANDLE@@PEAX_KPEA_KE@Z
+0x00022AF8	0x00000028	[ 24] FDE for: ?IoCloseFile@@YAXPEAU_IO_FILE_HANDLE@@@Z
+0x00022B20	0x00000030	[ 24] FDE for: ?IoReadWholeFile@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@PEBEPEAPEAEPEA_KE@Z
+0x00022B50	0x00000030	[ 24] FDE for: ?IopCheckRPS@@YA_KPEAU_EFI_FILE@@PEAPEAU1@@Z
+0x00022B80	0x00000018	[ 25] CIE
+0x00022B98	0x00000030	[ 25] FDE for: ?FvLookupUnlockCoreVolumeKey@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@E@Z
+0x00022BC8	0x00000030	[ 25] FDE for: ?FvFindCoreVolumeKey@@YAEPEBEPEAE_K@Z
+0x00022BF8	0x00000030	[ 25] FDE for: ?FvSetupDeviceTree@@YA_KPEA_K0E@Z
+0x00022C28	0x00000030	[ 25] FDE for: ?FvpReadInput@@YAXPEAPEAEPEA_K_KE@Z
+0x00022C58	0x00000030	[ 25] FDE for: ?FvpDecryptVolumeKEKWithUserPassword@@YA_KPEAU_XML_TAG@@0PEBE@Z
+0x00022C88	0x00000030	[ 25] FDE for: ?FvpKeyUnwrapData@@YAEPEBX_KPEAU_KEY_WRAPPED_DATA@@PEAU_KEY_UNWRAPPED_DATA@@@Z
+0x00022CB8	0x00000030	[ 25] FDE for: ?FvpAESUnwrap@@YAEPEBX_K101PEAXPEA_K@Z
+0x00022CE8	0x00000030	[ 25] FDE for: ?FvpVerifyKeyData@@YAEPEAU_KEY_SIGN_DATA@@PEBX_K@Z
+0x00022D18	0x00000030	[ 25] FDE for: ?FvpHMACSHA256@@YAXPEBX_K01PEAE@Z
+0x00022D48	0x00000018	[ 26] CIE
+0x00022D60	0x00000028	[ 26] FDE for: ?isEfiNullGuid@@YAEPEAUEFI_GUID@@@Z
+0x00022D88	0x00000018	[ 27] CIE
+0x00022DA0	0x00000030	[ 27] FDE for: ?HbpContinueResumeFromHibernate@@YAXPEBE_KE@Z
+0x00022DD0	0x00000030	[ 27] FDE for: ?HbStartResumeFromHibernate@@YAEPEAE@Z
+0x00022E00	0x00000028	[ 27] FDE for: ?HbContinueResumeFromHibernate@@YAXPEAE_K@Z
+0x00022E28	0x00000018	[ 28] CIE
+0x00022E40	0x00000030	[ 28] FDE for: ?LdrLoadDrivers@@YA_KXZ
+0x00022E70	0x00000030	[ 28] FDE for: ?LdrpLoadDrivers@@YA_KPEBEE@Z
+0x00022EA0	0x00000030	[ 28] FDE for: ?LdrpLoadDriverPList@@YA_KPEBE0E@Z
+0x00022ED0	0x00000018	[ 29] CIE
+0x00022EE8	0x00000028	[ 29] FDE for: ?LdrSetupASLR@@YAXEE@Z
+0x00022F10	0x00000028	[ 29] FDE for: ?LdrGetASLRDisplacement@@YA_KXZ
+0x00022F38	0x00000028	[ 29] FDE for: ?LdrGetKernelPathName@@YAPEBEXZ
+0x00022F60	0x00000028	[ 29] FDE for: ?LdrGetKernelCachePathName@@YAPEBEXZ
+0x00022F88	0x00000028	[ 29] FDE for: ?LdrGetKernelCacheOverride@@YAEXZ
+0x00022FB0	0x00000028	[ 29] FDE for: ?LdrSetupKernelCachePath@@YAXPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAEE@Z
+0x00022FD8	0x00000028	[ 29] FDE for: ?LdrSetupKernelPath@@YAXPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAE@Z
+0x00023000	0x00000028	[ 29] FDE for: ?LdrSetupRamDiskPath@@YAXPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAE@Z
+0x00023028	0x00000030	[ 29] FDE for: ?LdrLoadKernelCache@@YA_KPEAU_MACH_O_LOADED_INFO@@PEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x00023058	0x00000028	[ 29] FDE for: ?LdrLoadKernel@@YA_KPEAU_MACH_O_LOADED_INFO@@@Z
+0x00023080	0x00000028	[ 29] FDE for: ?LdrLoadRamDisk@@YA_KXZ
+0x000230A8	0x00000018	[ 30] CIE
+0x000230C0	0x00000028	[ 30] FDE for: ?MachpLoadMachOThinFatFile@@YA_KPEAU_IO_FILE_HANDLE@@PEA_K1@Z
+0x000230E8	0x00000030	[ 30] FDE for: ?MachLoadThinFatFile@@YA_KPEAU_IO_FILE_HANDLE@@PEA_K1@Z
+0x00023118	0x00000028	[ 30] FDE for: ?MachpGetFirstSegment64@@YAPEAU_SEGMENT_COMMAND64@@PEAU_MACH_HEADER64@@@Z
+0x00023140	0x00000028	[ 30] FDE for: ?MachpGetNextSegment64@@YAPEAU_SEGMENT_COMMAND64@@PEAU_MACH_HEADER64@@PEAU1@@Z
+0x00023168	0x00000028	[ 30] FDE for: ?MachpGetFirstSection64@@YAPEAU_SECTION64@@PEAU_SEGMENT_COMMAND64@@@Z
+0x00023190	0x00000028	[ 30] FDE for: ?MachpGetNextSection64@@YAPEAU_SECTION64@@PEAU_SEGMENT_COMMAND64@@PEAU1@@Z
+0x000231B8	0x00000030	[ 30] FDE for: ?MachLoadMachO@@YA_KPEAU_IO_FILE_HANDLE@@PEAU_MACH_O_LOADED_INFO@@@Z
+0x000231E8	0x00000018	[ 31] CIE
+0x00023200	0x00000030	[ 31] FDE for: _EfiMain
+0x00023230	0x00000018	[ 32] CIE
+0x00023248	0x00000028	[ 32] FDE for: ?MD5Init@@YAXPEAU_MD5_CONTEXT@@@Z
+0x00023270	0x00000030	[ 32] FDE for: ?MD5Update@@YAXPEAU_MD5_CONTEXT@@PEBXI@Z
+0x000232A0	0x00000030	[ 32] FDE for: ?MD5pTransform@@YAXIIIIPEBEPEAU_MD5_CONTEXT@@@Z
+0x000232D0	0x00000030	[ 32] FDE for: ?MD5Final@@YAXPEAEPEAU_MD5_CONTEXT@@@Z
+0x00023300	0x00000018	[ 33] CIE
+0x00023318	0x00000028	[ 33] FDE for: ?MmAllocatePool@@YAPEAX_K@Z
+0x00023340	0x00000030	[ 33] FDE for: ?MmpInsertMemoryTag@@YAXPEAX_K1@Z
+0x00023370	0x00000028	[ 33] FDE for: ?MmFreePool@@YAXPEAX@Z
+0x00023398	0x00000028	[ 33] FDE for: ?MmpRemoveMemoryTag@@YAXPEAX_K@Z
+0x000233C0	0x00000028	[ 33] FDE for: ?MmAllocatePages@@YAPEAXW4EFI_ALLOCATE_TYPE@@W4EFI_MEMORY_TYPE@@_KPEA_K@Z
+0x000233E8	0x00000028	[ 33] FDE for: ?MmFreePages@@YAX_K@Z
+0x00023410	0x00000028	[ 33] FDE for: ?MmpFindMemoryTag@@YAPEAU_MEMORY_TAG@@PEAX_KPEAPEAU1@@Z
+0x00023438	0x00000028	[ 33] FDE for: ?MmInitialize@@YA_KXZ
+0x00023460	0x00000030	[ 33] FDE for: ?MmAllocateKernelMemory@@YA_KPEA_K0@Z
+0x00023490	0x00000028	[ 33] FDE for: ?MmFreeKernelMemory@@YAX_K0@Z
+0x000234B8	0x00000028	[ 33] FDE for: ?MmGetKernelPhysicalRange@@YAXPEA_K0@Z
+0x000234E0	0x00000028	[ 33] FDE for: ?MmGetKernelVirtualStart@@YA_KXZ
+0x00023508	0x00000018	[ 34] CIE
+0x00023520	0x00000030	[ 34] FDE for: ?MmGetMemoryMap@@YA_KPEA_KPEAPEAUEFI_MEMORY_DESCRIPTOR@@00PEAI@Z
+0x00023550	0x00000028	[ 34] FDE for: ?MmGetRuntimeMemoryInfo@@YA_KPEAUEFI_MEMORY_DESCRIPTOR@@_K1PEA_K@Z
+0x00023578	0x00000028	[ 34] FDE for: ?MmRemoveNonRuntimeDescriptors@@YA_KPEAUEFI_MEMORY_DESCRIPTOR@@PEA_K_K@Z
+0x000235A0	0x00000030	[ 34] FDE for: ?MmSortMemoryMap@@YAXPEAUEFI_MEMORY_DESCRIPTOR@@_K1@Z
+0x000235D0	0x00000030	[ 34] FDE for: ?MmpCreateSubRegion@@YAXPEAUEFI_MEMORY_DESCRIPTOR@@PEA_K_KIPEAPEAU1@22@Z
+0x00023600	0x00000030	[ 34] FDE for: ?MmConvertPointers@@YA_KPEAUEFI_MEMORY_DESCRIPTOR@@PEA_K_KI2221EPEAU_MACH_O_LOADED_INFO@@@Z
+0x00023630	0x00000018	[ 35] CIE
+0x00023648	0x00000028	[ 35] FDE for: ?BlGetMemorySize@@YA_KXZ
+0x00023670	0x00000028	[ 35] FDE for: ?BlGetBoardId@@YAPEAEXZ
+0x00023698	0x00000030	[ 35] FDE for: ?BlConnectAllController@@YA_KXZ
+0x000236C8	0x00000028	[ 35] FDE for: ?BlGetApplicationBaseAndSize@@YA_KPEA_K0@Z
+0x000236F0	0x00000030	[ 35] FDE for: ?BlParseDeviceLocation@@YAXPEBEPEA_K111@Z
+0x00023720	0x00000028	[ 35] FDE for: ?BlGetPciBarAttribute@@YA_KPEAU_EFI_PCI_IO_PROTOCOL@@EPEA_K1PEAE@Z
+0x00023748	0x00000030	[ 35] FDE for: ?BlFindPciDevice@@YA_K_K000EEEPEAPEAU_EFI_PCI_IO_PROTOCOL@@PEAPEAX@Z
+0x00023778	0x00000028	[ 35] FDE for: ?BlStartPciDevice@@YA_KPEAU_EFI_PCI_IO_PROTOCOL@@EEE@Z
+0x000237A0	0x00000028	[ 35] FDE for: ?BlpGetStringFromSMBIOSTable@@YAPEAEPEAEE@Z
+0x000237C8	0x00000030	[ 35] FDE for: ?BlDetectMemorySize@@YA_KXZ
+0x000237F8	0x00000028	[ 35] FDE for: ?BlUnicodeToUtf8@@YA_KPEBG_KPEAE1@Z
+0x00023820	0x00000028	[ 35] FDE for: ?BlUnicodeToAnsi@@YA_KPEBG_KPEAE1@Z
+0x00023848	0x00000028	[ 35] FDE for: ?BlUtf8ToUnicode@@YA_KPEBE_KPEAG1@Z
+0x00023870	0x00000030	[ 35] FDE for: ?BlAllocateUtf8FromUnicode@@YAPEAEPEBG_K@Z
+0x000238A0	0x00000030	[ 35] FDE for: ?BlAllocateUnicodeFromUtf8@@YAPEAGPEBE_K@Z
+0x000238D0	0x00000028	[ 35] FDE for: ?BlAllocateString@@YAPEAEPEBE@Z
+0x000238F8	0x00000028	[ 35] FDE for: ?BlConvertPathSeparator@@YAXPEAEEE@Z
+0x00023920	0x00000028	[ 35] FDE for: ?BlUUIDStringToBuffer@@YAEPEBEPEAE@Z
+0x00023948	0x00000028	[ 35] FDE for: ?BlCompareTime@@YA_JPEAUEFI_TIME@@0@Z
+0x00023970	0x00000028	[ 35] FDE for: ?BlAddOneSecond@@YAXPEAUEFI_TIME@@@Z
+0x00023998	0x00000030	[ 35] FDE for: ?BlEfiTimeToUnixTime@@YAIPEBUEFI_TIME@@@Z
+0x000239C8	0x00000028	[ 35] FDE for: ?BlGetCurrentUnixTime@@YAIXZ
+0x000239F0	0x00000028	[ 35] FDE for: ?BlAdler32@@YAIPEBX_K@Z
+0x00023A18	0x00000030	[ 35] FDE for: ?BlDecompressLZSS@@YA_KPEBX_KPEAX1PEA_K@Z
+0x00023A48	0x00000030	[ 35] FDE for: ?BlDecompressLZVN@@YA_KPEBX_KPEAX1PEA_K@Z
+0x00023A78	0x00000018	[ 36] CIE
+0x00023A90	0x00000030	[ 36] FDE for: ?NetGetRootMatchDict@@YAPEBEPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z
+0x00023AC0	0x00000030	[ 36] FDE for: ?NetSetupDeviceTree@@YA_KPEAX@Z
+0x00023AF0	0x00000018	[ 37] CIE
+0x00023B08	0x00000030	[ 37] FDE for: ?BlSetupKernelCommandLine@@YAPEAEPEBE00@Z
+0x00023B38	0x00000030	[ 37] FDE for: ?BlpCopyArgs@@YAXPEAEPEBE@Z
+0x00023B68	0x00000028	[ 37] FDE for: ?BlTestBootMode@@YAII@Z
+0x00023B90	0x00000030	[ 37] FDE for: ?BlDetectHotKey@@YA_KXZ
+0x00023BC0	0x00000028	[ 37] FDE for: ?BlSetBootMode@@YAXII@Z
+0x00023BE8	0x00000030	[ 37] FDE for: ?BlProcessOptions@@YA_KPEBEPEAPEAEPEAUEFI_DEVICE_PATH_PROTOCOL@@2@Z
+0x00023C18	0x00000030	[ 37] FDE for: ?BlpSetupPathFromVariable@@YAXPEAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAPEAEPEBG@Z
+0x00023C48	0x00000030	[ 37] FDE for: ?BlpSetupPathFromCommandLine@@YA_KPEAPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAPEAEPEBE2PEAU1@PEAE@Z
+0x00023C78	0x00000028	[ 37] FDE for: ?BlpReadKernelFlags@@YA_KPEAUEFI_DEVICE_PATH_PROTOCOL@@PEBEPEAPEBE@Z
+0x00023CA0	0x00000018	[ 38] CIE
+0x00023CB8	0x00000030	[ 38] FDE for: ?BlShowPanicDialog@@YAXPEAPEAE@Z
+0x00023CE8	0x00000018	[ 39] CIE
+0x00023D00	0x00000028	[ 39] FDE for: ?PeImageNtHeader@@YAPEAUEFI_IMAGE_NT_HEADERS64@@PEAX@Z
+0x00023D28	0x00000028	[ 39] FDE for: ?PeImageGetSize@@YAIPEAX@Z
+0x00023D50	0x00000028	[ 39] FDE for: ?PeImageGetChecksum@@YAIPEAX@Z
+0x00023D78	0x00000028	[ 39] FDE for: ?PeImageGetEntryPoint@@YAPEAXPEAX@Z
+0x00023DA0	0x00000018	[ 40] CIE
+0x00023DB8	0x00000030	[ 40] FDE for: ?PeInitialize@@YA_KXZ
+0x00023DE8	0x00000028	[ 40] FDE for: ?PeGetModelName@@YAPEBEXZ
+0x00023E10	0x00000030	[ 40] FDE for: ?PeSetupDeviceTree@@YA_KXZ
+0x00023E40	0x00000018	[ 41] CIE
+0x00023E58	0x00000028	[ 41] FDE for: _memcpy
+0x00023E80	0x00000028	[ 41] FDE for: _memset
+0x00023EA8	0x00000028	[ 41] FDE for: _memcmp
+0x00023ED0	0x00000028	[ 41] FDE for: _wcslen
+0x00023EF8	0x00000028	[ 41] FDE for: _strlen
+0x00023F20	0x00000028	[ 41] FDE for: _strcmp
+0x00023F48	0x00000028	[ 41] FDE for: _strcat
+0x00023F70	0x00000028	[ 41] FDE for: _strcpy
+0x00023F98	0x00000028	[ 41] FDE for: _strnicmp
+0x00023FC0	0x00000028	[ 41] FDE for: _strncpy
+0x00023FE8	0x00000028	[ 41] FDE for: _strstr
+0x00024010	0x00000028	[ 41] FDE for: _snprintf
+0x00024038	0x00000030	[ 41] FDE for: _vsnprintf
+0x00024068	0x00000028	[ 41] FDE for: _atoi
+0x00024090	0x00000028	[ 41] FDE for: _atoi64
+0x000240B8	0x00000028	[ 41] FDE for: _strtoul64_base16
+0x000240E0	0x00000018	[ 42] CIE
+0x000240F8	0x00000028	[ 42] FDE for: ?SHA256_Init@@YAXPEAU_SHA256_CONTEXT@@@Z
+0x00024120	0x00000030	[ 42] FDE for: ?SHA256_Update@@YAXPEBX_KPEAU_SHA256_CONTEXT@@@Z
+0x00024150	0x00000030	[ 42] FDE for: ?SHA256_Transform@@YAXPEBEPEAU_SHA256_CONTEXT@@@Z
+0x00024180	0x00000028	[ 42] FDE for: ?SHA256_Final@@YAXPEAEPEAU_SHA256_CONTEXT@@@Z
+0x000241A8	0x00000030	[ 42] FDE for: ?SHA256@@YAXPEBX_KPEAE@Z
+0x000241D8	0x00000018	[ 43] CIE
+0x000241F0	0x00000030	[ 43] FDE for: ?AcpipGetTable@@YAPEBXI@Z
+0x00024220	0x00000028	[ 43] FDE for: ?AcpiGetFixedAcpiDescriptionTable@@YAPEBXXZ
+0x00024248	0x00000030	[ 43] FDE for: ?AcpiGetPciConfigSpaceInfo@@YA_KPEA_KPEAI1@Z
+0x00024278	0x00000028	[ 43] FDE for: ?AcpiGetMachineSignature@@YA_KPEAI@Z
+0x000242A0	0x00000028	[ 43] FDE for: ?AcpiDetectNVSMemory@@YAXXZ
+0x000242C8	0x00000030	[ 43] FDE for: ?AcpiAdjustMemoryMap@@YA_KPEAUEFI_MEMORY_DESCRIPTOR@@_K1@Z
+0x000242F8	0x00000018	[ 44] CIE
+0x00024310	0x00000030	[ 44] FDE for: _aes_cbc_decrypt
+0x00024340	0x00000018	[ 45] CIE
+0x00024358	0x00000030	[ 45] FDE for: _aes_encrypt_key128
+0x00024388	0x00000030	[ 45] FDE for: _aes_encrypt_key192
+0x000243B8	0x00000030	[ 45] FDE for: _aes_encrypt_key256
+0x000243E8	0x00000028	[ 45] FDE for: _aes_encrypt_key
+0x00024410	0x00000030	[ 45] FDE for: _aes_decrypt_key128
+0x00024440	0x00000030	[ 45] FDE for: _aes_decrypt_key192
+0x00024470	0x00000030	[ 45] FDE for: _aes_decrypt_key256
+0x000244A0	0x00000028	[ 45] FDE for: _aes_decrypt_key
+0x000244C8	0x00000018	[ 47] CIE
+0x000244E0	0x00000030	[ 47] FDE for: _xts_start
+0x00024510	0x00000028	[ 47] FDE for: _aesedp_setup
+0x00024538	0x00000030	[ 47] FDE for: _xts_decrypt
+0x00024568	0x00000028	[ 47] FDE for: _tweak_uncrypt
+0x00024590	0x00000028	[ 47] FDE for: _xts_mult_x
+0x000245B8	0x00000028	[ 47] FDE for: _xts_done
+0x000245E0	0x00000018	[ 51] CIE
+0x000245F8	0x00000028	[ 51] FDE for: ?ArchInitialize0@@YA_KXZ
+0x00024620	0x00000028	[ 51] FDE for: ?ArchInitialize1@@YA_KXZ
+0x00024648	0x00000028	[ 51] FDE for: ?ArchCheck64BitCpu@@YA_KXZ
+0x00024670	0x00000028	[ 51] FDE for: ?ArchSetIdtEntry@@YAX_KIIPEAXI@Z
+0x00024698	0x00000028	[ 51] FDE for: ?ArchSweepIcacheRange@@YAXPEAXI@Z
+0x000246C0	0x00000028	[ 51] FDE for: ?ArchStartKernel@@YAXPEAX0@Z
+0x000246E8	0x00000018	[ 52] CIE
+0x00024700	0x00000028	[ 52] FDE for: ?BdTranslatePhysicalAddress@@YAPEAX_K@Z
+0x00024728	0x00000028	[ 52] FDE for: ?BdSetCommonState@@YAXIPEAU_CONTEXT@@PEAU_DBGKD_WAIT_STATE_CHANGE64@@@Z
+0x00024750	0x00000028	[ 52] FDE for: ?BdSetContextState@@YAXPEAU_DBGKD_WAIT_STATE_CHANGE64@@PEAU_CONTEXT@@@Z
+0x00024778	0x00000028	[ 52] FDE for: ?BdGetStateChange@@YAXPEAU_DBGKD_MANIPULATE_STATE64@@PEAU_CONTEXT@@@Z
+0x000247A0	0x00000028	[ 52] FDE for: ?BdReadControlSpace@@YAXPEAU_DBGKD_MANIPULATE_STATE64@@PEAU_STRING@@PEAU_CONTEXT@@@Z
+0x000247C8	0x00000028	[ 52] FDE for: ?BdWriteControlSpace@@YAXPEAU_DBGKD_MANIPULATE_STATE64@@PEAU_STRING@@PEAU_CONTEXT@@@Z
+0x000247F0	0x00000030	[ 52] FDE for: ?BdTrap@@YAEPEAU_EXCEPTION_RECORD@@PEAU_KEXCEPTION_FRAME@@PEAU_KTRAP_FRAME@@@Z
+0x00024820	0x00000028	[ 52] FDE for: ?BdpSaveKframe@@YAXPEAU_KTRAP_FRAME@@PEAU_KEXCEPTION_FRAME@@PEAU_CONTEXT@@@Z
+0x00024848	0x00000028	[ 52] FDE for: ?BdpRestoreKframe@@YAXPEAU_KTRAP_FRAME@@PEAU_KEXCEPTION_FRAME@@PEAU_CONTEXT@@@Z
+0x00024870	0x00000028	[ 52] FDE for: ?BdArchInitialize@@YA_KXZ
+0x00024898	0x00000028	[ 52] FDE for: ?BdArchDestroy@@YA_KXZ
+0x000248C0	0x000000A0	[ 18] ?imageInfo@?1??CspConvertLogoImage@@YA_KEPEAPEAUEFI_UGA_PIXEL@@PEA_K1@Z@4PAU_builtin_image_info@?1??1@YA_KE011@Z@A
+0x00024960	0x00000040	[ 24] ?checkFileName@?1??IopFindBootDevice@@YA_KPEAPEAXPEAPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z@4PAPEAGA
+0x000249A0	0x00000038	[ 24] ?booterName@?1??IopFindBootDevice@@YA_KPEAPEAXPEAPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z@4PAPEAGA
+0x000249E0	0x00000004	[ 16] ?BdDebuggerNotPresent@@3EA
+0x000249E4	0x00000004	[ 16] ?BdNumberRetries@@3IA
+0x000249E8	0x00000004	[ 16] ?BdRetryCount@@3IA
+0x000249EC	0x00000004	[ 16] ?BdBreakpointInstruction@@3EA
+0x000249F0	0x00000300	[ 16] ?BdBreakpointTable@@3PAU_BREAKPOINT_ENTRY@@A
+0x00024CF0	0x000000C8	[ 16] ?BdModuleDataTableEntry@@3U_LDR_DATA_TABLE_ENTRY@@A
+0x00024DC0	0x00000004	[ 18] _CspConsoleMode
+0x00024DC4	0x0000000C	[ 18] _CspGfxSavedConfigRestoreStatus
+0x00024DD0	0x000073A0	[ 18] _CspIndicator2x
+0x0002C170	0x00002450	[ 18] _CspIndicator
+0x0002E5C0	0x00000300	[ 18] _CspIndicatorLookupTable2x
+0x0002E8C0	0x00000300	[ 18] _CspIndicatorLookupTable
+0x0002EBC0	0x0000EF90	[ 18] _ApplePanicDialog2X
+0x0003DB50	0x00005E20	[ 18] _ApplePanicDialog
+0x00043970	0x000000D0	[ 18] _ApplePanicDialog2XClut
+0x00043A40	0x000000E0	[ 18] _ApplePanicDialogClut
+0x00043B20	0x00000300	[ 18] _CspFailedLogoLookupTable2x
+0x00043E20	0x00000300	[ 18] _CspFailedLogoLookupTable
+0x00044120	0x000014E0	[ 18] _CspFailedLogo2x
+0x00045600	0x000005F0	[ 18] _CspFailedLogo
+0x00045BF0	0x00000570	[ 18] _AppleLogoPacked
+0x00046160	0x00000130	[ 18] _AppleLogoClut
+0x00046290	0x00000D60	[ 18] _AppleLogo2XPacked
+0x00046FF0	0x00000162	[ 18] _AppleLogo2XClut
+0x00047154	0x00000010	[ 26] ?EfiDataHubProtocolGuid@@3UEFI_GUID@@A
+0x00047164	0x00000010	[ 26] ?EfiAcpi20TableGuid@@3UEFI_GUID@@A
+0x00047174	0x00000010	[ 26] ?EfiAcpiTableGuid@@3UEFI_GUID@@A
+0x00047184	0x00000010	[ 26] ?EfiLoadedImageProtocolGuid@@3UEFI_GUID@@A
+0x00047194	0x00000010	[ 26] ?EfiPciIoProtocolGuid@@3UEFI_GUID@@A
+0x000471A4	0x00000010	[ 26] ?EfiSmbiosTableGuid@@3UEFI_GUID@@A
+0x000471B4	0x00000010	[ 26] ?EfiConsoleControlProtocolGuid@@3UEFI_GUID@@A
+0x000471C4	0x00000010	[ 26] ?EfiSimpleFileSystemProtocolGuid@@3UEFI_GUID@@A
+0x000471D4	0x00000010	[ 26] ?EfiDevicePathProtocolGuid@@3UEFI_GUID@@A
+0x000471E4	0x00000010	[ 26] ?EfiBlockIoProtocolGuid@@3UEFI_GUID@@A
+0x000471F4	0x00000010	[ 26] ?EfiDiskIoProtocolGuid@@3UEFI_GUID@@A
+0x00047204	0x00000010	[ 26] ?EfiGraphicsOutputProtocolGuid@@3UEFI_GUID@@A
+0x00047214	0x00000010	[ 26] ?EfiUgaDrawProtocolGuid@@3UEFI_GUID@@A
+0x00047224	0x00000010	[ 26] ?EfiFileInfoGuid@@3UEFI_GUID@@A
+0x00047234	0x00000010	[ 26] ?EfiLoadFileProtocolGuid@@3UEFI_GUID@@A
+0x00047244	0x00000010	[ 26] ?EfiFirmwareVolumeProtocolGuid@@3UEFI_GUID@@A
+0x00047254	0x00000010	[ 26] ?EfiFirmwareVolumeDispatchProtocolGuid@@3UEFI_GUID@@A
+0x00047264	0x00000010	[ 26] ?EfiSimplePointerProtocolGuid@@3UEFI_GUID@@A
+0x00047274	0x00000010	[ 26] ?AppleKeyStateProtocolGuid@@3UEFI_GUID@@A
+0x00047284	0x00000010	[ 26] ?AppleNVRAMVariableGuid@@3UEFI_GUID@@A
+0x00047294	0x00000010	[ 26] ?AppleFirmwareVariableGuid@@3UEFI_GUID@@A
+0x000472A4	0x00000010	[ 26] ?AppleAcpiVariableGuid@@3UEFI_GUID@@A
+0x000472B4	0x00000010	[ 26] ?AppleSystemInfoProducerNameGuid@@3UEFI_GUID@@A
+0x000472C4	0x00000010	[ 26] ?AppleDevicePropertyProtocolGuid@@3UEFI_GUID@@A
+0x000472D4	0x00000010	[ 26] ?AppleNetBootProtocolGuid@@3UEFI_GUID@@A
+0x000472E4	0x00000010	[ 26] ?ApplePasswordUIEfiFileNameGuid@@3UEFI_GUID@@A
+0x000472F4	0x00000010	[ 26] ?AppleFirmwarePasswordProtocolGuid@@3UEFI_GUID@@A
+0x00047304	0x00000010	[ 26] ?AppleDeviceControlProtocolGuid@@3UEFI_GUID@@A
+0x00047314	0x00000010	[ 26] ?AppleGraphConfigProtocolGuid@@3UEFI_GUID@@A
+0x00047324	0x00000010	[ 26] ?AppleGraphInfoProtocolGuid@@3UEFI_GUID@@A
+0x00047334	0x00000010	[ 26] ?AppleRamDmgDevicePathGuid@@3UEFI_GUID@@A
+0x00047344	0x00000010	[ 26] ?AppleImageCodecProtocolGuid@@3UEFI_GUID@@A
+0x00047354	0x00000010	[ 26] ?AppleDiskIoProtocolGuid@@3UEFI_GUID@@A
+0x00047364	0x00000010	[ 26] ?AppleSMCProtocolGuid@@3UEFI_GUID@@A
+0x00047378	0x00000008	[ 33] _MmpKernelVirtualBegin
+0x00047380	0x00000008	[ 33] _MmpKernelPhysicalBegin
+0x00047388	0x00000009	[ 35] ?BadIndex@?1??BlpGetStringFromSMBIOSTable@@YAPEAEPEAEE@Z@4PAEA
+0x00047394	0x00000004	[ 37] _BlpBootMode
+0x000473A0	0x00000026	[ 38] _BlpPanicInfoName
+0x000473D0	0x00000010	[ 40] ?mySmbiosUuid@?1??PeInitialize@@YA_KXZ@4PAEA
+0x000473E0	0x00000040	[ 42] ?padding@?1??SHA256_Final@@YAXPEAEPEAU_SHA256_CONTEXT@@@Z@4PAEA
+0x00047420	0x00001000	[ 48] enc_tab
+0x00048420	0x00001000	[ 48] dec_tab
+0x00049420	0x00000010	[ 15] _BlpMemoryMapNode
+0x00049430	0x00000200	[ 15] ?volumeHeader@?1??BlpRootUUIDFromDisk@@YAPEBEPEAXPEAE_K@Z@4PAEA
+0x00049630	0x00000008	[ 17] _CmpConfigPlistTag
+0x00049638	0x00000008	[ 17] _CmpNextFreeTag
+0x00049640	0x00001000	[ 17] ?buffer@?1??CmpEmitFormatString@@YAXPEBEEPEAPEAEPEA_K2ZZ@4PAEA
+0x0004A640	0x00000008	[ 17] _CmpSymbolsHead
+0x0004A650	0x00000008	[ 18] _CspBackgroundClear
+0x0004A658	0x00000008	[ 18] _CspConsoleControlProtocol
+0x0004A660	0x00000008	[ 18] _CspHiDPIMode
+0x0004A668	0x00000008	[ 18] _CspGraphicsOutputProtocol
+0x0004A670	0x00000008	[ 18] _CspUgaDrawProtocol
+0x0004A678	0x00000008	[ 18] _CspFrameBufferAddress
+0x0004A680	0x00000008	[ 18] _CspColorDepth
+0x0004A688	0x00000008	[ 18] _CspFrameBufferSize
+0x0004A690	0x00000004	[ 18] _CspHorzRes
+0x0004A694	0x00000004	[ 18] _CspVertRes
+0x0004A698	0x00000008	[ 18] _CspBytesPerRow
+0x0004A6A0	0x00000400	[ 18] ?utf8Buffer@?1??CsPrintf@@YAXPEBEZZ@4PAEA
+0x0004AAA0	0x00000800	[ 18] ?unicodeBuffer@?1??CsPrintf@@YAXPEBEZZ@4PAGA
+0x0004B2A0	0x00000008	[ 18] _CspDeviceControlProtocol
+0x0004B2A8	0x00000008	[ 18] _CspGraphConfigProtocol
+0x0004B2B0	0x00000008	[ 18] _CspIndicatorWidth
+0x0004B2B8	0x00000008	[ 18] _CspIndicatorHeight
+0x0004B2C0	0x00000008	[ 18] _CspIndicatorOffsetY
+0x0004B2C8	0x00000008	[ 18] _CspIndicatorFrameCount
+0x0004B2D0	0x00000008	[ 18] _CspIndicatorImage
+0x0004B2D8	0x00000008	[ 18] _CspIndicatorRefreshTimerEvent
+0x0004B2E0	0x00000008	[ 18] _CspIndicatorCurrentFrame
+0x0004B2E8	0x00000008	[ 20] _Bd1394pGlobalData
+0x0004B2F0	0x00000008	[ 20] _Bd1394pControllerRegisterBase
+0x0004B2F8	0x00000008	[ 20] _Bd1394pDataPhysicalAddress
+0x0004B300	0x00000008	[ 23] _DevTreepRootNode
+0x0004B308	0x00000008	[ 23] _DevTreepTotalPropertiesSize
+0x0004B310	0x00000008	[ 23] _DevTreepAllocatedNodes
+0x0004B318	0x00000008	[ 23] _DevTreepNextFreeNode
+0x0004B320	0x00000008	[ 23] _DevTreepTotalNodes
+0x0004B328	0x00000008	[ 23] _DevTreepAllocatedProperties
+0x0004B330	0x00000008	[ 23] _DevTreepNextFreeProperty
+0x0004B338	0x00000004	[ 23] _DevTreepTotalProperties
+0x0004B340	0x00000008	[ 24] _IopRootFile
+0x0004B348	0x00000008	[ 24] _IopLoadFileProtocol
+0x0004B350	0x00000800	[ 24] ?unicodeFilePathName@?1??IoOpenFile@@YA_KPEBEPEAUEFI_DEVICE_PATH_PROTOCOL@@PEAU_IO_FILE_HANDLE@@_K@Z@4PAGA
+0x0004BB50	0x00000100	[ 24] ?bootFilePathBuffer@?1??IopFindBootDevice@@YA_KPEAPEAXPEAPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z@4PAEA
+0x0004BC50	0x00000008	[ 25] _FvpVolumeKeyCount
+0x0004BC58	0x00000008	[ 25] _FvpVolumeKeyList
+0x0004BC60	0x00000008	[ 25] _FvpLoginUnlockIdent
+0x0004BC68	0x00000008	[ 25] _FvpResetIdent
+0x0004BC70	0x00000008	[ 25] _FvpUserPassword
+0x0004BC78	0x00000008	[ 25] _FvpKeyEncryptingKeyIdent
+0x0004BC80	0x00000010	[ 25] _FvpVolumeKeyKEKLength
+0x0004BC90	0x00000080	[ 25] _FvpVolumeKeyKEK
+0x0004BD10	0x00000008	[ 25] _FvpRecoveryKeyUserDictTag
+0x0004BD18	0x00000008	[ 25] _FvpWrappedVolumeKeyCount
+0x0004BD20	0x00000010	[ 25] _FvpWrappedVolumeKeysListTag
+0x0004BD30	0x00000200	[ 25] ?localBuffer@?1??FvpVerifyKeyData@@YAEPEAU_KEY_SIGN_DATA@@PEBX_K@Z@4PAEA
+0x0004BF30	0x00000100	[ 25] ?keyBuffer@?1??FvpPassphaseUnwrapData@@YAEPEBE_KPEAU_PASSPHASE_WRAPPED_DATA@@PEAU_PASSPHASE_UNWRAPPED_DATA@@@Z@4PAEA
+0x0004C030	0x00000008	[ 25] _FvpEncryptedRootPlistTag
+0x0004C038	0x00000008	[ 25] ?inputBuffer16@?1??FvpReadInput@@YAXPEAPEAEPEA_K_KE@Z@4PEAGEA
+0x0004C040	0x00000010	[ 25] _FvpMasterKeyUserDictTag
+0x0004C050	0x00000010	[ 25] ?keyBuffer@?1??FvpDecryptVolumeKEKWithMasterKeyUser@@YA_KXZ@4PAEA
+0x0004C060	0x00000208	[ 27] ?localHeader@?1??HbpContinueResumeFromHibernate@@YAXPEBE_KE@Z@4U_HIBERNATE_IMAGE_HEADER@@A
+0x0004C268	0x00000008	[ 27] _HbpDiskIoProtocol
+0x0004C270	0x00000008	[ 27] _HbpDiskOffset
+0x0004C278	0x00000008	[ 27] _HbpBlockIoProtocol
+0x0004C280	0x00000008	[ 27] _HbpAppleSMCProtocol
+0x0004C288	0x00000008	[ 27] _HbpCurrentTime
+0x0004C290	0x00000008	[ 27] _HbpAppleDiskIoProtocol
+0x0004C298	0x0000002C	[ 27] _HbpHibernateVars
+0x0004C2C4	0x00000004	[ 27] _HbpBootImageKeyLength
+0x0004C2C8	0x00000008	[ 27] _HbpBootImageKey
+0x0004C2D0	0x00000010	[ 28] _LdrpExtensionModulesHead
+0x0004C2E0	0x00000040	[ 28] ?segName@?1??LdrpLoadMatchedModules@@YA_KXZ@4PAEA
+0x0004C320	0x00000400	[ 28] ?fileFullPath@?1??LdrpLoadMatchedModules@@YA_KXZ@4PAEA
+0x0004C720	0x00000460	[ 28] ?localBuffer@?1??LdrpLoadDrivers@@YA_KPEBEE@Z@4PAEA
+0x0004CB80	0x00000400	[ 28] ?utf8FileName@?1??LdrpLoadDrivers@@YA_KPEBEE@Z@4PAEA
+0x0004CF80	0x00000400	[ 28] ?pluginBuffer@?1??LdrpLoadDrivers@@YA_KPEBEE@Z@4PAEA
+0x0004D380	0x00000460	[ 28] ?localBuffer@?1??LdrpLoadDriversPlugin@@YA_KPEBE@Z@4PAEA
+0x0004D7E0	0x00000400	[ 28] ?utf8FileName@?1??LdrpLoadDriversPlugin@@YA_KPEBE@Z@4PAEA
+0x0004DBE0	0x00000400	[ 28] ?pluginBuffer@?1??LdrpLoadDriversPlugin@@YA_KPEBE@Z@4PAEA
+0x0004DFE0	0x00000408	[ 28] ?fullFileName@?1??LdrpLoadDriverPList@@YA_KPEBE0E@Z@4PAEA
+0x0004E3E8	0x00000008	[ 28] _LdrpExtensionModulesTail
+0x0004E3F0	0x00000008	[ 29] _LdrpASLRDisplacement
+0x0004E3F8	0x00000008	[ 29] _LdrpKernelPathName
+0x0004E400	0x00000008	[ 29] _LdrpKernelCachePathName
+0x0004E408	0x00000008	[ 29] _LdrpKernelCacheOverride
+0x0004E410	0x00000008	[ 29] _LdrpKernelCacheFilePath
+0x0004E418	0x00000008	[ 29] _LdrpKernelFilePath
+0x0004E420	0x00000008	[ 29] _LdrpRamDiskFilePath
+0x0004E428	0x00000008	[ 29] _LdrpRamDiskPathName
+0x0004E430	0x00000180	[ 29] ?fileHeader@?1??LdrLoadKernelCache@@YA_KPEAU_MACH_O_LOADED_INFO@@PEAUEFI_DEVICE_PATH_PROTOCOL@@@Z@4U_COMPRESSED_KERNEL_CACHE_HEADER@@A
+0x0004E5B0	0x00000008	[ 33] _MmpAllocatedMemoryTagHead
+0x0004E5B8	0x00000008	[ 33] _MmpAllocatedMemoryTagPoolHead
+0x0004E5C0	0x00000008	[ 33] _MmpNextFreeMemoryTag
+0x0004E5C8	0x00000008	[ 33] _MmpKernelVirtualEnd
+0x0004E5D0	0x00000008	[ 33] _MmpKernelPhysicalEnd
+0x0004E5E0	0x00000008	[ 35] _BlpMemoryCapacity
+0x0004E5E8	0x00000008	[ 35] _BlpMemorySize
+0x0004E5F0	0x00000040	[ 35] _BlpBoardId
+0x0004E630	0x00000004	[ 35] _BlpMemoryDevices
+0x0004E640	0x00000400	[ 37] ?fileName@?1??BlpLoadConfigFile@@YAPEBEPEBEPEAUEFI_DEVICE_PATH_PROTOCOL@@@Z@4PAEA
+0x0004EA40	0x00000041	[ 40] _PepModelName
+0x0004EA88	0x00000008	[ 43] _AcpipNVSMemoryAddress
+0x0004EAA0	0x00000001	[ 16] ?BdDebuggerType@@3EA
+0x0004EAA1	0x00000001	[ 16] ?BdSubsystemInitialized@@3EA
+0x0004EAA2	0x00000001	[ 16] ?BdConnectionActive@@3EA
+0x0004EAA3	0x00000005	[ 16] ?BdArchBlockDebuggerOperation@@3EA
+0x0004EAA8	0x00000008	[ 16] ?BdDebugTrap@@3P6AEPEAU_EXCEPTION_RECORD@@PEAU_KEXCEPTION_FRAME@@PEAU_KTRAP_FRAME@@@ZEA
+0x0004EAB0	0x00000008	[ 16] ?BdSendPacket@@3P6AXIPEAU_STRING@@0@ZEA
+0x0004EAB8	0x00000008	[ 16] ?BdReceivePacket@@3P6AIIPEAU_STRING@@0PEAI@ZEA
+0x0004EAC0	0x00001000	[ 16] ?BdMessageBuffer@@3PAEA
+0x0004FAC0	0x00001000	[ 16] ?BdDebugMessage@@3PAEA
+0x00050AC0	0x00000001	[ 16] ?BdControlCPressed@@3EA
+0x00050AC1	0x00000003	[ 16] ?BdControlCPending@@3EA
+0x00050AC4	0x00000004	[ 16] ?BdNextPacketIdToSend@@3IA
+0x00050AC8	0x00000008	[ 16] ?BdPacketIdExpected@@3IA
+0x00050AD0	0x00000010	[ 16] ?BdModuleList@@3U_LIST_ENTRY@@A
+0x00050AE0	0x00000008	[ 21] ?BdUsbpGlobalData@@3PEAU_DEBUG_USB_GLOBAL_DATA@@EA
+0x00050AE8	0x00000008	[ 26] ?EfiSystemTable@@3PEAU_EFI_SYSTEM_TABLE@@EA
+0x00050AF0	0x00000008	[ 26] ?EfiBootServices@@3PEAUEFI_BOOT_SERVICES@@EA
+0x00050AF8	0x00000008	[ 26] ?EfiRuntimeServices@@3PEAUEFI_RUNTIME_SERVICES@@EA
+0x00050B00	0x00000008	[ 26] ?EfiImageHandle@@3PEAXEA
+0x00050B08	0x00000010	[ 35] ?BlpSmbiosUuid@@3UEFI_GUID@@A
+0x00050B18	0x00000008	[ 51] ?ArchpTransferRoutine@@3P6AXPEAX0@ZEA
+0x00050B20	0x00000008	[ 52] ?BdPcr@@3PEAU_KPCR@@EA
+0x00050B28	0x00000008	[ 52] ?BdPrcb@@3PEAU_KPRCB@@EA
+0x00050B30	0x00000008	[ 52] ?BdPcrPhysicalAddress@@3_KA

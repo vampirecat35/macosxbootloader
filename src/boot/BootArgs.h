@@ -5,12 +5,16 @@
 //	purpose:	boot arg
 //********************************************************************
 
-#pragma once
+#ifndef __BOOTARGS_H__
+#define __BOOTARGS_H__
 
 //
 // video
 //
+#if defined(_MSC_VER)
 #include <pshpack1.h>
+#endif
+
 typedef struct _BOOT_VIDEO_V1
 {
 	//
@@ -292,8 +296,11 @@ typedef struct _BOOT_ARGS
 	//
 	UINT32																	Reserved4[730];
 #endif
-}BOOT_ARGS;
+} BOOT_ARGS;
+
+#if defined(_MSC_VER)
 #include <poppack.h>
+#endif
 
 //
 // add memory range
@@ -321,3 +328,5 @@ EFI_STATUS BlInitCSRState(BOOT_ARGS* bootArgs);
 // Mimic boot.efi and set boot.efi info properties.
 //
 EFI_STATUS BlAddBooterInfo(DEVICE_TREE_NODE* chosenNode);
+
+#endif /* __BOOTARGS_H__ */

@@ -5,7 +5,8 @@
 //	purpose:	arch define
 //********************************************************************
 
-#pragma once
+#ifndef __ARCHDEFINE_H__
+#define __ARCHDEFINE_H__
 
 //
 // consts
@@ -27,7 +28,9 @@
 //
 // byte pack
 //
+#ifdef _MSC_VER
 #include <pshpack1.h>
+#endif
 
 //
 // gdtr and idtr
@@ -48,7 +51,7 @@ typedef struct _DESCRIPTOR
 	// base
 	//
 	UINT32																	Base;
-}KDESCRIPTOR;
+} KDESCRIPTOR;
 
 //
 // idt entry
@@ -74,7 +77,7 @@ typedef struct _KIDTENTRY
 	// extended offset
 	//
 	UINT16																	ExtendedOffset;
-}KIDTENTRY;
+} KIDTENTRY;
 
 //
 // special register
@@ -155,7 +158,7 @@ typedef struct _KSPECIAL_REGISTERS
 	// padding
 	//
 	UINT32																	Reserved[6];
-}KSPECIAL_REGISTERS;
+} KSPECIAL_REGISTERS;
 
 //
 // floating save area
@@ -206,7 +209,7 @@ typedef struct _FLOATING_SAVE_AREA
 	// npx state
 	//
 	UINT32																	Cr0NpxState;
-}FLOATING_SAVE_AREA;
+} FLOATING_SAVE_AREA;
 
 //
 // context
@@ -337,7 +340,7 @@ typedef struct _CONTEXT
 	// extended registers
 	//
 	UINT8																	ExtendedRegisters[MAXIMUM_SUPPORTED_EXTENSION];
-}CONTEXT;
+} CONTEXT;
 
 //
 // processor state
@@ -353,7 +356,7 @@ typedef struct _KPROCESSOR_STATE
 	// special register
 	//
 	KSPECIAL_REGISTERS														SpecialRegisters;
-}KPROCESSOR_STATE;
+} KPROCESSOR_STATE;
 
 //
 // trap frame
@@ -545,7 +548,7 @@ typedef struct _KTRAP_FRAME
 	// v86 mode gs
 	//
 	UINT32																	V86Gs;
-}KTRAP_FRAME;
+} KTRAP_FRAME;
 
 //
 // processor control block (PRCB)
@@ -621,7 +624,7 @@ typedef struct _KPRCB
 	// reserved
 	//
 	UINT8																	Reserved1[0xb84];
-}KPRCB;
+} KPRCB;
 
 //
 // pcr
@@ -792,12 +795,14 @@ typedef struct _KPCR
 	// prcb
 	//
 	KPRCB																	PrcbData;
-}KPCR;
+} KPCR;
 
 //
 // restore pack
 //
+#ifdef _MSC_VER
 #include <poppack.h>
+#endif
 
 //
 // control report
@@ -915,3 +920,5 @@ VOID BOOTAPI ArchSetIdtRegister(KDESCRIPTOR* idtr);
 // set idt entry
 //
 VOID ArchSetIdtEntry(UINT32 base, UINT32 index, UINT32 segCs, VOID* offset,UINT32 access);
+
+#endif /* __ARCHDEFINE_H__ */

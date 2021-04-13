@@ -5,9 +5,20 @@
 //	purpose:	arch utils
 //********************************************************************
 
-#include "StdAfx.h"
+
+#ifndef EFI_PROTOCOL_DEFINITION
+#define EFI_PROTOCOL_DEFINITION(a)  EFI_STRINGIZE (../../../sdk/include/Protocol/a/a.h)
+#endif
+
+#ifndef EFI_GUID_DEFINITION
+#define EFI_GUID_DEFINITION(a)      EFI_STRINGIZE (../../../sdk/include/Guid/a/a.h)
+#endif
+
+#include "../StdAfx.h"
+
 #include "ArchDefine.h"
 
+#include "../RuntimeLib.h"
 //
 // global
 //
@@ -35,7 +46,7 @@ EFI_STATUS ArchInitialize1()
 	if(!transferRoutineBuffer)
 		return EFI_OUT_OF_RESOURCES;
 
-	memcpy(transferRoutineBuffer, &ArchTransferRoutineBegin, bytesCount);
+	memcpy((void *)transferRoutineBuffer, (const void *)&ArchTransferRoutineBegin, (unsigned long)bytesCount);
 	ArchpTransferRoutine													= reinterpret_cast<ArchTransferRoutine>(transferRoutineBuffer);
 	return EFI_SUCCESS;
 }
