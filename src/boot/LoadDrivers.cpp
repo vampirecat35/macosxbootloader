@@ -259,47 +259,12 @@ STATIC EFI_STATUS LdrpLoadDriverPList(CHAR8 CONST* extensionDir, CHAR8 CONST* fi
 	return status;
 }
 
-STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST *extensionsDirectory, BOOLEAN isPluginModule);
-
-STATIC EFI_STATUS LdrpLoadDriversPlugin(CHAR8 CONST *extensionsDirectory)
-{
-    STATIC CHAR8 localBuffer[sizeof(EFI_FILE_INFO) + 0x400]            = {0};
-    EFI_STATUS status                                                  = EFI_SUCCESS;
-    EFI_FILE_INFO* fileInfo                                            = static_cast<EFI_FILE_INFO*>(static_cast<VOID*>(localBuffer));
-    STATIC CHAR8 utf8FileName[1024]                                    = {0};
-    IO_FILE_HANDLE tempFileHandle                                      = {0};
-    UINTN fileNameLength                                               = (UINTN)wcslen(fileInfo->FileName);
-    STATIC CHAR8 pluginBuffer[1024]                                    = {0};
-
-    status = BlUnicodeToUtf8(fileInfo->FileName, fileNameLength, utf8FileName, ARRAYSIZE(utf8FileName) - 1);
-
-    if((fileNameLength < 5) || (fileInfo->FileName[fileNameLength - 5] != L'.') || (fileInfo->FileName[fileNameLength - 4] != L'k') ||
-        (fileInfo->FileName[fileNameLength - 3] != L'e') || (fileInfo->FileName[fileNameLength - 2] != L'x') || (fileInfo->FileName[fileNameLength - 1] != L't'))
-    {
-        return EFI_SUCCESS;
-    }
-
-    //
-    // check content folder
-    //
-    snprintf(localBuffer, ARRAYSIZE(localBuffer) - 1, (CHAR8 CONST *)("%s\\%s\\Contents"), extensionsDirectory, utf8FileName);
-    BOOLEAN hasContentsFolder                                        = EFI_ERROR(IoOpenFile(localBuffer, nullptr, &tempFileHandle, IO_OPEN_MODE_NORMAL)) ? FALSE : TRUE;
-    IoCloseFile(&tempFileHandle);
-
-    snprintf(pluginBuffer, ARRAYSIZE(pluginBuffer) - 1, (CHAR8 CONST *)("%s\\%s\\%sPlugIns"), extensionsDirectory, utf8FileName, hasContentsFolder ? "Contents\\" : "");
-    LdrpLoadDriverPList(extensionsDirectory, utf8FileName, hasContentsFolder);
-
-    LdrpLoadDriverPList(extensionsDirectory, utf8FileName, hasContentsFolder);
-
-    LdrpLoadDrivers((CHAR8 CONST *)pluginBuffer, TRUE);
-
-    return status;
-}
+EFI_STATUS LdrpLoadDrivers(CHAR8 CONST *extensionsDirectory, BOOLEAN isPluginModule);
 
 //
 // load drivers
 //
-STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST *extensionsDirectory, BOOLEAN isPluginModule)
+EFI_STATUS LdrpLoadDrivers(CHAR8 CONST *extensionsDirectory, BOOLEAN isPluginModule)
 {
 	EFI_STATUS status														= EFI_SUCCESS;
 	IO_FILE_HANDLE fileHandle												= {0};
@@ -379,7 +344,7 @@ STATIC EFI_STATUS LdrpLoadDrivers(CHAR8 CONST *extensionsDirectory, BOOLEAN isPl
 			//
 			if (isPluginModule == FALSE)
             {
-                LdrpLoadDriversPlugin((CHAR8 CONST *)pluginBuffer);
+                LdrpLoadDrivers((CHAR8 CONST *)pluginBuffer, TRUE);
             }
 		}
 	}
